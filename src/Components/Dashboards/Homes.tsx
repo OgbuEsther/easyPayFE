@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-// import img from "../Assets/person.png"
+import img from "../Assets/person.png"
 import Cards from './Cards'
 import Recent from './Recent'
 import Sales from './Sales'
@@ -10,8 +10,14 @@ const Home = () => {
   return (
     <Container>
         <Wrapper>
+            <Top>
+                <Left>
+                    <Bold>
+                        <h1>Dashboard</h1>
+                    </Bold>
+                </Left>
+            </Top>
               <Cards />
-              <Sales />
               <Recent />
         </Wrapper>
     </Container>

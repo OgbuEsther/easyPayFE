@@ -1,28 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'
-import img from "../Assets/savings.png"
-import img2 from "../Assets/monthly.png"
-import img3 from "../Assets/active.png"
-import img4 from "../Assets/sixty.png"
+// import img from "./Assets/savings.png"
+// import img2 from "./Assets/monthly.png"
+// import img3 from "./Assets/active.png"
+// import img4 from "./Assets/sixty.png"
 
 const Sales = () => {
   return (
       <Container>
           <Left>
               <Top>
-                <Img src={img} />
+                {/* <Img src={img} /> */}
               </Top>
               <Down>
                   <First>
-                      <Img3 src={img3} />
+                      {/* <Img3 src={img3} /> */}
                   </First>
                   <First>
-                      <Img3 src={img4} />
+                      {/* <Img3 src={img4} /> */}
                   </First>
               </Down>
           </Left>
           <Right>
-              <Img2 src={img2} />
+              {/* <Img2 src={img2} /> */}
           </Right>
     </Container>
   )

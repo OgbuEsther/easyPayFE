@@ -50,10 +50,10 @@ const Header = () => {
               </div>
             )}
           </ToggleHold> */}
-          <NavLink to="signin">
+          <NavLink to="/dashboard">
             <SignBtn>Log In</SignBtn>
                   </NavLink>
-                  <NavLink to="signin">
+                  <NavLink to="/dashboard">
             <SignBtn2>Get started</SignBtn2>
           </NavLink>
           {/* <SignBtn >Change</SignBtn> */}
@@ -81,10 +81,10 @@ const Header = () => {
               </div>
             )}
           </ToggleHold> */}
-          <NavLink to="signin">
+          <NavLink to="/dashboard">
             <SignBtn>Log In</SignBtn>
                   </NavLink>
-                  <NavLink to="signin">
+                  <NavLink to="/dashboard">
             <SignBtn2>Get started</SignBtn2>
           </NavLink>
           {/* <SignBtn >Change</SignBtn> */}
