@@ -19,9 +19,9 @@ const AdminSignUp = () => {
   const navigate = useNavigate();
   const schema = yup
     .object({
-      companyName: yup.string().email().required(),
+      companyName: yup.string().required(),
       companyEmail: yup.string().email().required(),
-      password: yup.string().min(9).required(),
+      password: yup.string().required(),
       yourName: yup.string().required("field must be required"),
     })
     .required();
@@ -49,7 +49,7 @@ const AdminSignUp = () => {
   const submit = handleSubmit((data) => {
     newClient.mutate(data);
     console.log("this is yup data", data);
-    reset();
+    // reset();
     Swal.fire({
       title: "registration succesful",
       // html: "redirecting to login",
@@ -57,7 +57,7 @@ const AdminSignUp = () => {
       timerProgressBar: true,
 
       willClose: () => {
-        navigate("/admin/dashboard");
+        navigate("/");
       },
     });
   });
@@ -69,30 +69,34 @@ const AdminSignUp = () => {
           <IconTop to="/optionsignup">
             <FiArrowLeftCircle />
           </IconTop>
-          <SignInputHold onSubmit={submit}>
+          <SignInputHold>
             <SignTitle>Sign Up</SignTitle>
             <SignSubTitle>To Intract with your account</SignSubTitle>
-            <InputForm>
+            <InputForm onSubmit={submit}>
               <InputDiv
                 {...register("companyName")}
                 placeholder="enter the company's name"
                 type="text"
               />
+              <p>{errors?.companyName && errors?.companyName?.message} </p>
               <InputDiv
                 {...register("companyEmail")}
                 placeholder=" enter the company's Email "
                 type="email"
               />
+              <p>{errors?.companyEmail && errors?.companyEmail?.message} </p>
               <InputDiv
                 {...register("yourName")}
                 placeholder="enter your Name"
                 type="text"
               />
+              <p>{errors?.yourName && errors?.yourName?.message} </p>
               <InputDiv
                 {...register("password")}
                 placeholder="enter password"
                 type="password"
               />
+              <p>{errors?.password && errors?.password?.message} </p>
               <InputButton type="submit">Sign Up</InputButton>
             </InputForm>
             <HasAcc>
@@ -155,7 +159,7 @@ const IconTop = styled(NavLink)`
   text-decoration: none;
   color: ${(props) => props.theme.textColor};
 `;
-const SignInputHold = styled.form`
+const SignInputHold = styled.div`
   display: flex;
   flex-flow: column wrap;
   justify-content: center;

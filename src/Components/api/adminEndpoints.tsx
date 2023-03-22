@@ -9,8 +9,18 @@ interface adminData {
   password: string;
 }
 
-export const adminReg = async (data: adminData) => {
+export const adminReg = async ({
+  companyName,
+  companyEmail,
+  yourName,
+  password,
+}: adminData) => {
   return await axios
-    .post(`${adminAuth}/register`, data)
+    .post(`${adminAuth}/register`, {
+      companyName,
+      companyEmail,
+      yourName,
+      password,
+    })
     .then((res) => res.data);
 };
