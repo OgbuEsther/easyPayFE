@@ -1,20 +1,28 @@
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { FiArrowLeftCircle } from "react-icons/fi";
 import admin from "../../Assets/user.png";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
+import { UseAppDispatch } from "../../Global/Store";
+import { useMutation } from "@tanstack/react-query";
+import { adminReg } from "../../api/adminEndpoints";
+import { registerAdmin } from "../../Global/ReduxState";
+import Swal from "sweetalert2";
 
 const AdminSignUp = () => {
+  const dispatch = UseAppDispatch();
+
+  const navigate = useNavigate();
   const schema = yup
     .object({
-      name: yup.string().email().required(),
-      email: yup.string().email().required(),
+      companyName: yup.string().email().required(),
+      companyEmail: yup.string().email().required(),
       password: yup.string().min(9).required(),
-      companyName: yup.string().required("field must be required"),
+      yourName: yup.string().required("field must be required"),
     })
     .required();
 
@@ -29,6 +37,31 @@ const AdminSignUp = () => {
     resolver: yupResolver(schema),
   });
 
+  const newClient = useMutation({
+    mutationFn: (data: any) => adminReg(data),
+    mutationKey: ["registerAdmin"],
+
+    onSuccess: (data: any) => {
+      console.log("my data", data);
+      dispatch(registerAdmin(data.data));
+    },
+  });
+  const submit = handleSubmit((data) => {
+    newClient.mutate(data);
+    console.log("this is yup data", data);
+    reset();
+    Swal.fire({
+      title: "registration succesful",
+      // html: "redirecting to login",
+      timer: 2000,
+      timerProgressBar: true,
+
+      willClose: () => {
+        navigate("/admin/dashboard");
+      },
+    });
+  });
+
   return (
     <Container>
       <Wrapper>
@@ -36,28 +69,28 @@ const AdminSignUp = () => {
           <IconTop to="/optionsignup">
             <FiArrowLeftCircle />
           </IconTop>
-          <SignInputHold>
+          <SignInputHold onSubmit={submit}>
             <SignTitle>Sign Up</SignTitle>
             <SignSubTitle>To Intract with your account</SignSubTitle>
             <InputForm>
               <InputDiv
-                {...register("name")}
-                placeholder="Your Name"
+                {...register("companyName")}
+                placeholder="enter the company's name"
                 type="text"
               />
               <InputDiv
-                {...register("email")}
-                placeholder="Email "
+                {...register("companyEmail")}
+                placeholder=" enter the company's Email "
                 type="email"
               />
               <InputDiv
-                {...register("companyName")}
-                placeholder="Company's Name"
+                {...register("yourName")}
+                placeholder="enter your Name"
                 type="text"
               />
               <InputDiv
                 {...register("password")}
-                placeholder="password"
+                placeholder="enter password"
                 type="password"
               />
               <InputButton type="submit">Sign Up</InputButton>
@@ -122,7 +155,7 @@ const IconTop = styled(NavLink)`
   text-decoration: none;
   color: ${(props) => props.theme.textColor};
 `;
-const SignInputHold = styled.div`
+const SignInputHold = styled.form`
   display: flex;
   flex-flow: column wrap;
   justify-content: center;

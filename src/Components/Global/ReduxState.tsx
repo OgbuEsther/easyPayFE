@@ -25,7 +25,7 @@ interface adminData {
   companyEmail: string;
   yourName: string;
   password: string;
-  _id: string;
+  //   _id: string;
 }
 
 const initialState = {
