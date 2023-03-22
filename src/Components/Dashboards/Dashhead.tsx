@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { IoIosSearch, IoIosNotificationsOutline } from "react-icons/io"
-import img from "../Assets/blush10.png"
+// import img from "../Assets/blush10.png"
 
 
 const Dashhead = () => {
@@ -18,7 +18,7 @@ const Dashhead = () => {
                       <Circle>2</Circle>
                   </Icons>
                   <Profile>
-                      <Img src={img} />
+                      <Img  />
                   </Profile>
               </Right>
            </Wrapper>

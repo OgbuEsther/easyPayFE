@@ -3,11 +3,12 @@ import styled from 'styled-components'
 import {TfiReload} from "react-icons/tfi"
 // import img1 from "../Assets/diamond.png"
 // import img2 from "../Assets/power.png"
-// import img3 from "../Assets/money.png"
+import img3 from "../Assets/kora.png"
 import {AiOutlineClose} from "react-icons/ai"
 import { NavLink } from 'react-router-dom'
 
 const Cards = () => {
+    const myVideo = require("../Assets/banking.mp4");
     const [show, setShow] = useState(false)
     const [cancle, setCancle] = useState(false)
 
@@ -22,29 +23,25 @@ const Cards = () => {
     <Container>
         <Boxhold>
             <Card>
-                  <Sales><T>Total Sells</T></Sales>
+                  <Sales><T>Wallet</T></Sales>
                   <Doll>
                       <h2>$3799.00</h2>
                       <p>34.7%</p>
                       <Com>Compared to April 2021</Com>
                   </Doll>
-            </Card>
-            <Card2>
-                <Sales><T>Total Sells</T></Sales>
+              </Card>
+              
+            <Card>
+                  <Sales><T>Number of Staffs</T></Sales>
                   <Doll>
-                      <h2>$3799.00</h2>
-                      <p>34.7%</p>
+                      <h2>100k</h2>
                       <Com>Compared to April 2021</Com>
                   </Doll>
-            </Card2>
-            <Card3>
-               <Sales><T>Total Sells</T></Sales>
-                  <Doll>
-                      <h2>$3799.00</h2>
-                      <p>34.7%</p>
-                      <Com>Compared to April 2021</Com>
-                  </Doll>
-            </Card3>
+              </Card>
+              
+              <Slide>
+                  <Video src={myVideo} autoPlay={true} muted playsInline loop={true} />
+              </Slide>
         </Boxhold>
 
     </Container>
@@ -52,6 +49,18 @@ const Cards = () => {
 }
 
 export default Cards
+const Video = styled.video`
+    display: flex;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+`
+const Slide = styled.div`
+    width: 230px;
+    height: 225px;
+    background-color: #1D1C41;
+    border-radius: 10px;
+`
 const Com = styled.div`
     color: #828f99;
     margin-top: 10px;
@@ -79,6 +88,7 @@ const T = styled.div`
 `
 const Sales = styled.div`
     width: 100%;
+    display: flex;
 `
 const Proceed = styled.button`
     font-size: 17px;
@@ -248,8 +258,8 @@ const Card2 = styled.div`
     cursor: pointer;
 `
 const Card = styled.div`
-    width: 320px;
-    height: 180px;
+    width: 360px;
+    height: 230px;
     background-color: #fff;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-top-left-radius: 10px;

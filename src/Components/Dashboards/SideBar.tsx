@@ -11,8 +11,6 @@ const SideBar = () => {
   return (
     <Container>
         <Top>
-            <Icon><h3>Agro-Allied</h3></Icon>
-            <Image  />
         </Top>
         <Home>
             <Icon2><MdDashboard /></Icon2>
@@ -42,7 +40,7 @@ const SideBar = () => {
                     marginLeft: isActive ? "15px" : "none"
                 }
             }}>
-            <Text2>Products</Text2>
+            <Text2>View Staff</Text2>
             </NavLink>
         </Home2>
         
@@ -58,27 +56,14 @@ const SideBar = () => {
                     marginLeft: isActive ? "15px" : "none"
                 }
             }}>
-                  <Text3>Customers</Text3>
+                  <Text3>Payroll</Text3>
             </NavLink>
         </Home2>
         <Home2>
             <Icon2><IoMdPerson /></Icon2>
             <Text4>Transaction</Text4>
           </Home2>
-          <Home2>
-            <Icon2><IoMdPerson /></Icon2>
-              <NavLink to="/orderpage" style={({isActive}) => {
-                return {
-                    textDecoration: isActive ? "none" : "none",
-                    backgroundColor: isActive ? "#fff" : "",
-                    borderTopLeftRadius: isActive ? "50px" : "none",
-                    borderBottomLeftRadius:isActive ? "50px" : "none",
-                    color: isActive ? "#2d3748" : "#fff",
-                    marginLeft: isActive ? "15px" : "none"
-                }
-            }}>
-                   <Text5>Orders</Text5>
-           </NavLink>
+        <Home2>
         </Home2>
 
         <Power>

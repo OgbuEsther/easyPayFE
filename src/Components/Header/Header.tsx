@@ -53,16 +53,17 @@ const Header = () => {
               </div>
             )}
           </ToggleHold> */}
-              <NavLink to="/optionsignin">
-                <SignBtn>Log In</SignBtn>
-              </NavLink>
-              <NavLink to="/optionsignup">
-                <SignBtn2>Get started</SignBtn2>
-              </NavLink>
-              {/* <SignBtn >Change</SignBtn> */}
-            </SignDiv>
-          </Wrapper>
-        </Container>
+
+          <NavLink to="/dashboard">
+            <SignBtn>Log In</SignBtn>
+                  </NavLink>
+                  <NavLink to="/dashboard">
+            <SignBtn2>Get started</SignBtn2>
+          </NavLink>
+          {/* <SignBtn >Change</SignBtn> */}
+        </SignDiv>
+      </Wrapper>
+    </Container>
       ) : (
         <Container bd="" bg="#005AD9">
           <Wrapper>
@@ -86,17 +87,18 @@ const Header = () => {
               </div>
             )}
           </ToggleHold> */}
-              <NavLink to="/optionsignin">
-                <SignBtn>Log In</SignBtn>
-              </NavLink>
-              <NavLink to="/optionsignup">
-                <SignBtn2>Get started</SignBtn2>
-              </NavLink>
-              {/* <SignBtn >Change</SignBtn> */}
-            </SignDiv>
-          </Wrapper>
-        </Container>
-      )}
+          <NavLink to="/dashboard">
+            <SignBtn>Log In</SignBtn>
+                  </NavLink>
+                  <NavLink to="/dashboard">
+            <SignBtn2>Get started</SignBtn2>
+          </NavLink>
+          {/* <SignBtn >Change</SignBtn> */}
+        </SignDiv>
+      </Wrapper>
+    </Container>
+      ) }
+
     </>
   );
 };

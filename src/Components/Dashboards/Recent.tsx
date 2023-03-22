@@ -4,17 +4,15 @@ import styled from 'styled-components'
 const Recent = () => {
   return (
       <Container>
-          <Top><h2>Recent Orders</h2></Top>
+          <Top><h2>List of Staffs</h2></Top>
           <Boxhold>
               
               
           </Boxhold>
           <Head>
-                  <Navs>Order Id</Navs>
-                  <Navs>Customer</Navs>
-                  <Navs>Product</Navs>
-                  <Navs>Amount</Navs>
-                  <Navs>Status</Navs>
+                  <Navs>Staff</Navs>
+                  <Navs>Role</Navs>
+                  <Navs>Joined</Navs>
             </Head>
               <Head2>
               
@@ -85,7 +83,7 @@ const Top = styled.div`
 `
 
 const Container = styled.div`
-    width: 91%;
+    width: 93%;
     display: flex;
     height: 350px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
