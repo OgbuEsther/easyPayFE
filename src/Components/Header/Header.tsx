@@ -133,12 +133,12 @@ const LogoHold = styled.div`
   font-size: 18px;
   width: 150px;
   height: 50px;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
 
   img {
     width: 80%;
     height: 80%;
     object-fit: contain;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
   }
 `;
 

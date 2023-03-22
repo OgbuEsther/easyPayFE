@@ -1,30 +1,58 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { PayloadAction } from "@reduxjs/toolkit/dist/createAction";
+import { PayloadAction } from "@reduxjs/toolkit";
 
-interface AdminData {
-    name: string;
-    email: string;
-    password: string;
+interface loginClient {
+  email: string;
+  password: string;
+}
+
+interface userData {
+  yourName: string;
+  email: string;
+  password: string;
+  companyName: string;
+  position: string;
+  _id: string;
+}
+
+interface loginAdmin {
+  email: string;
+  password: string;
+}
+
+interface adminData {
+  name: string;
+  email: string;
+  password: string;
+  _id: string;
 }
 
 const initialState = {
-    currentUser: {} as AdminData | null
-}
+  Client: {} as userData | null,
+  Admin: {} as adminData | null,
+};
 
 const ReduxState = createSlice({
-    name: "easypays",
-    initialState,
-    reducers: {
-        loginAdmin: (state, { payload }: PayloadAction<AdminData>) => {
-            state.currentUser = payload
-        },
+  name: "easyPay",
+  initialState,
+  reducers: {
+    registerClient: (state, { payload }: PayloadAction<userData>) => {
+      state.Client = payload;
+    },
 
-        logoutAdmin: (state) => {
-            state.currentUser = null
-        }
-    }
-})
+    registerAdmin: (state, { payload }: PayloadAction<adminData>) => {
+      state.Admin = payload;
+    },
+    logOut: (state) => {
+      state.Client = null;
+    },
+    logoutAdmin: (state) => {
+      state.Admin = null;
+    },
+  },
+});
 
-export const { loginAdmin, logoutAdmin } = ReduxState.actions;
+export const { registerClient, registerAdmin, logOut, logoutAdmin } =
+  ReduxState.actions;
 
-export default ReduxState.reducer
+export default ReduxState.reducer;
