@@ -1,17 +1,19 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import Designed from './Designed/Designed'
-import Footer from './Footer/Footer'
-import Hero from './Hero/Hero'
-import Join from './Join/Join'
-import Solutions from './Solutions/Solutions'
-import Team from './Team/Team'
+import React from "react";
+import { NavLink } from "react-router-dom";
+import Designed from "./Designed/Designed";
+import Footer from "./Footer/Footer";
+import Header from "./Header/Header";
+import Hero from "./Hero/Hero";
+import Join from "./Join/Join";
+import Solutions from "./Solutions/Solutions";
+import Team from "./Team/Team";
 
 const Homescreen = () => {
   return (
     <div>
-        <Hero />
-        {/* <Solutions /> */}
+      <Header />
+      <Hero />
+      {/* <Solutions /> */}
       {/* <Join /> */}
       <br />
       <br />
@@ -25,9 +27,9 @@ const Homescreen = () => {
       <br />
       <br />
       {/* <Designed /> */}
-        <Footer />
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Homescreen
+export default Homescreen;

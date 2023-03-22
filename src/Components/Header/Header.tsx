@@ -6,40 +6,40 @@ import { FaMoon } from "react-icons/fa";
 import { MdOutlineWbSunny } from "react-icons/md";
 
 const Header = () => {
-  const [scroll, setScroll] = useState<Boolean>(false)
+  const [scroll, setScroll] = useState<Boolean>(false);
 
-    const changeHeaderColor = () => {
-        if (window.scrollY >= 70) {
-            setScroll(true)
-        } else {
-            setScroll(false)
-        }
-    };
+  const changeHeaderColor = () => {
+    if (window.scrollY >= 70) {
+      setScroll(true);
+    } else {
+      setScroll(false);
+    }
+  };
 
-    window.addEventListener("scroll", changeHeaderColor)
-//   const { setTheme, theme } = useContext(GlobalProvider);
+  window.addEventListener("scroll", changeHeaderColor);
+  //   const { setTheme, theme } = useContext(GlobalProvider);
 
-//   const changeTheme = () => {
-//     if (theme === "light") {
-//       setTheme("dark");
-//     } else {
-//       setTheme("light");
-//     }
-//   };
+  //   const changeTheme = () => {
+  //     if (theme === "light") {
+  //       setTheme("dark");
+  //     } else {
+  //       setTheme("light");
+  //     }
+  //   };
 
   return (
     <>
       {scroll ? (
         <Container bd="rgba(99, 99, 99, 0.2) 0px 2px 8px 0px" bg="#fff">
-      <Wrapper>
-        {/* <LogoDiv src="/image/ttlogo.png" alt="" /> */}
+          <Wrapper>
+            {/* <LogoDiv src="/image/ttlogo.png" alt="" /> */}
 
-        <LogoHold>Logo</LogoHold>
-        <SignDiv>
-          {/* <NavLink to="signup">
+            <LogoHold>Logo</LogoHold>
+            <SignDiv>
+              {/* <NavLink to="signup">
             <SignBtn>Sign Up</SignBtn>
           </NavLink> */}
-          {/* <ToggleHold>
+              {/* <ToggleHold>
             {theme === "light" ? (
               <div style={{ cursor: "pointer" }} onClick={changeTheme}>
                 <FaMoon color="#377dff" size="20px" />
@@ -50,27 +50,27 @@ const Header = () => {
               </div>
             )}
           </ToggleHold> */}
-          <NavLink to="signin">
-            <SignBtn>Log In</SignBtn>
-                  </NavLink>
-                  <NavLink to="signin">
-            <SignBtn2>Get started</SignBtn2>
-          </NavLink>
-          {/* <SignBtn >Change</SignBtn> */}
-        </SignDiv>
-      </Wrapper>
-    </Container>
+              <NavLink to="optionsignup">
+                <SignBtn>Log In</SignBtn>
+              </NavLink>
+              <NavLink to="signin">
+                <SignBtn2>Get started</SignBtn2>
+              </NavLink>
+              {/* <SignBtn >Change</SignBtn> */}
+            </SignDiv>
+          </Wrapper>
+        </Container>
       ) : (
-          <Container bd = "" bg = "#005AD9">
-      <Wrapper>
-        {/* <LogoDiv src="/image/ttlogo.png" alt="" /> */}
+        <Container bd="" bg="#005AD9">
+          <Wrapper>
+            {/* <LogoDiv src="/image/ttlogo.png" alt="" /> */}
 
-        <LogoHold>Logo</LogoHold>
-        <SignDiv>
-          {/* <NavLink to="signup">
+            <LogoHold>Logo</LogoHold>
+            <SignDiv>
+              {/* <NavLink to="signup">
             <SignBtn>Sign Up</SignBtn>
           </NavLink> */}
-          {/* <ToggleHold>
+              {/* <ToggleHold>
             {theme === "light" ? (
               <div style={{ cursor: "pointer" }} onClick={changeTheme}>
                 <FaMoon color="#377dff" size="20px" />
@@ -81,24 +81,24 @@ const Header = () => {
               </div>
             )}
           </ToggleHold> */}
-          <NavLink to="signin">
-            <SignBtn>Log In</SignBtn>
-                  </NavLink>
-                  <NavLink to="signin">
-            <SignBtn2>Get started</SignBtn2>
-          </NavLink>
-          {/* <SignBtn >Change</SignBtn> */}
-        </SignDiv>
-      </Wrapper>
-    </Container>
-      ) }
+              <NavLink to="signin">
+                <SignBtn>Log In</SignBtn>
+              </NavLink>
+              <NavLink to="signin">
+                <SignBtn2>Get started</SignBtn2>
+              </NavLink>
+              {/* <SignBtn >Change</SignBtn> */}
+            </SignDiv>
+          </Wrapper>
+        </Container>
+      )}
     </>
   );
 };
 
 export default Header;
 
-const Container = styled.div<{ bd: string; bg: string}>`
+const Container = styled.div<{ bd: string; bg: string }>`
   width: 100%;
   height: 80px;
   display: flex;
@@ -109,7 +109,7 @@ const Container = styled.div<{ bd: string; bg: string}>`
   box-shadow: ${(props) => props.bd};
   align-items: center;
   font-family: Montserrat;
-  transition: all 350ms ease-in-out;;
+  transition: all 350ms ease-in-out; ;
 `;
 const Wrapper = styled.div`
   width: 92%;
@@ -117,7 +117,6 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   /* background-color: red; */
-  
 `;
 // const LogoDiv = styled.img`
 //   width: 50px;
