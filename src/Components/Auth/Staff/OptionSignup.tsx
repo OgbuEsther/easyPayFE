@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import perfect from "../../../Assets/perfect.png";
-import school from "../../../Assets/adds.png";
+import perfect from "../../Assets/perfect.png";
+import school from "../../Assets/adds.png";
 
 import {
   AiFillFacebook,
@@ -9,7 +9,7 @@ import {
   AiFillLinkedin,
 } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import easy from "../../../Assets/explorer.png";
+import easy from "../../Assets/explorer.png";
 
 const OptionSignup = () => {
   return (

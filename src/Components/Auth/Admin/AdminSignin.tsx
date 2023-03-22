@@ -3,7 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { FiArrowLeftCircle } from "react-icons/fi";
-import admin from "../../../Assets/user.png";
+import admin from "../../Assets/user.png";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
