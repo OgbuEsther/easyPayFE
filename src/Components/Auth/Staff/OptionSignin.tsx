@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import perfect from "../../Assets/perfect.png";
 import school from "../../Assets/adds.png";
-
+import logos from "../../Assets/logos2.png";
 import {
   AiFillFacebook,
   AiFillTwitterSquare,
@@ -23,9 +23,9 @@ const OptionSignin = () => {
 
           <LogoHolder to="/">
             <Logo>
-              <img src={easy} alt="" />
+              <img src={logos} alt="" />
             </Logo>
-            <LogoTitle>Easy pay</LogoTitle>
+            {/* <LogoTitle>Easy pay</LogoTitle> */}
           </LogoHolder>
 
           <Text>track your company's salary disbursment with easy</Text>
@@ -88,17 +88,24 @@ const LogoTitle = styled.div`
 `;
 
 const Logo = styled.div`
-  padding: 18px;
+  /* padding: 18px; */
   /* background-color: #377dff; */
   color: white;
-  border: 1px solid #377dff;
+  /* border: 1px solid #377dff; */
   border-radius: 50px;
   margin-right: 5px;
-  font-weight: 700;
+  width: 150px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   img {
     width: 100%;
     height: 100%;
+    object-fit: contain;
   }
+  font-weight: 700;
 `;
 
 const LogoHolder = styled(Link)`

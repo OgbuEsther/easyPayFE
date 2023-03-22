@@ -1,20 +1,28 @@
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { FiArrowLeftCircle } from "react-icons/fi";
 import admin from "../../Assets/user.png";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
+import { UseAppDispatch } from "../../Global/Store";
+import { useMutation } from "@tanstack/react-query";
+import { adminReg } from "../../api/adminEndpoints";
+import { registerAdmin } from "../../Global/ReduxState";
+import Swal from "sweetalert2";
 
 const AdminSignUp = () => {
+  const dispatch = UseAppDispatch();
+
+  const navigate = useNavigate();
   const schema = yup
     .object({
-      name: yup.string().email().required(),
-      email: yup.string().email().required(),
-      password: yup.string().min(9).required(),
-      companyName: yup.string().required("field must be required"),
+      companyName: yup.string().required(),
+      companyEmail: yup.string().email().required(),
+      password: yup.string().required(),
+      yourName: yup.string().required("field must be required"),
     })
     .required();
 
@@ -29,6 +37,31 @@ const AdminSignUp = () => {
     resolver: yupResolver(schema),
   });
 
+  const newClient = useMutation({
+    mutationFn: (data: any) => adminReg(data),
+    mutationKey: ["registerAdmin"],
+
+    onSuccess: (data: any) => {
+      console.log("my data", data);
+      dispatch(registerAdmin(data.data));
+    },
+  });
+  const submit = handleSubmit((data) => {
+    newClient.mutate(data);
+    console.log("this is yup data", data);
+    // reset();
+    Swal.fire({
+      title: "registration succesful",
+      // html: "redirecting to login",
+      timer: 2000,
+      timerProgressBar: true,
+
+      willClose: () => {
+        navigate("/");
+      },
+    });
+  });
+
   return (
     <Container>
       <Wrapper>
@@ -39,27 +72,31 @@ const AdminSignUp = () => {
           <SignInputHold>
             <SignTitle>Sign Up</SignTitle>
             <SignSubTitle>To Intract with your account</SignSubTitle>
-            <InputForm>
-              <InputDiv
-                {...register("name")}
-                placeholder="Your Name"
-                type="text"
-              />
-              <InputDiv
-                {...register("email")}
-                placeholder="Email "
-                type="email"
-              />
+            <InputForm onSubmit={submit}>
               <InputDiv
                 {...register("companyName")}
-                placeholder="Company's Name"
+                placeholder="enter the company's name"
                 type="text"
               />
+              <p>{errors?.companyName && errors?.companyName?.message} </p>
+              <InputDiv
+                {...register("companyEmail")}
+                placeholder=" enter the company's Email "
+                type="email"
+              />
+              <p>{errors?.companyEmail && errors?.companyEmail?.message} </p>
+              <InputDiv
+                {...register("yourName")}
+                placeholder="enter your Name"
+                type="text"
+              />
+              <p>{errors?.yourName && errors?.yourName?.message} </p>
               <InputDiv
                 {...register("password")}
-                placeholder="password"
+                placeholder="enter password"
                 type="password"
               />
+              <p>{errors?.password && errors?.password?.message} </p>
               <InputButton type="submit">Sign Up</InputButton>
             </InputForm>
             <HasAcc>

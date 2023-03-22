@@ -1,34 +1,43 @@
-import { configureStore } from "@reduxjs/toolkit"
-import { useDispatch } from "react-redux/"
-import { TypedUseSelectorHook, useSelector } from "react-redux/"
+import { configureStore } from "@reduxjs/toolkit";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { TypedUseSelectorHook } from "react-redux/es/types";
+import myReducer from "../Global/ReduxState";
+import storage from "redux-persist/lib/storage";
+
 import {
-	persistStore,
-	persistReducer,
-	FLUSH,
-	REHYDRATE,
-	PAUSE,
-	PERSIST,
-	PURGE,
-	REGISTER
+  persistStore,
+  persistReducer,
+  PAUSE,
+  PURGE,
+  FLUSH,
+  REGISTER,
+  PERSIST,
+  REHYDRATE,
 } from "redux-persist";
-import storage from "redux-persist/lib/storage"
-import myReducer from "./ReduxState"
 
 const persistConfig = {
-    key: "easypay",
-    version: 1,
-    storage
-}
+  key: "MyE_Waste",
+  version: 1,
+  storage,
+};
 
-const persistedReducer = persistReducer(persistConfig, myReducer)
+const persistedReducer = persistReducer(persistConfig, myReducer);
 
-export const store = configureStore({
-    reducer: {
-        myReducer
-    }
-})
+export const Store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+});
 
-export const UseAppDispach: () =>
-    typeof store.dispatch = useDispatch;
-    
-export const useAppSelector: TypedUseSelectorHook<ReturnType<typeof store.getState>> = useSelector;
+//this will define your dispatch and selector functions
+
+export const UseAppDispatch: () => typeof Store.dispatch = useDispatch;
+
+export const UseAppSelector: TypedUseSelectorHook<
+  ReturnType<typeof Store.getState>
+> = useSelector;
