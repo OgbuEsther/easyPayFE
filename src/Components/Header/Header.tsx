@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 // import { GlobalProvider } from "../../Global/ContexGlobal/GlobalContex";
 import { FaMoon } from "react-icons/fa";
 import { MdOutlineWbSunny } from "react-icons/md";
+import logos from "../Assets/logos2.png";
 
 const Header = () => {
   const [scroll, setScroll] = useState<Boolean>(false);
@@ -34,7 +35,9 @@ const Header = () => {
           <Wrapper>
             {/* <LogoDiv src="/image/ttlogo.png" alt="" /> */}
 
-            <LogoHold>Logo</LogoHold>
+            <LogoHold>
+              <img src={logos} alt="" />
+            </LogoHold>
             <SignDiv>
               {/* <NavLink to="signup">
             <SignBtn>Sign Up</SignBtn>
@@ -65,7 +68,9 @@ const Header = () => {
           <Wrapper>
             {/* <LogoDiv src="/image/ttlogo.png" alt="" /> */}
 
-            <LogoHold>Logo</LogoHold>
+            <LogoHold>
+              <img src={logos} alt="" />
+            </LogoHold>
             <SignDiv>
               {/* <NavLink to="signup">
             <SignBtn>Sign Up</SignBtn>
@@ -126,6 +131,15 @@ const Wrapper = styled.div`
 const LogoHold = styled.div`
   font-weight: 900;
   font-size: 18px;
+  width: 150px;
+  height: 50px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+
+  img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+  }
 `;
 
 const SignDiv = styled.div`
