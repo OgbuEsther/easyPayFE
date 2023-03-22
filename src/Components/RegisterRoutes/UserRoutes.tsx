@@ -1,10 +1,9 @@
 import React from "react";
 import { useRoutes } from "react-router-dom";
-import OptionSignin from "../Homeview/Auth/Staff/OptionSignin";
-import OptionSignup from "../Homeview/Auth/Staff/OptionSignup";
-
-import StaffSignin from "../Homeview/Auth/Staff/StaffSignin";
-import StaffSignup from "../Homeview/Auth/Staff/StaffSignup";
+import OptionSignin from "../Auth/Staff/OptionSignin";
+import OptionSignup from "../Auth/Staff/OptionSignup";
+import StaffSignin from "../Auth/Staff/StaffSignin";
+import StaffSignup from "../Auth/Staff/StaffSignup";
 
 const UserRoutes = () => {
   let element = useRoutes([

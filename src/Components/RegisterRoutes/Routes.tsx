@@ -1,17 +1,17 @@
 import React from "react";
 import { useRoutes } from "react-router-dom";
-import AdminSignIn from "../Homeview/Auth/Admin/AdminSignin";
-import AdminSignUp from "../Homeview/Auth/Admin/AdminSignup";
+import AdminSignIn from "../Auth/Admin/AdminSignin";
+import AdminSignUp from "../Auth/Admin/AdminSignup";
 
 const Routes = () => {
   let element = useRoutes([
     {
       path: "/admin/signup",
-      element: <AdminSignUp/> ,
+      element: <AdminSignUp />,
     },
     {
       path: "/admin/signin",
-      element: <AdminSignIn/> ,
+      element: <AdminSignIn />,
     },
   ]);
   return element;
