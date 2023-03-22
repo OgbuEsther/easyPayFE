@@ -21,8 +21,9 @@ interface loginAdmin {
 }
 
 interface adminData {
-  name: string;
-  email: string;
+  companyName: string;
+  companyEmail: string;
+  yourName: string;
   password: string;
   _id: string;
 }
