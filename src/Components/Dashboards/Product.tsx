@@ -1,10 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
+import Dashhead from './Dashhead'
+import Lists from './Lists'
+import SideBar from './SideBar'
 
 const Product = () => {
   return (
       <Container>
-          
+          <Dashhead />
+      <SideBar />
+      <br />
+      <br />
+      <br />
+      <Lists />
     </Container>
   )
 }
@@ -12,8 +20,9 @@ const Product = () => {
 export default Product
 
 const Container = styled.div`
-    width: 100%;
+    width: calc(100% - 19%);
     display: flex;
     flex-direction: column;
-    background-color: red;
+    /* background-color: red; */
+    /* margin-left: 260px; */
 `
