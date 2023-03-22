@@ -11,7 +11,7 @@ import { UseAppDispatch } from "../../Global/Store";
 import { useMutation } from "@tanstack/react-query";
 import { adminReg } from "../../api/adminEndpoints";
 import { registerAdmin } from "../../Global/ReduxState";
-import Swal from "sweetalert2";
+import Swal from "sweetalert2"
 
 const AdminSignUp = () => {
   const dispatch = UseAppDispatch();
