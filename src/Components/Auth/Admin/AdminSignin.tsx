@@ -1,17 +1,17 @@
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import { NavLink } from "react-router-dom";
-import { FiArrowLeftCircle } from "react-icons/fi";
 import styled from "styled-components";
+import { FiArrowLeftCircle } from "react-icons/fi";
 import admin from "../../../Assets/user.png";
-// import image from "../image/usersignin.png";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 
-const AdminSignIn = () => {
+const AdminSignUp = () => {
   const schema = yup
     .object({
+      name: yup.string().email().required(),
       email: yup.string().email().required(),
       password: yup.string().min(9).required(),
       companyName: yup.string().required("field must be required"),
@@ -28,38 +28,49 @@ const AdminSignIn = () => {
   } = useForm<formData>({
     resolver: yupResolver(schema),
   });
+
   return (
     <Container>
       <Wrapper>
         <InputPart>
-          <IconTop to="/optionsignin">
+          <IconTop to="/optionsignup">
             <FiArrowLeftCircle />
           </IconTop>
           <SignInputHold>
-            <SignTitle>Log In</SignTitle>
+            <SignTitle>Sign Up</SignTitle>
             <SignSubTitle>To Intract with your account</SignSubTitle>
             <InputForm>
               <InputDiv
+                {...register("name")}
+                placeholder="Your Name"
+                type="text"
+              />
+              <InputDiv
                 {...register("email")}
-                placeholder="Email"
+                placeholder="Email "
                 type="email"
               />
               <InputDiv
+                {...register("companyName")}
+                placeholder="Company's Name"
+                type="text"
+              />
+              <InputDiv
                 {...register("password")}
-                placeholder="Password"
+                placeholder="password"
                 type="password"
               />
-              <InputButton type="submit">Sign In</InputButton>
+              <InputButton type="submit">Sign Up</InputButton>
             </InputForm>
             <HasAcc>
-              Don't have an account?{""}
+              Already has an account?{" "}
               <NavLink
-                to="/admin/signup"
+                to="/admin/signin"
                 style={{
                   textDecoration: "none",
                 }}
               >
-                <span>Sign up</span>
+                <span>Sign In</span>
               </NavLink>
             </HasAcc>
           </SignInputHold>
@@ -76,7 +87,7 @@ const AdminSignIn = () => {
   );
 };
 
-export default AdminSignIn;
+export default AdminSignUp;
 
 const Container = styled.div`
   width: 100%;
@@ -93,7 +104,6 @@ const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
   @media (max-width: 800px) {
     justify-content: center;
   }
@@ -158,6 +168,11 @@ const InputButton = styled.button`
   background-color: #377dff;
   border-radius: 3px;
   margin-top: 10px;
+  cursor: pointer;
+  transition: all 350ms;
+  :hover {
+    transform: scale(0.98);
+  }
 `;
 const HasAcc = styled.div`
   font-size: 12px;
@@ -181,7 +196,7 @@ const ImgBox = styled.div`
 `;
 const ImgMain = styled.img`
   width: 290px;
-  /* margin-top: -50px; */
+  /* margin-top: -65px; */
 `;
 
 const ImgBoxHold = styled.div`
