@@ -2,18 +2,18 @@ import React from 'react'
 import styled from 'styled-components'
 import img from "../Assets/21.jpeg"
 
-const Recent = () => {
+const Latesttransact = () => {
   return (
       <Container>
-          <Top><h2>List of Staffs</h2></Top>
+          <Top><h2>Latest Transactions</h2></Top>
           <Boxhold>
               
               
           </Boxhold>
           <Head>
-                  <Navs>Staff</Navs>
-                  <Navs>Role</Navs>
-                  <Navs>Joined</Navs>
+                  <Navs>Recepient</Navs>
+                  <Navs>Date</Navs>
+                  <Navs>Amount</Navs>
             </Head>
               <Head2>
               <Profilehold>
@@ -22,10 +22,10 @@ const Recent = () => {
               </Profilehold>
 
               <Role>
-                  Supervisor
+                  12/09/23
               </Role>
 
-              <Joined>10/12/09</Joined>
+              <Joined>$400</Joined>
           </Head2>
 
           <Head2>
@@ -35,10 +35,10 @@ const Recent = () => {
               </Profilehold>
 
               <Role>
-                  Supervisor
+                  12/09/23
               </Role>
 
-              <Joined>10/12/09</Joined>
+              <Joined>$400</Joined>
           </Head2>
 
           <Head2>
@@ -48,10 +48,10 @@ const Recent = () => {
               </Profilehold>
 
               <Role>
-                  Supervisor
+                  12/09/23
               </Role>
 
-              <Joined>10/12/09</Joined>
+              <Joined>$400</Joined>
           </Head2>
           <View>
               <Button>
@@ -62,7 +62,7 @@ const Recent = () => {
   )
 }
 
-export default Recent
+export default Latesttransact
 const Button = styled.div`
     width: 120px;
     height: 40px;
@@ -180,5 +180,6 @@ const Container = styled.div`
     padding: 30px;
     margin-top: 30px;
     flex-direction: column;
+    margin-bottom: 30px;
     background-color: #fff;
 `
