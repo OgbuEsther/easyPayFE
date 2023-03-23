@@ -90,6 +90,12 @@ const Role = styled.div`
     margin-right: 90px;
     display: flex;
     justify-content: center;
+    @media screen and (max-width: 500px) {
+        background-color: red;
+        margin-right: 18px;
+        /* margin-left: 30px; */
+        width: 0px;
+    }
 `
 const Img = styled.img`
     width: 100px;
@@ -99,6 +105,10 @@ const Img = styled.img`
 const Name = styled.div`
     display: flex;
     margin-left: 10px;
+    @media screen and (max-width: 500px){
+        width: 50px;
+        /* background-color: red; */
+    }
     
 `
 const Circle = styled.div`
