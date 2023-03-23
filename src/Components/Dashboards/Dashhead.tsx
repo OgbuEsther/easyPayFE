@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { IoIosSearch, IoIosNotificationsOutline } from "react-icons/io"
+import {FiMenu} from "react-icons/fi"
 // import img from "../Assets/blush10.png"
 
 
@@ -8,10 +9,14 @@ const Dashhead = () => {
   return (
       <Container>
           <Wrapper>
-              <Inputhold>
-                  <Icon><IoIosSearch /></Icon>
-                  <Input />
-              </Inputhold>
+              <Left>
+                  <FiMenu />
+              </Left>
+              {/* <Mid>
+                  <Inputhold>
+                      <
+                  </Inputhold>
+              </Mid> */}
               <Right>
                   <Icons>
                       <IoIosNotificationsOutline />
@@ -27,6 +32,17 @@ const Dashhead = () => {
 }
 
 export default Dashhead
+const Left = styled.div`
+    font-size: 25px;
+    cursor: pointer;
+    display: none;
+    @media screen and (max-width: 1024px) {
+        display: flex;
+    }
+    @media screen and (max-width: 500px) {
+        margin-left: 30px;
+    }
+`
 const Img = styled.img`
     width: 100%;
     height: 100%;
@@ -96,7 +112,11 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     padding-right: 30px;
-    justify-content: space-between;
+    justify-content: flex-end;
+    @media screen and (max-width: 1024px) {
+        width: 93%;
+        justify-content: space-between;
+    }
 `
 const Container = styled.div`
     width: 100%;
@@ -107,4 +127,8 @@ const Container = styled.div`
     z-index: 1;
     background-color: #fff;
     justify-content: flex-end;
+    @media screen and (max-width: 500px) {
+        justify-content: center;
+        display: flex;
+    }
 `
