@@ -10,14 +10,16 @@ import Todo from './Todo'
 const Home = () => {
   return (
     <Container>
-        <Wrapper>
+          <Wrapper>
+              <br />
+              <br />
             <Top>
                 <Left>
                     <Bold>
                         <h1>Dashboard</h1>
                     </Bold>
                 </Left>
-            </Top>
+              </Top>
               <Cards />
               <Recent />
               <Latesttransact />
@@ -75,5 +77,9 @@ const Container = styled.div`
     justify-content: center;
     margin-left: 260px;
     overflow: hidden;
+    @media screen and (max-width: 1024px) {
+        width: 100%;
+        margin-left: 0px;
+    }
     /* background-color: red; */
 `

@@ -60,6 +60,9 @@ const Slide = styled.div`
     height: 225px;
     background-color: #1D1C41;
     border-radius: 10px;
+    @media screen and (max-width: 1024px) {
+        display: none;
+    }
 `
 const Com = styled.div`
     color: #828f99;
@@ -269,12 +272,28 @@ const Card = styled.div`
     flex-direction: column;
     align-items: center;
     cursor: pointer;
+    @media screen and (max-width: 1024px) {
+        width: 450px;
+    }
+    @media screen and (max-width: 768px) {
+        width: 340px;
+    }
+    @media screen and (max-width: 500px) {
+        width: 340px;
+        margin-bottom: 15px;
+    }
 `
 const Boxhold = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
     margin-top: 15px;
+    flex-wrap: wrap;
+    @media screen and (max-width: 500px) {
+        display: flex;
+        justify-content: center;
+        /* background-color: red; */
+    }
 `
 const Top = styled.div`
     width: 100%;
@@ -307,5 +326,8 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     margin-top: 40px;
+    /* @media screen and (max-width: 500px) {
+        display
+    } */
     /* position: fixed; */
 `
