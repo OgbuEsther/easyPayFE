@@ -24,6 +24,11 @@ const Container = styled.div`
     width: calc(100% - 19%);
     display: flex;
     flex-direction: column;
-    /* background-color: red; */
+    background-color: blue;
     /* margin-left: 260px; */
+    @media screen and (max-width: 1024px){
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
 `

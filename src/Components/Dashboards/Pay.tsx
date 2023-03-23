@@ -13,8 +13,6 @@ const Pay = () => {
           <Input placeholder='Account No*' type="number"/>
             
           <Input placeholder='Staff Name*' type="text"/>
-
-          <Input placeholder='Payment Date*' type="Date" />
           
           <Input placeholder='Amount*' type="number"/>
 
@@ -45,7 +43,7 @@ const Button = styled.div`
     background-color: #03993F;
     border-radius: 50px;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 50px;
 `
 const View = styled.div`
     width: 100%;
@@ -136,7 +134,7 @@ const Boxhold = styled.div`
     flex-direction: column;
     position: relative;
     
-    /* background-color: red; */
+    background-color: green;
 `
 const Top = styled.div`
     h2{
@@ -155,8 +153,10 @@ const Container = styled.div`
     flex-direction: column;
     margin-bottom: 30px;
     background-color: #fff;
-    margin-left: 260px;
+    margin-left: 270px;
     @media screen and (max-width: 1024px) {
         margin-left: 0px;
+        width: 93%;
+        /* background-color: red; */
     }
 `

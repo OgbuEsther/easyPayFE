@@ -2,18 +2,18 @@ import React from 'react'
 import styled from 'styled-components'
 import img from "../Assets/21.jpeg"
 
-const Lists = () => {
+const Recent = () => {
   return (
       <Container>
-          <Top><h2>Latest Transactions</h2></Top>
+          <Top><h2>List of Staffs</h2></Top>
           <Boxhold>
               
               
           </Boxhold>
           <Head>
-                  <Navs>Recepient</Navs>
-                  <Navs>Date</Navs>
-                  <Navs>Amount</Navs>
+                  <Navs>Staff</Navs>
+                  <Navs>Role</Navs>
+                  <Navs>Joined</Navs>
             </Head>
               <Head2>
               <Profilehold>
@@ -22,10 +22,10 @@ const Lists = () => {
               </Profilehold>
 
               <Role>
-                  12/09/23
+                  Supervisor
               </Role>
 
-              <Joined>$400</Joined>
+              <Joined>10/12/09</Joined>
           </Head2>
 
           <Head2>
@@ -35,10 +35,10 @@ const Lists = () => {
               </Profilehold>
 
               <Role>
-                  12/09/23
+                  Supervisor
               </Role>
 
-              <Joined>$400</Joined>
+              <Joined>10/12/09</Joined>
           </Head2>
 
           <Head2>
@@ -48,12 +48,11 @@ const Lists = () => {
               </Profilehold>
 
               <Role>
-                  12/09/23
+                  Supervisor
               </Role>
 
-              <Joined>$400</Joined>
+              <Joined>10/12/09</Joined>
           </Head2>
-
           <Head2>
               <Profilehold>
                   <Circle><Img src={ img} /></Circle>
@@ -61,12 +60,11 @@ const Lists = () => {
               </Profilehold>
 
               <Role>
-                  12/09/23
+                  Supervisor
               </Role>
 
-              <Joined>$400</Joined>
+              <Joined>10/12/09</Joined>
           </Head2>
-
           <Head2>
               <Profilehold>
                   <Circle><Img src={ img} /></Circle>
@@ -74,12 +72,11 @@ const Lists = () => {
               </Profilehold>
 
               <Role>
-                  12/09/23
+                  Supervisor
               </Role>
 
-              <Joined>$400</Joined>
+              <Joined>10/12/09</Joined>
           </Head2>
-
           <Head2>
               <Profilehold>
                   <Circle><Img src={ img} /></Circle>
@@ -87,17 +84,16 @@ const Lists = () => {
               </Profilehold>
 
               <Role>
-                  12/09/23
+                  Supervisor
               </Role>
 
-              <Joined>$400</Joined>
+              <Joined>10/12/09</Joined>
           </Head2>
-          
     </Container>
   )
 }
 
-export default Lists
+export default Recent
 const Button = styled.div`
     width: 120px;
     height: 40px;
@@ -125,6 +121,12 @@ const Role = styled.div`
     margin-right: 90px;
     display: flex;
     justify-content: center;
+    @media screen and (max-width: 500px) {
+        background-color: red;
+        margin-right: 12px;
+        /* margin-left: 30px; */
+        width: 0px;
+    }
 `
 const Img = styled.img`
     width: 100px;
@@ -134,6 +136,10 @@ const Img = styled.img`
 const Name = styled.div`
     display: flex;
     margin-left: 10px;
+    @media screen and (max-width: 500px){
+        width: 50px;
+        /* background-color: red; */
+    }
     
 `
 const Circle = styled.div`
@@ -146,6 +152,11 @@ const Circle = styled.div`
     align-items: center;
     border-radius: 50px;
     overflow: hidden;
+    @media screen and (max-width: 500px) {
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+    }
 `
 const Profilehold = styled.div`
     display: flex;
@@ -215,7 +226,13 @@ const Container = styled.div`
     padding: 30px;
     margin-top: 30px;
     flex-direction: column;
-    margin-bottom: 30px;
     background-color: #fff;
+    /* background-color: black; */
     margin-left: 260px;
+    @media screen and (max-width: 500px) {
+        padding: 20px;
+    }
+    @media screen and (max-width: 1024px) {
+        margin-left: 0px;
+    }
 `

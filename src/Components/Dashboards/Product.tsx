@@ -25,4 +25,7 @@ const Container = styled.div`
     flex-direction: column;
     /* background-color: red; */
     /* margin-left: 260px; */
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+    }
 `
