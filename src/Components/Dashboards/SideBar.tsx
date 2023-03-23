@@ -46,7 +46,7 @@ const SideBar = () => {
         
         <Home2>
             <Icon2><IoMdPerson /></Icon2>
-              <NavLink to="/Customerpage" style={({isActive}) => {
+              <NavLink to="/payroll" style={({isActive}) => {
                 return {
                     textDecoration: isActive ? "none" : "none",
                     backgroundColor: isActive ? "#fff" : "",
@@ -207,4 +207,7 @@ const Container = styled.div`
     /* border-top-right-radius: 120px; */
     z-index: 2;
     overflow: hidden;
+    @media screen and (max-width: 1024px) {
+        display: none;
+    }
 `
