@@ -156,4 +156,7 @@ const Container = styled.div`
     margin-bottom: 30px;
     background-color: #fff;
     margin-left: 260px;
+    @media screen and (max-width: 1024px) {
+        margin-left: 0px;
+    }
 `
