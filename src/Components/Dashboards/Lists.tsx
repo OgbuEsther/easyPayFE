@@ -29,7 +29,8 @@ const Recent = () => {
           <Head2 key={props._id}>
             <Profilehold>
               <Circle>
-                <Img src={img} />
+                {/* <Img src={img} /> */}
+                {props.yourName.charAt().toUpperCase()}
               </Circle>
               <Name>{props.yourName}</Name>
             </Profilehold>
@@ -155,9 +156,10 @@ const Circle = styled.div`
   width: 45px;
   height: 45px;
   border: 1px solid #fff;
+  background-color: #0d71fa;
   /* background-color: red; */
   display: flex;
-  /* justify-content */
+  justify-content: center;
   align-items: center;
   border-radius: 50px;
   overflow: hidden;
