@@ -1,16 +1,30 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
 import { IoIosSearch, IoIosNotificationsOutline } from "react-icons/io"
-import {FiMenu} from "react-icons/fi"
+import { FiMenu, FiPower } from "react-icons/fi"
+import {IoIosRocket, IoMdPerson} from "react-icons/io"
 import SideBar from './SideBar'
 import img from "../Assets/blush12.png"
+import img2 from "../Assets/easy.png"
+import {MdDashboard} from "react-icons/md"
+import { NavLink } from 'react-router-dom'
 
 
 const Dashhead = () => {
     const [show, setShow] = useState(false)
+    const [show2, setShow2] = useState(false)
+    const [show3, setShow3] = useState(false)
 
     const Toggle = () => {
         setShow(!show)
+    }
+
+    const Toggle2 = () => {
+        setShow2(!show2)
+    }
+
+    const Toggle3 = () => {
+        setShow2(!show)
     }
   return (
       <Container>
@@ -38,15 +52,174 @@ const Dashhead = () => {
               
            </Wrapper>
            {show ? (
-              <Hold>
-                  hfhfhfh
-                  </Hold>
-              ): null}
+              <Hold onClick={Toggle3}>
+                  <Box>
+                      <Top><Img2 src={img2} /> </Top>
+                  <Home>
+            <Icon2><MdDashboard /></Icon2>
+            <NavLink to="/dashboard" style={({isActive}) => {
+                return {
+                    textDecoration: isActive ? "none" : "none",
+                    color: isActive ? "#2AA7FF" : "#3e4956",
+                }
+            }}>
+                <Text1>Dashboard</Text1>
+            </NavLink>
+                  </Home>
+                  
+                   <Home2>
+            <Icon2><IoMdPerson  /></Icon2>
+            <NavLink to="/staffs" style={({isActive}) => {
+                return {
+                    textDecoration: isActive ? "none" : "none",
+                    color: isActive ? "#2AA7FF" : "#3e4956",
+                }
+            }}>
+            <Text2>Staffs</Text2>
+            </NavLink>
+        </Home2>
+
+                  <Home2>
+            <Icon2><IoMdPerson /></Icon2>
+                  <Text3 onClick={Toggle2}>Financials</Text3>
+          </Home2>
+          {show2 ? (
+              <Staffs>
+                  <NavLink to="/payroll" style={{textDecoration: "none"}}>
+                      <p>Send Payment</p>
+              </NavLink>
+              <p>Past Payment</p>
+          </Staffs>
+                  ) : null}
+                  
+                  <Home2>
+            <Icon2><IoMdPerson /></Icon2>
+              <NavLink to="/transaction" style={({isActive}) => {
+                return {
+                    textDecoration: isActive ? "none" : "none",
+                    color: isActive ? "#2AA7FF" : "#3e4956",
+                }
+            }}>
+                  <Text3>Transaction</Text3>
+            </NavLink>
+                  </Home2>
+                  
+                  <Power>
+            <Icon2><FiPower /></Icon2>
+            <Text>Logout</Text>
+        </Power>
+                  </Box>
+              </Hold>
+              
+              
+        ): null}
     </Container>
   )
 }
 
 export default Dashhead
+const Box = styled.div`
+    display: flex;
+    width: 40%;
+    height: 100vh;
+    flex-direction: column;
+    background-color: #fff;
+    padding-left: 25px;
+    left: 0;
+    transition: all 350ms ease-in;
+    @media screen and (max-width: 1024px) {
+        width: 24%;
+    }
+    @media screen and (max-width: 500px) {
+        width: 39%;
+    }
+    @media screen and (max-width: 375px) {
+        width: 46%;
+    }
+`
+const Power = styled.div`
+    width: 100%;
+    display: flex;
+    margin-top: 100px;  
+`
+const Staffs = styled.div`
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    p{
+        margin-left: 40px;
+        
+    }
+`
+const Text3 = styled.div`
+    font-size: 17px;
+    font-family: U8,sans-serif;
+    cursor: pointer;
+    /* color: #fff; */
+    align-items: center;
+    display: flex;
+    margin-left: 15px;
+    width: 410px;
+    height: 40px;
+    /* margin-bottom: 10px; */
+    /* background-color: green; */
+`
+const Text2 = styled.div`
+    font-size: 17px;
+    font-family: U8,sans-serif;
+    cursor: pointer;
+    /* color: #fff; */
+    align-items: center;
+    display: flex;
+    margin-left: 15px;
+    width: 410px;
+    height: 40px;
+    /* margin-bottom: 10px; */
+    /* background-color: green; */
+`
+const Home2 = styled.div`
+    width: 100%;
+    display: flex;
+    margin-top: 25px;
+    align-items: center;
+`
+const Text1 = styled.div`
+    font-size: 17px;
+    font-family: U8,sans-serif;
+    cursor: pointer;
+    /* color: #fff; */
+    align-items: center;
+    display: flex;
+    margin-left: 15px;
+    width: 210px;
+    height: 40px;
+    /* margin-bottom: 10px; */
+    /* background-color: white; */
+`
+const Icon2 = styled.div`
+    color: #3e4956;
+    font-size: 23px;
+    cursor: pointer;
+`
+const Home = styled.div`
+    width: 100%;
+    display: flex;
+    margin-top: 70px;
+    align-items: center;
+`
+const Img2 = styled.img`
+    height: 30px;
+    @media screen and (max-width: 1024px) {
+        height: 25px;
+    }
+`
+const Top = styled.div`
+    display: flex;
+    width: 100%;
+    margin-top: 50px;
+    
+`
 const Text = styled.div`
     margin-left: 25px;
 `
@@ -55,17 +228,25 @@ const Up = styled.div`
     align-items: center;
 `
 const Hold = styled.div`
-    width: 20%;
+    width: 18%;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #03993f;
-    top: 80px;
-    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
     left: 0;
+    right: 0;
+    position: fixed;
+    margin-top: 80px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    /* border-top-right-radius: 120px; */
     z-index: 2;
     overflow: hidden;
-    padding-top: 40px
+    @media screen and (max-width: 1024px) {
+        width: 100%;
+    }
+    @media screen and (max-width: 500px) {
+        width: 100%;
+    }
 `
 const Left = styled.div`
     font-size: 25px;

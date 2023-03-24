@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import img from "../Assets/21.jpeg"
 
@@ -54,9 +55,11 @@ const Latesttransact = () => {
               <Joined>$400</Joined>
           </Head2>
           <View>
+              <NavLink to="/transaction" style={{textDecoration: "none"}}>
                    <Button>
                   View More
               </Button>
+                  </NavLink>
           </View>
     </Container>
   )

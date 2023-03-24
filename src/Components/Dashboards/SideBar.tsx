@@ -175,11 +175,8 @@ const Ico = styled.div`
 const Img = styled.img`
   height: 30px;
 `;
-const Power = styled.div`
-  width: 100%;
-  display: flex;
-  margin-top: 195px;
-`;
+const Power = styled.div``;
+
 const Text5 = styled.div`
   font-size: 17px;
   font-family: U8, sans-serif;
@@ -234,7 +231,7 @@ const Text = styled.div`
   font-size: 17px;
   font-family: U8, sans-serif;
   cursor: pointer;
-  color: #fff;
+  /* color: #fff; */
   align-items: center;
   display: flex;
   margin-left: 30px;
@@ -242,6 +239,7 @@ const Text = styled.div`
   height: 40px;
   /* background-color: white; */
 `;
+
 const Text1 = styled.div`
   font-size: 17px;
   font-family: U8, sans-serif;
