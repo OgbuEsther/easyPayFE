@@ -175,7 +175,11 @@ const Ico = styled.div`
 const Img = styled.img`
   height: 30px;
 `;
-const Power = styled.div``;
+const Power = styled.div`
+    display: flex;
+    align-items: center;
+    margin-top: 230px;
+`;
 
 const Text5 = styled.div`
   font-size: 17px;
