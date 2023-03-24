@@ -8,13 +8,23 @@ import admin from "../../Assets/user.png";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
+import { adminLogin } from "../../api/adminEndpoints";
+import { registerAdmin } from "../../Global/ReduxState";
+import { UseAppDispatch } from "../../Global/Store";
+import { useQuery } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
+import Swal from "sweetalert2";
 
 const AdminSignIn = () => {
+  const dispatch = UseAppDispatch();
+
+  const navigate = useNavigate();
   const schema = yup
     .object({
-      email: yup.string().email().required(),
-      password: yup.string().min(9).required(),
-      companyName: yup.string().required("field must be required"),
+      companyEmail: yup.string().email().required(),
+      password: yup.string().required(),
+      // companyName: yup.string().required("field must be required"),
     })
     .required();
 
@@ -28,6 +38,43 @@ const AdminSignIn = () => {
   } = useForm<formData>({
     resolver: yupResolver(schema),
   });
+
+  const signin = useMutation({
+    mutationFn: adminLogin,
+    mutationKey: ["loginAllAdmin"],
+
+    // onSuccess: (data) => {
+    //   client.invalidateQueries(["socialMediaPost"]);
+    // },
+
+    onSuccess: (myData) => {
+      Swal.fire({
+        title: "login",
+        html: "redirecting to dashboard",
+        timer: 2000,
+        timerProgressBar: true,
+
+        willClose: () => {
+          navigate("/dashboard");
+        },
+      });
+      console.log("this is on success", dispatch(registerAdmin(myData.data)));
+    },
+    onError: () => {
+      Swal.fire({
+        title: "registration failed",
+        text: "email or password incorrect",
+        icon: "error",
+      });
+    },
+  });
+
+  const submit = handleSubmit((data) => {
+    signin.mutate(data);
+    console.log(`this is yup signin`, data);
+    reset();
+  });
+
   return (
     <Container>
       <Wrapper>
@@ -38,9 +85,9 @@ const AdminSignIn = () => {
           <SignInputHold>
             <SignTitle>Log In</SignTitle>
             <SignSubTitle>To Intract with your account</SignSubTitle>
-            <InputForm>
+            <InputForm onSubmit={submit}>
               <InputDiv
-                {...register("email")}
+                {...register("companyEmail")}
                 placeholder="Email"
                 type="email"
               />
@@ -152,6 +199,7 @@ const InputButton = styled.button`
   height: 40px;
   border: none;
   outline: none;
+  cursor: pointer;
   font-family: Montserrat;
   font-weight: 700;
   color: #fff;

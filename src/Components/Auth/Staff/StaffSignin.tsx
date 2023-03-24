@@ -1,18 +1,28 @@
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FiArrowLeftCircle } from "react-icons/fi";
 import styled from "styled-components";
 import image from "../../Assets/usersignin.png";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
+import { UseAppDispatch } from "../../Global/Store";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { registerClient } from "../../Global/ReduxState";
+import { loginClient } from "../../api/staffEndpoints";
+import { useDispatch } from "react-redux";
+import Swal from "sweetalert2";
 
 const StaffSignin = () => {
+  const dispatch = useDispatch();
+  const client = useQueryClient();
+  const navigate = useNavigate();
+
   const schema = yup
     .object({
       email: yup.string().email().required(),
-      password: yup.string().min(9).required(),
+      password: yup.string().required(),
       companyName: yup.string().required("field must be required"),
     })
     .required();
@@ -28,6 +38,40 @@ const StaffSignin = () => {
     resolver: yupResolver(schema),
   });
 
+  const signin = useMutation({
+    mutationFn: loginClient,
+    mutationKey: ["loginClients"],
+
+    onSuccess: (myData) => {
+      console.log(myData);
+      Swal.fire({
+        title: "login",
+        html: "redirecting to dashboard",
+        timer: 2000,
+        timerProgressBar: true,
+
+        willClose: () => {
+          navigate("/dashboard");
+        },
+      });
+
+      console.log("this is on success", dispatch(registerClient(myData.data)));
+    },
+    onError: () => {
+      Swal.fire({
+        title: "registration failed",
+        text: "email or password incorrect",
+        icon: "error",
+      });
+    },
+  });
+
+  const Submit = handleSubmit((data) => {
+    signin.mutate(data);
+    console.log(`this is yup signin`, data);
+    reset();
+  });
+
   return (
     <Container>
       <Wrapper>
@@ -38,7 +82,7 @@ const StaffSignin = () => {
           <SignInputHold>
             <SignTitle>Log In</SignTitle>
             <SignSubTitle>To Intract with your account</SignSubTitle>
-            <InputForm>
+            <InputForm onSubmit={Submit}>
               <InputDiv
                 {...register("email")}
                 placeholder="Email"
@@ -54,7 +98,7 @@ const StaffSignin = () => {
               <InputDiv
                 {...register("companyName")}
                 placeholder="Company's Name"
-                type="password"
+                type="text"
               />
               <p>{errors?.companyName && errors?.companyName?.message}</p>
               <InputButton type="submit">Sign In</InputButton>
