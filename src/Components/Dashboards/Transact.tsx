@@ -197,9 +197,10 @@ const Head = styled.div`
     align-items: center;
     display: flex;
     height: 70px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
     position: sticky;
+    border-radius: 10px;
 `
 const Boxhold = styled.div`
     width: 100%;
@@ -227,4 +228,7 @@ const Container = styled.div`
     margin-bottom: 30px;
     background-color: #fff;
     margin-left: 260px;
+    @media screen and (max-width: 1024px) {
+        margin-left: 0;
+    }
 `
