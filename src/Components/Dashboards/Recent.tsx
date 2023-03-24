@@ -125,7 +125,7 @@ const Circle = styled.div`
   /* background-color: red; */
   display: flex;
   justify-content: center;
-  background-color: #0d71fa;
+  background-color: #2aa7ff;
   align-items: center;
   border-radius: 50px;
   overflow: hidden;
