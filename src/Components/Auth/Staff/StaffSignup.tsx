@@ -59,7 +59,7 @@ const StaffSignup = () => {
       timerProgressBar: true,
 
       willClose: () => {
-        navigate("/dashboard");
+        navigate("/staffdashboard");
       },
     });
   });

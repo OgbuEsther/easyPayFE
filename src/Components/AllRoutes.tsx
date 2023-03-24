@@ -5,6 +5,7 @@ import Payments from './Dashboards/payments'
 import Product from './Dashboards/Product'
 import Homescreen from "./Homescreen"
 import Transaction from "./Dashboards/Transaction"
+import Staffdash from "./StaffDashboard/Staffdash"
 
 
 
@@ -30,6 +31,10 @@ const AllRoutes = () => {
       {
             path: "/transaction",
             element: <Transaction />,
+          },
+      {
+            path: "/staffdashboard",
+            element: <Staffdash />,
         },
 ])
   return element
