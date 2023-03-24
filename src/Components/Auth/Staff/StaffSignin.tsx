@@ -184,6 +184,9 @@ const InputForm = styled.form`
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
+  p {
+    margin: 0;
+  }
 `;
 const InputDiv = styled.input`
   height: 45px;
