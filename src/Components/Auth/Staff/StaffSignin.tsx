@@ -51,7 +51,7 @@ const StaffSignin = () => {
         timerProgressBar: true,
 
         willClose: () => {
-          navigate("/dashboard");
+          navigate("/staffdashboard");
         },
       });
 
