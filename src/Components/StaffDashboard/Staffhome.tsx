@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import img from "../Assets/person.png"
+import Staffcards from "./Staffcards"
 
 
 const Staffhome = () => {
@@ -17,6 +18,8 @@ const Staffhome = () => {
                     </Bold>
                 </Left>
               </Top>
+
+              <Staffcards />
         </Wrapper>
     </Container>
   )
@@ -72,6 +75,7 @@ const Container = styled.div`
     justify-content: center;
     margin-left: 260px;
     overflow: hidden;
+    padding-bottom: 10px;
     @media screen and (max-width: 1024px) {
         width: 100%;
         margin-left: 0px;
