@@ -4,8 +4,9 @@ import Dashhead from './Dashhead'
 import Lists from './Lists'
 import Pay from './Pay'
 import SideBar from './SideBar'
+import Transact from "./Transact"
 
-const Payments = () => {
+const Transaction = () => {
   return (
       <Container>
           <Dashhead />
@@ -13,12 +14,12 @@ const Payments = () => {
       <br />
       <br />
       <br />
-      <Pay />
+      <Transact />
     </Container>
   )
 }
 
-export default Payments
+export default Transaction
 
 const Container = styled.div`
     width: calc(100% - 19%);

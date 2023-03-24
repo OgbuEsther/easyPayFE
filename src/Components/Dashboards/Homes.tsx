@@ -16,7 +16,8 @@ const Home = () => {
             <Top>
                 <Left>
                     <Bold>
-                        <h1>Dashboard</h1>
+                          <h1>Dashboard</h1>
+                          <p></p>
                     </Bold>
                 </Left>
               </Top>
@@ -47,12 +48,13 @@ const P = styled.div`
 `
 const Bold = styled.div`
     h1{
-        font-size: 29px;
-    color: #000;
-    font-weight: 700;
-    font-family: U8,sans-serif;
-    margin: 0;
+        font-size: 28px;
+        color: #3e4956;
+        font-weight: 300;
+        margin: 0;
     }
+    display: flex;
+    flex-direction: column;
 `
 const Left = styled.div`
     display: flex;

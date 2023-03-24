@@ -40,7 +40,7 @@ const Button = styled.div`
     justify-content: center;
     align-items: center;
     color: #fff;
-    background-color: #03993F;
+    background-color: #0D71FA;
     border-radius: 50px;
     cursor: pointer;
     margin-top: 50px;

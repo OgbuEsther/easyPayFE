@@ -4,6 +4,7 @@ import Dashboard from './Dashboards/Dashboard'
 import Payments from './Dashboards/payments'
 import Product from './Dashboards/Product'
 import Homescreen from "./Homescreen"
+import Transaction from "./Dashboards/Transaction"
 
 
 
@@ -25,6 +26,10 @@ const AllRoutes = () => {
       {
             path: "/payroll",
             element: <Payments />,
+          },
+      {
+            path: "/transaction",
+            element: <Transaction />,
         },
 ])
   return element

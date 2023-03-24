@@ -195,13 +195,14 @@ const Head2 = styled.div`
 const Head = styled.div`
     margin-top: 15px;
     justify-content: space-between;
-    background-color: #03993f;
+    background-color: #0D71FA;
     align-items: center;
     display: flex;
     height: 70px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
     position: sticky;
+    border-radius: 10px;
 `
 const Boxhold = styled.div`
     width: 100%;
