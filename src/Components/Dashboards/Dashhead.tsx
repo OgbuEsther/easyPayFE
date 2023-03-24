@@ -32,11 +32,11 @@ const Dashhead = () => {
               <Left onClick={Toggle}>
                   <FiMenu />
               </Left>
-              {/* <Mid>
-                  <Inputhold>
-                      <
-                  </Inputhold>
-              </Mid> */}
+              <Mid>
+                  <Welcome>
+                      <h3>Welcome Back <span>Wiiliams</span></h3>
+                  </Welcome>
+              </Mid>
               <Right>
                   <Icons>
                       <IoIosNotificationsOutline />
@@ -118,6 +118,15 @@ const Dashhead = () => {
 }
 
 export default Dashhead
+const Welcome = styled.div`
+    span{
+        color: #0D71FA;
+    }
+`
+const Mid = styled.div`
+    display: flex;
+    align-items: center;
+`
 const Box = styled.div`
     display: flex;
     width: 40%;
@@ -329,7 +338,7 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     padding-right: 30px;
-    justify-content: flex-end;
+    justify-content: space-between;
     position: relative;
     @media screen and (max-width: 1024px) {
         width: 93%;
