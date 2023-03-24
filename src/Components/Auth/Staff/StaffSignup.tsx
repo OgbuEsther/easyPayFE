@@ -1,20 +1,27 @@
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { FiArrowLeftCircle } from "react-icons/fi";
 import image from "../../Assets/usersignin.png";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
+import { UseAppDispatch } from "../../Global/Store";
+import { useMutation } from "@tanstack/react-query";
+import { staffReg } from "../../api/staffEndpoints";
+import { registerClient } from "../../Global/ReduxState";
+import Swal from "sweetalert2";
 
 const StaffSignup = () => {
+  const dispatch = UseAppDispatch();
+  const navigate = useNavigate();
   const schema = yup
     .object({
-      name: yup.string().email().required(),
+      yourName: yup.string().required(),
       email: yup.string().email().required(),
-      position: yup.string().email().required(),
-      password: yup.string().min(9).required(),
+      position: yup.string().required(),
+      password: yup.string().required(),
       companyName: yup.string().required("field must be required"),
     })
     .required();
@@ -30,6 +37,33 @@ const StaffSignup = () => {
     resolver: yupResolver(schema),
   });
 
+  const newStaff = useMutation({
+    mutationFn: (data: any) => staffReg(data),
+    mutationKey: ["registerClient"],
+
+    onSuccess: (data: any) => {
+      console.log("my data", data);
+      dispatch(registerClient(data.data));
+    },
+  });
+
+  const Submit = handleSubmit((data) => {
+    newStaff.mutate(data);
+    console.log("this is yup data", data);
+
+    //reset();
+    Swal.fire({
+      title: "registration successful",
+      //html : redirecting to login",
+      timer: 2000,
+      timerProgressBar: true,
+
+      willClose: () => {
+        navigate("/dashboard");
+      },
+    });
+  });
+
   return (
     <Container>
       <Wrapper>
@@ -40,33 +74,37 @@ const StaffSignup = () => {
           <SignInputHold>
             <SignTitle>Sign Up</SignTitle>
             <SignSubTitle>To Intract with your account</SignSubTitle>
-            <InputForm>
+            <InputForm onSubmit={Submit}>
               <InputDiv
-                {...register("name")}
+                {...register("yourName")}
                 placeholder="Your Name"
                 type="text"
               />
+              <p>{errors?.yourName && errors?.yourName?.message} </p>
               <InputDiv
                 {...register("email")}
                 placeholder="Email "
                 type="email"
               />
+              <p>{errors?.email && errors?.email?.message} </p>
               <InputDiv
                 {...register("companyName")}
                 placeholder="Company's Name"
                 type="text"
               />
-
+              <p>{errors?.companyName && errors?.companyName?.message} </p>
               <InputDiv
                 {...register("position")}
                 placeholder="position"
                 type="text"
               />
+              <p>{errors?.position && errors?.position?.message} </p>
               <InputDiv
                 {...register("password")}
                 placeholder="password"
                 type="password"
               />
+              <p>{errors?.password && errors?.password?.message} </p>
               <InputButton type="submit">Sign Up</InputButton>
             </InputForm>
             <HasAcc>
@@ -148,6 +186,10 @@ const InputForm = styled.form`
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
+  p {
+    margin: 0px;
+    color: red;
+  }
 `;
 const InputDiv = styled.input`
   height: 45px;

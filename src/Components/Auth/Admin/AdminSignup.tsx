@@ -57,7 +57,7 @@ const AdminSignUp = () => {
       timerProgressBar: true,
 
       willClose: () => {
-        navigate("/");
+        navigate("/dashboard");
       },
     });
   });
@@ -178,6 +178,10 @@ const InputForm = styled.form`
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
+  p {
+    margin: 0;
+    color: red;
+  }
 `;
 const InputDiv = styled.input`
   height: 45px;

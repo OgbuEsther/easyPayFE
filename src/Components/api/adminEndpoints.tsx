@@ -9,6 +9,11 @@ interface adminData {
   password: string;
 }
 
+interface login {
+  companyEmail: string;
+  password: string;
+}
+
 export const adminReg = async ({
   companyName,
   companyEmail,
@@ -20,6 +25,15 @@ export const adminReg = async ({
       companyName,
       companyEmail,
       yourName,
+      password,
+    })
+    .then((res) => res.data);
+};
+
+export const adminLogin = async ({ companyEmail, password }: login) => {
+  return await axios
+    .post(`${adminAuth}/login`, {
+      companyEmail,
       password,
     })
     .then((res) => res.data);
