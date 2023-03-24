@@ -4,8 +4,6 @@ import img from "../Assets/person.png"
 import Cards from './Cards'
 import Latesttransact from './Latesttransact'
 import Recent from './Recent'
-import Sales from './Sales'
-import Todo from './Todo'
 
 const Home = () => {
   return (
