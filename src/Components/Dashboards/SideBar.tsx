@@ -110,7 +110,8 @@ const Img = styled.img`
 const Power = styled.div`
     width: 100%;
     display: flex;
-    margin-top: 195px;  
+    margin-top: 195px; 
+    align-items: center; 
 `
 const Text5 = styled.div`
     font-size: 17px;
@@ -166,7 +167,7 @@ const Text = styled.div`
     font-size: 17px;
     font-family: U8,sans-serif;
     cursor: pointer;
-    color: #fff;
+    /* color: #fff; */
     align-items: center;
     display: flex;
     margin-left: 30px;
