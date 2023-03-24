@@ -54,7 +54,7 @@ const Latesttransact = () => {
               <Joined>$400</Joined>
           </Head2>
           <View>
-              <Button>
+                   <Button>
                   View More
               </Button>
           </View>
@@ -70,7 +70,7 @@ const Button = styled.div`
     justify-content: center;
     align-items: center;
     color: #fff;
-    background-color: #03993F;
+    background-color: #0D71FA;
     border-radius: 50px;
     cursor: pointer;
 `
@@ -159,7 +159,7 @@ const Head2 = styled.div`
 const Head = styled.div`
     margin-top: 15px;
     justify-content: space-between;
-    background-color: #03993f;
+    background-color: #0D71FA;
     align-items: center;
     display: flex;
     height: 70px;

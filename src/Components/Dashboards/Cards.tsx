@@ -26,8 +26,6 @@ const Cards = () => {
                   <Sales><T>Wallet</T></Sales>
                   <Doll>
                       <h2>$3799.00</h2>
-                      <p>34.7%</p>
-                      <Com>Compared to April 2021</Com>
                   </Doll>
               </Card>
               
@@ -35,7 +33,6 @@ const Cards = () => {
                   <Sales><T>Number of Staffs</T></Sales>
                   <Doll>
                       <h2>100k</h2>
-                      <Com>Compared to April 2021</Com>
                   </Doll>
               </Card>
               
@@ -74,9 +71,10 @@ const Doll = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 30px;
+    margin-top: 55px;
     h2{
         margin: 0;
+        font-size: 27px;
     }
     p{
         color: #47ad24;
@@ -84,10 +82,11 @@ const Doll = styled.div`
     }
 `
 const T = styled.div`
-    margin-top: 10px;
-    margin-left: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
     color: #828f99;
     font-weight: 400;
+    font-size: 17px;
 `
 const Sales = styled.div`
     width: 100%;
@@ -325,7 +324,7 @@ const Container = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-top: 40px;
+    margin-top: 10px;
     /* @media screen and (max-width: 500px) {
         display
     } */
