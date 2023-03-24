@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const adminAuth = "http://localhost:2023/admin/";
+const adminAuth = "http://localhost:2023/admin";
 
 interface adminData {
   companyName: string;

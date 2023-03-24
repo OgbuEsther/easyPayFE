@@ -59,9 +59,10 @@ const StaffSignin = () => {
     },
     onError: () => {
       Swal.fire({
-        title: "registration failed",
-        text: "email or password incorrect",
         icon: "error",
+        title: "Oops...",
+        text: "Something went wrong! .....email or password  incorrect",
+        //  footer: '<a href="">Why do I have this issue?</a>',
       });
     },
   });
