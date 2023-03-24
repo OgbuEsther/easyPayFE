@@ -39,3 +39,7 @@ export const loginClient = async ({ email, companyName, password }: login) => {
     .post(`${staffAuth}/stafflogin`, { email, companyName, password })
     .then((res) => res.data);
 };
+
+export const getAllClients = async () => {
+  return await axios.get(`${staffAuth}/`).then((res) => res.data);
+};
