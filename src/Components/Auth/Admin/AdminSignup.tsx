@@ -19,7 +19,7 @@ const AdminSignUp = () => {
   const navigate = useNavigate();
   const schema = yup
     .object({
-      companyName: yup.string().required(),
+      companyname: yup.string().required(),
       companyEmail: yup.string().email().required(),
       password: yup.string().required(),
       yourName: yup.string().required("field must be required"),
@@ -74,11 +74,11 @@ const AdminSignUp = () => {
             <SignSubTitle>To Intract with your account</SignSubTitle>
             <InputForm onSubmit={submit}>
               <InputDiv
-                {...register("companyName")}
+                {...register("companyname")}
                 placeholder="enter the company's name"
                 type="text"
               />
-              <p>{errors?.companyName && errors?.companyName?.message} </p>
+              <p>{errors?.companyname && errors?.companyname?.message} </p>
               <InputDiv
                 {...register("companyEmail")}
                 placeholder=" enter the company's Email "

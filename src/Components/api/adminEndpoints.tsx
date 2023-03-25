@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const adminAuth = "http://localhost:2023/admin";
+export const live = "https://easypayendpoints.onrender.com"
 
 interface adminData {
   companyName: string;
@@ -14,19 +15,10 @@ interface login {
   password: string;
 }
 
-export const adminReg = async ({
-  companyName,
-  companyEmail,
-  yourName,
-  password,
-}: adminData) => {
+export const adminReg = async (data:any
+ ) => {
   return await axios
-    .post(`${adminAuth}/register`, {
-      companyName,
-      companyEmail,
-      yourName,
-      password,
-    })
+    .post(`${adminAuth}/register`, data)
     .then((res) => res.data);
 };
 
@@ -38,3 +30,8 @@ export const adminLogin = async ({ companyEmail, password }: login) => {
     })
     .then((res) => res.data);
 };
+
+
+export const getOneAdmin = async(id:any) =>{
+return await axios.get(`${live}/admin/${id}`).then((res) => res.data);
+}

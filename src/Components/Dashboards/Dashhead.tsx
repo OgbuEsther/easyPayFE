@@ -8,9 +8,24 @@ import img from "../Assets/blush12.png"
 import img2 from "../Assets/easy.png"
 import {MdDashboard} from "react-icons/md"
 import { NavLink } from 'react-router-dom'
+import { UseAppSelector } from '../Global/Store'
+import { useQuery } from '@tanstack/react-query'
+import { getOneAdmin } from '../api/adminEndpoints'
 
 
 const Dashhead = () => {
+
+    const user = UseAppSelector((state) => state.Admin);
+
+  console.log(user);
+
+  const fetchUser = useQuery({
+    queryKey: ["singleAdmin"],
+    queryFn: () => getOneAdmin(user?._id),
+  });
+
+  
+
     const [show, setShow] = useState(false)
     const [show2, setShow2] = useState(false)
     const [show3, setShow3] = useState(false)
@@ -34,7 +49,7 @@ const Dashhead = () => {
               </Left>
               <Mid>
                   <Welcome>
-                      <h3>Welcome Back <span>Wiiliams</span></h3>
+                      <h3>Welcome Back <span>{user?.yourName}</span></h3>
                   </Welcome>
               </Mid>
               <Right>

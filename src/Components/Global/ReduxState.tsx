@@ -24,12 +24,12 @@ interface adminData {
   companyEmail: string;
   yourName: string;
   password: string;
-  //   _id: string;
+    _id: string;
 }
 
 const initialState = {
-  Client: {} as userData | null,
-  Admin: {} as adminData | null,
+  Client: {} as any | null,
+  Admin: {} as any | null,
 };
 
 const ReduxState = createSlice({
