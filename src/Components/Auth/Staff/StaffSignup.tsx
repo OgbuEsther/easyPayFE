@@ -20,6 +20,7 @@ const StaffSignup = () => {
   const dispatch = UseAppDispatch();
   const navigate = useNavigate();
   const user = UseAppSelector((state)=>state.Admin)
+  console.log(user)
   const schema = yup
     .object({
       yourName: yup.string().required(),
@@ -42,7 +43,7 @@ const StaffSignup = () => {
   });
 
   const newStaff = useMutation({
-    // mutationKey: ["registerClient" ],
+    mutationKey: ["registerClient" ],
     mutationFn: (data:any) => {
       return staffReg(data, user?._id);
     },
@@ -59,8 +60,10 @@ const StaffSignup = () => {
     await axios
     .post(`${live}/staff/staffregister/${user?._id}`, data)
     .then((res) => {
+      dispatch(registerClient(data));
+      console.log(`this is res ${res}`)
       Swal.fire({
-        title: "succeful",
+        title: "successful",
         icon: "success",
       });
     })
