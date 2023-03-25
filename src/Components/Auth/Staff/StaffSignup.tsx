@@ -57,7 +57,7 @@ const StaffSignup = () => {
   const Submit = handleSubmit(async(data) => {
 
     await axios
-    .post(`${live}/staffregister/${user?._id}`, data)
+    .post(`${live}/staff/staffregister/${user?._id}`, data)
     .then((res) => {
       Swal.fire({
         title: "succeful",
@@ -96,7 +96,7 @@ const StaffSignup = () => {
           <SignInputHold>
             <SignTitle>Sign Up</SignTitle>
             <SignSubTitle>To Intract with your account</SignSubTitle>
-            <InputForm onSubmit={Submit}>
+            <InputForm>
               <InputDiv
                 {...register("yourName")}
                 placeholder="Your Name"
