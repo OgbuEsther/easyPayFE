@@ -19,7 +19,7 @@ const Dashhead = () => {
 
   console.log(user);
 
-  const fetchUser = useQuery({
+  const getAdmin = useQuery({
     queryKey: ["singleAdmin"],
     queryFn: () => getOneAdmin(user?._id),
   });

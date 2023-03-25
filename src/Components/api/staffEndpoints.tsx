@@ -4,7 +4,7 @@ const staffAuth = "http://localhost:2023/staff";
 export const live = "https://easypayendpoints.onrender.com"
 
 export interface staffData {
-  companyName: string;
+  companyname: string;
   email: string;
   yourName: string;
   password: string;
@@ -27,10 +27,10 @@ export interface login {
   password: string;
 }
 
-export const staffReg = async (id:any,data:any
+export const staffReg = async (data:staffData
  ) => {
   return await axios
-    .post(`${live}/staffregister/${id}`, data)
+    .post(`${live}/staff/staffregister`, data)
     .then((res) => res.data);
 };
 
