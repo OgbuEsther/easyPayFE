@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
-import {FaGoogleWallet} from "react-icons/fa"
+import { FaGoogleWallet } from "react-icons/fa"
+import { MdSchool } from "react-icons/md"
+import {BsBusFrontFill, BsHousesFill} from "react-icons/bs"
 
 const Cards = () => {
     const [show, setShow] = useState(false)
@@ -22,21 +24,39 @@ const Cards = () => {
                   </Circle>
                   <Wallet>
                       <p>Wallet</p>
-                      <h3>$400.000</h3>
+                      <h3>$000.00</h3>
                   </Wallet>
               </Card>
 
               <Card2>
-                  
+                  <Circle2>
+                      <MdSchool />
+                  </Circle2>
+                  <Wallet>
+                      <p>School Fees</p>
+                      <h3>$000.00</h3>
+                  </Wallet>
               </Card2>
 
-              {/* <Card>
-                  
-              </Card>
+              <Card3>
+                  <Circle3>
+                      <BsBusFrontFill />
+                  </Circle3>
+                  <Wallet>
+                      <p>Travel & Tour</p>
+                      <h3>$000.00</h3>
+                  </Wallet>
+              </Card3>
 
-              <Card>
-                  
-              </Card> */}
+              <Card4>
+                  <Circle4>
+                      <BsHousesFill />
+                  </Circle4>
+                  <Wallet>
+                      <p>Rents</p>
+                      <h3>$000.00</h3>
+                  </Wallet>
+              </Card4>
         </Boxhold>
 
     </Container>
@@ -59,6 +79,39 @@ const Wallet = styled.div`
         font-size: 25px;
     }
 `
+const Circle4 = styled.div`
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: #82d1b9;
+    color: #fff;
+    font-size: 30px;
+`
+const Circle3 = styled.div`
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: #8856dd;
+    color: #fff;
+    font-size: 30px;
+`
+const Circle2 = styled.div`
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: #f7a156;
+    color: #fff;
+    font-size: 30px;
+`
 const Circle = styled.div`
     width: 60px;
     height: 60px;
@@ -69,6 +122,32 @@ const Circle = styled.div`
     background-color: #3184f7;
     color: #fff;
     font-size: 30px;
+`
+const Card4 = styled.div`
+    width: 230px;
+    height: 150px;
+    background-color: #39A081;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius:10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 15px;
+`
+const Card3 = styled.div`
+    width: 230px;
+    height: 150px;
+    background-color: #6A3EB7;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius:10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 15px;
 `
 const Card2 = styled.div`
     width: 230px;
