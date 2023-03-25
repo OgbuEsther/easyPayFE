@@ -7,9 +7,25 @@ import img from "../Assets/blush12.png"
 import img2 from "../Assets/easy.png"
 import {MdDashboard} from "react-icons/md"
 import { NavLink } from 'react-router-dom'
+import { UseAppSelector } from '../Global/Store'
+import { useQuery } from '@tanstack/react-query'
+import { getOneStaff } from '../api/staffEndpoints'
 
 
 const Staffdashhead = () => {
+
+     const user = UseAppSelector((state) => state.Client);
+
+  console.log(user);
+
+  const getAStaff = useQuery({
+    queryKey: ["singleStaff"],
+    queryFn: () => getOneStaff(user?._id),
+  });
+
+  
+
+
     const [show, setShow] = useState(false)
     const [show2, setShow2] = useState(false)
     const [show3, setShow3] = useState(false)
@@ -31,6 +47,7 @@ const Staffdashhead = () => {
               <Left onClick={Toggle}>
                   <FiMenu />
               </Left>
+              <h3>welcome back <span>{user?.yourName}</span> 👋 </h3>
               {/* <Mid>
                   <Inputhold>
                       <

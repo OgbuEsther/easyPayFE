@@ -19,8 +19,7 @@ import axios from "axios";
 const StaffSignup = () => {
   const dispatch = UseAppDispatch();
   const navigate = useNavigate();
-  const user = UseAppSelector((state)=>state.Admin)
-  console.log(user)
+
   const schema = yup
     .object({
       yourName: yup.string().required(),
@@ -30,64 +29,50 @@ const StaffSignup = () => {
       companyname: yup.string().required("field must be required"),
     })
     .required();
-
-  type formData = yup.InferType<typeof schema>;
-
-  const {
-    handleSubmit,
-    formState: { errors },
-    reset,
-    register,
-  } = useForm<formData>({
-    resolver: yupResolver(schema),
-  });
-
-  const newStaff = useMutation({
-    mutationKey: ["registerClient" ],
-    mutationFn: (data:any) => {
-      return staffReg(data, user?._id);
-    },
-    // const [mutate, data ] = useMutation(staffReg);
-
-    onSuccess: (data: any) => {
-      console.log("my data", data);
-      dispatch(registerClient(data.data));
-    },
-  });
-
-  const Submit = handleSubmit(async(data) => {
-
-    await axios
-    .post(`${live}/staff/staffregister/${user?._id}`, data)
-    .then((res) => {
-      dispatch(registerClient(data));
-      console.log(`this is res ${res}`)
-      Swal.fire({
-        title: "successful",
-        icon: "success",
-      });
-    })
-    .catch((err) => {
-      Swal.fire({
-        title: "an error occured",
-        icon: "error",
-        text: `${err.response?.data?.message}`,
-      });
-      console.log(err);
+    type formData = yup.InferType<typeof schema>;
+    const {
+      handleSubmit,
+      formState: { errors },
+      reset,
+      register,
+    } = useForm<formData>({
+      resolver: yupResolver(schema),
     });
-
-    //reset();
-    Swal.fire({
-      title: "registration successful",
-      //html : redirecting to login",
-      timer: 2000,
-      timerProgressBar: true,
-
-      willClose: () => {
-        navigate("/staffdashboard");
+  
+    const newClient = useMutation({
+      mutationFn: (data: any) => staffReg(data),
+      mutationKey: ["registerStaff"],
+      onSuccess: (data: any) => {
+        // console.log("my data", data);
+        dispatch(registerClient(data.data));
+      },
+      onError: (error: any) => {
+        console.log("error", error);
+        // handle error here
+        Swal.fire({
+          title: "registration failed",
+          text: error.message,
+          icon: "error",
+        });
       },
     });
-  });
+    const submit = handleSubmit((data) => {
+      newClient.mutate(data);
+      console.log("this is yup data", data);
+      reset();
+      Swal.fire({
+        title: "registration succesful",
+        // html: "redirecting to login",
+        timer: 2000,
+        timerProgressBar: true,
+  
+        willClose: () => {
+          navigate("/dashboard");
+        },
+      });
+    });
+
+
 
   return (
     <Container>
@@ -99,7 +84,7 @@ const StaffSignup = () => {
           <SignInputHold>
             <SignTitle>Sign Up</SignTitle>
             <SignSubTitle>To Intract with your account</SignSubTitle>
-            <InputForm>
+            <InputForm onSubmit={submit}>
               <InputDiv
                 {...register("yourName")}
                 placeholder="Your Name"
@@ -130,9 +115,7 @@ const StaffSignup = () => {
                 type="password"
               />
               <p>{errors?.password && errors?.password?.message} </p>
-              <InputButton  onClick={() => {
-                Submit();
-              }}>Sign Up</InputButton>
+              <InputButton type="submit" >Sign Up</InputButton>
             </InputForm>
             <HasAcc>
               Already has an account?{" "}
