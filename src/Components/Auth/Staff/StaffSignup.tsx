@@ -7,22 +7,26 @@ import image from "../../Assets/usersignin.png";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { UseAppDispatch } from "../../Global/Store";
+import { UseAppDispatch, UseAppSelector } from "../../Global/Store";
 import { useMutation } from "@tanstack/react-query";
-import { staffReg } from "../../api/staffEndpoints";
+import { live, staffReg } from "../../api/staffEndpoints";
 import { registerClient } from "../../Global/ReduxState";
 import Swal from "sweetalert2";
+
+import { staffData } from "../../api/staffEndpoints";
+import axios from "axios";
 
 const StaffSignup = () => {
   const dispatch = UseAppDispatch();
   const navigate = useNavigate();
+  const user = UseAppSelector((state)=>state.Admin)
   const schema = yup
     .object({
       yourName: yup.string().required(),
       email: yup.string().email().required(),
       position: yup.string().required(),
       password: yup.string().required(),
-      companyName: yup.string().required("field must be required"),
+      companyname: yup.string().required("field must be required"),
     })
     .required();
 
@@ -38,8 +42,11 @@ const StaffSignup = () => {
   });
 
   const newStaff = useMutation({
-    mutationFn: (data: any) => staffReg(data),
-    mutationKey: ["registerClient"],
+    // mutationKey: ["registerClient" ],
+    mutationFn: (data:any) => {
+      return staffReg(data, user?._id);
+    },
+    // const [mutate, data ] = useMutation(staffReg);
 
     onSuccess: (data: any) => {
       console.log("my data", data);
@@ -47,9 +54,24 @@ const StaffSignup = () => {
     },
   });
 
-  const Submit = handleSubmit((data) => {
-    newStaff.mutate(data);
-    console.log("this is yup data", data);
+  const Submit = handleSubmit(async(data) => {
+
+    await axios
+    .post(`${live}/staffregister/${user?._id}`, data)
+    .then((res) => {
+      Swal.fire({
+        title: "succeful",
+        icon: "success",
+      });
+    })
+    .catch((err) => {
+      Swal.fire({
+        title: "an error occured",
+        icon: "error",
+        text: `${err.response?.data?.message}`,
+      });
+      console.log(err);
+    });
 
     //reset();
     Swal.fire({
@@ -88,11 +110,11 @@ const StaffSignup = () => {
               />
               <p>{errors?.email && errors?.email?.message} </p>
               <InputDiv
-                {...register("companyName")}
+                {...register("companyname")}
                 placeholder="Company's Name"
                 type="text"
               />
-              <p>{errors?.companyName && errors?.companyName?.message} </p>
+              <p>{errors?.companyname && errors?.companyname?.message} </p>
               <InputDiv
                 {...register("position")}
                 placeholder="position"
@@ -105,7 +127,9 @@ const StaffSignup = () => {
                 type="password"
               />
               <p>{errors?.password && errors?.password?.message} </p>
-              <InputButton type="submit">Sign Up</InputButton>
+              <InputButton  onClick={() => {
+                Submit();
+              }}>Sign Up</InputButton>
             </InputForm>
             <HasAcc>
               Already has an account?{" "}

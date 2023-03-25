@@ -1,14 +1,25 @@
 import axios from "axios";
 
 const staffAuth = "http://localhost:2023/staff";
+export const live = "https://easypayendpoints.onrender.com"
 
-interface staffData {
+export interface staffData {
   companyName: string;
   email: string;
   yourName: string;
   password: string;
   position: string;
+  _id : string
 }
+
+// interface adminData {
+//   companyName: string;
+//   companyEmail: string;
+//   yourName: string;
+//   password: string;
+//     _id: string;
+// }
+
 
 export interface login {
   email: string;
@@ -16,21 +27,10 @@ export interface login {
   password: string;
 }
 
-export const staffReg = async ({
-  companyName,
-  email,
-  yourName,
-  password,
-  position,
-}: staffData) => {
+export const staffReg = async (id:any,data:any
+ ) => {
   return await axios
-    .post(`${staffAuth}/staffregister`, {
-      companyName,
-      email,
-      yourName,
-      password,
-      position,
-    })
+    .post(`${live}/staffregister/${id}`, data)
     .then((res) => res.data);
 };
 

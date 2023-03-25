@@ -14,19 +14,10 @@ interface login {
   password: string;
 }
 
-export const adminReg = async ({
-  companyName,
-  companyEmail,
-  yourName,
-  password,
-}: adminData) => {
+export const adminReg = async (data:any
+ ) => {
   return await axios
-    .post(`${adminAuth}/register`, {
-      companyName,
-      companyEmail,
-      yourName,
-      password,
-    })
+    .post(`${adminAuth}/register`, data)
     .then((res) => res.data);
 };
 
