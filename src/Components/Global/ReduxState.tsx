@@ -10,7 +10,7 @@ interface userData {
   yourName: string;
   email: string;
   password: string;
-  companyName: string;
+  companyname: string;
   position: string;
 }
 
@@ -20,16 +20,18 @@ interface loginAdmin {
 }
 
 interface adminData {
-  companyName: string;
+  companyname: string;
   companyEmail: string;
   yourName: string;
   password: string;
     _id: string;
 }
 
+
+
 const initialState = {
-  Client: {} as any | null,
-  Admin: {} as any | null,
+  Client: {} as userData | null,
+  Admin: {} as adminData | null,
 };
 
 const ReduxState = createSlice({
@@ -49,7 +51,9 @@ const ReduxState = createSlice({
     logoutAdmin: (state) => {
       state.Admin = null;
     },
-  },
+
+    
+  }
 });
 
 export const { registerClient, registerAdmin, logOut, logoutAdmin } =
