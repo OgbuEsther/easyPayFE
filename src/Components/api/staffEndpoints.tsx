@@ -43,3 +43,8 @@ export const loginClient = async ({ email, companyName, password }: login) => {
 export const getAllClients = async () => {
   return await axios.get(`${staffAuth}/`).then((res) => res.data);
 };
+
+
+export const getOneStaff = async(id:any) =>{
+  return await axios.get(`${live}/staff/${id}`).then((res) => res.data);
+  }
