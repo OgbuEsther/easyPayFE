@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const adminAuth = "http://localhost:2023/admin";
+export const live = "https://easypayendpoints.onrender.com"
 
 interface adminData {
   companyName: string;
@@ -29,3 +30,8 @@ export const adminLogin = async ({ companyEmail, password }: login) => {
     })
     .then((res) => res.data);
 };
+
+
+export const getOneAdmin = async(id:any) =>{
+return await axios.get(`${live}/admin/${id}`).then((res) => res.data);
+}
