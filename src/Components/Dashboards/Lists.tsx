@@ -20,93 +20,92 @@ const Recent = () => {
           <h2>List of Staffs</h2>
         </Top>
         <Boxhold></Boxhold>
-        <Head>
-          <Navs>Staff</Navs>
-          <Navs>Role</Navs>
-          <Navs>Joined</Navs>
-        </Head>
+        <Table>
+          <table>
+            <tr>
+              <th>Staff</th>
+              <th>Role</th>
+              <th>Joined</th>
+            </tr>
+            </table>
+        </Table>
         {allClients?.data?.data?.map((props: any) => (
-          <Head2 key={props._id}>
-            <Profilehold>
-              <Circle>
+          <Table2 key={props._id}>
+            <table>
+              <th>
                 {/* <Img src={img} /> */}
                 {props.yourName.charAt().toUpperCase()}
-              </Circle>
-              <Name>{props.yourName}</Name>
-            </Profilehold>
+                <Name>{props.yourName}</Name>
+              </th>
+              
+            
 
-            <Role>{props.position}</Role>
+            <th>{props.position}</th>
 
-            <Joined>10/12/09</Joined>
-          </Head2>
+            <th>10/12/09</th>
+            </table>
+          </Table2>
         ))}
-        {/* <Head2>
-          <Profilehold>
-            <Circle>
-              <Img src={img} />
-            </Circle>
-            <Name>Ogbu Esther</Name>
-          </Profilehold>
-
-          <Role>Supervisor</Role>
-
-          <Joined>10/12/09</Joined>
-        </Head2> */}
-
-        {/* <Head2>
-          <Profilehold>
-            <Circle>
-              <Img src={img} />
-            </Circle>
-            <Name>Ogbu Esther</Name>
-          </Profilehold>
-
-          <Role>Supervisor</Role>
-
-          <Joined>10/12/09</Joined>
-        </Head2>
-        <Head2>
-          <Profilehold>
-            <Circle>
-              <Img src={img} />
-            </Circle>
-            <Name>Ogbu Esther</Name>
-          </Profilehold>
-
-          <Role>Supervisor</Role>
-
-          <Joined>10/12/09</Joined>
-        </Head2> */}
-        {/* <Head2>
-          <Profilehold>
-            <Circle>
-              <Img src={img} />
-            </Circle>
-            <Name>Ogbu Esther</Name>
-          </Profilehold>
-
-          <Role>Supervisor</Role>
-
-          <Joined>10/12/09</Joined>
-        </Head2>
-        <Head2>
-          <Profilehold>
-            <Circle>
-              <Img src={img} />
-            </Circle>
-            <Name>Ogbu Esther</Name>
-          </Profilehold>
-
-          <Role>Supervisor</Role>
-
-          <Joined>10/12/09</Joined>
-        </Head2> */}
+        
       </div>
     </Container>
   );
 };
 
 export default Recent;
+const Table2 = styled.div`
+  overflow-x: auto;
+  font-size: 14px;
+  table {
+    width: 100%;
+  }
+  table,
+  th,
+  td {
+    border: 1px solid lightgray;
+    border-collapse: collapse;
+  }
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  th,
+  td {
+    padding: 15px 10px;
+    text-align: left;
+  }
+  th {
+    font-size: 13px;
+    background-color: #0d71fa;
+    color: #fff;
+  }
+`;
+const Table = styled.div`
+  overflow-x: auto;
+  font-size: 14px;
+  margin-top: 30px;
+  table {
+    width: 100%;
+  }
+  table,
+  th,
+  td {
+    border: 1px solid lightgray;
+    border-collapse: collapse;
+  }
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  th,
+  td {
+    padding: 15px 10px;
+    text-align: left;
+  }
+  th {
+    font-size: 13px;
+    background-color: #0d71fa;
+    color: #fff;
+  }
+`;
 const Button = styled.div`
   width: 120px;
   height: 40px;
