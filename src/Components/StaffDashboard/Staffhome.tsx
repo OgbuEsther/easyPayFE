@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import img from "../Assets/person.png"
 import Staffcards from "./Staffcards"
+import Plans from "../StaffDashboard/Plans"
 
 
 const Staffhome = () => {
@@ -18,8 +19,8 @@ const Staffhome = () => {
                     </Bold>
                 </Left>
               </Top>
-
               <Staffcards />
+              <Plans />
         </Wrapper>
     </Container>
   )

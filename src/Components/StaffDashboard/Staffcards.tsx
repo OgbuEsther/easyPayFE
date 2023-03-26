@@ -30,15 +30,30 @@ const Cards = () => {
 
               <Card2>
                   <Circle2>
+                      <FaGoogleWallet />
+                  </Circle2>
+                  <Wallet>
+                      <p>Wallet id</p>
+                      <h3>1126490654</h3>
+                  </Wallet>
+              </Card2>
+
+              <Card3>
+                  <Spend>Spendings</Spend>
+              </Card3>
+
+              
+              {/* <Card2>
+                  <Circle2>
                       <MdSchool />
                   </Circle2>
                   <Wallet>
                       <p>School Fees</p>
                       <h3>$000.00</h3>
                   </Wallet>
-              </Card2>
+              </Card2> */}
 
-              <Card3>
+              {/* <Card3>
                   <Circle3>
                       <BsBusFrontFill />
                   </Circle3>
@@ -46,9 +61,9 @@ const Cards = () => {
                       <p>Travel & Tour</p>
                       <h3>$000.00</h3>
                   </Wallet>
-              </Card3>
+              </Card3> */}
 
-              <Card4>
+              {/* <Card4>
                   <Circle4>
                       <BsHousesFill />
                   </Circle4>
@@ -56,7 +71,7 @@ const Cards = () => {
                       <p>Rents</p>
                       <h3>$000.00</h3>
                   </Wallet>
-              </Card4>
+              </Card4> */}
         </Boxhold>
 
     </Container>
@@ -64,6 +79,9 @@ const Cards = () => {
 }
 
 export default Cards
+const Spend = styled.div`
+    
+`
 const Wallet = styled.div`
     display: flex;
     flex-direction: column;
@@ -76,7 +94,7 @@ const Wallet = styled.div`
     h3{
         color: #fff;
         margin-top: 5px;
-        font-size: 25px;
+        font-size: 23px;
     }
 `
 const Circle4 = styled.div`
@@ -137,17 +155,15 @@ const Card4 = styled.div`
     padding-left: 15px;
 `
 const Card3 = styled.div`
-    width: 230px;
-    height: 150px;
-    background-color: #6A3EB7;
+    width: 330px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius:10px;
     display: flex;
-    align-items: center;
     cursor: pointer;
     padding-left: 15px;
+    padding-top: 15px;
 `
 const Card2 = styled.div`
     width: 230px;
@@ -157,6 +173,7 @@ const Card2 = styled.div`
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius:10px;
+    margin-left: 15px;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -179,7 +196,7 @@ const Card = styled.div`
 const Boxhold = styled.div`
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     margin-top: 15px;
     flex-wrap: wrap;
     @media screen and (max-width: 500px) {
