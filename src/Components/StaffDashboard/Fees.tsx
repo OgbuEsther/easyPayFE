@@ -1,13 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import img from "../Assets/21.jpeg";
 import { getAllClients } from "../api/staffEndpoints";
 import { UseAppSelector } from "../Global/Store";
-import {AiOutlineHome} from "react-icons/ai"
+import { AiOutlineHome } from "react-icons/ai"
+import Cardpay from "./Cardpay";
+import { NavLink } from "react-router-dom";
 
 
 const Recent = () => {
+  const [show, setShow] = useState(false)
+
+  const Toggle = () => {
+    setShow(!show)
+  }
   const allClients = useQuery({
     queryKey: ["viewClients"],
     queryFn: getAllClients,
@@ -25,7 +32,9 @@ const Recent = () => {
               <Div></Div>
               <Down>
                   <AiOutlineHome />
-                  <p>Withdraw</p>
+          <NavLink to="/payment" style={{textDecoration: "none"}}>
+            <p>Withdraw</p>
+                  </NavLink>
               </Down>
           </Box>
           <Transact>
@@ -37,7 +46,6 @@ const Recent = () => {
               <Div></Div>
               <Last>No transactions to display for now</Last>
           </Transact>
-          
     </Container>
   );
 };

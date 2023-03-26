@@ -41,7 +41,7 @@ const AllRoutes = () => {
             element: <Staffdash />,
           },
       {
-            path: "/card",
+            path: "/payment",
             element: <Cardpay />,
           },
       {
