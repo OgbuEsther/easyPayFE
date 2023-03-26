@@ -345,7 +345,7 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     padding-right: 30px;
-    justify-content: flex-end;
+    justify-content: space-between;
     position: relative;
     @media screen and (max-width: 1024px) {
         width: 93%;
