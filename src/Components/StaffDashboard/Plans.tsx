@@ -22,7 +22,11 @@ const Recent = () => {
               </Left>
               <Right>
                   <Top>Savings Plan</Top>
-                  <P><p>We offer great saving Plan's which</p></P>
+                  <P>
+                      <p>Discover effective strategies for compounding money over time</p>
+                      <Down><p>This savings plan can be your financial nest towards achieving any capital project such as building a house or against unforeseen circumstances such as disability.</p></Down>
+                        <Button>Start Plans</Button>
+                  </P>
               </Right>
           </Cardhold>
 
@@ -31,9 +35,34 @@ const Recent = () => {
 };
 
 export default Recent;
+const Button = styled.button`
+    width: 120px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    background-color: #0D71FA;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 350ms ease-in-out;
+    :hover{
+        background-color: #fff;
+        color: #0D71FA;
+        border: 1px solid #0D71FA;
+    }
+`
+const Down = styled.div`
+    
+`
 const P = styled.div`
+    flex-direction: column;
+    display: flex;
+    align-items: center;
     p{
-        
+
     }
 `
 const Right = styled.div`
@@ -97,8 +126,8 @@ const Cardhold = styled.div`
 `
 const Top = styled.div`
     display: flex;
-    font-size: 20px;
-    font-weight: 400;
+    font-size: 23px;
+    font-weight: 500;
     margin-left: -30px;
 `
 
