@@ -1,11 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import img from "../Assets/save.svg";
 import { getAllClients } from "../api/staffEndpoints";
 import { UseAppSelector } from "../Global/Store";
 import {BsArrowRightShort} from "react-icons/bs"
 const Recent = () => {
+    const [show, setShow] = useState(false)
+
+    const Toggle = () => {
+        setShow(!show)
+    }
   const allClients = useQuery({
     queryKey: ["viewClients"],
     queryFn: getAllClients,
@@ -25,16 +30,35 @@ const Recent = () => {
                   <P>
                       <p>Discover effective strategies for compounding money over time</p>
                       <Down><p>This savings plan can be your financial nest towards achieving any capital project such as building a house or against unforeseen circumstances such as disability.</p></Down>
-                        <Button>Start Plans</Button>
+                        <Button onClick={Toggle}>Start Plans</Button>
                   </P>
               </Right>
           </Cardhold>
+
+          {show ? (
+              <Plans>
+              
+          </Plans>
+          ) : null}
 
     </Container>
   );
 };
 
 export default Recent;
+const Plans = styled.div`
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 5;
+`
 const Button = styled.button`
     width: 120px;
     height: 40px;
