@@ -1,5 +1,4 @@
 import React from "react";
-import { FcGoogle } from "react-icons/fc";
 import { NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { FiArrowLeftCircle } from "react-icons/fi";
@@ -42,21 +41,21 @@ const AdminSignUp = () => {
     mutationKey: ["registerAdmin"],
 
     onSuccess: (data: any) => {
-      console.log("my data", data);
+      // console.log("my data", data);
       dispatch(registerAdmin(data.data));
     },
     onError: () => {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        // text: "Something went wrong! .....email or password  incorrect",
+        text: "Something went wrong! .....make sure you fill in the valid details",
         //  footer: '<a href="">Why do I have this issue?</a>',
       });
     },
   });
   const submit = handleSubmit((data) => {
     newClient.mutate(data);
-    console.log("this is yup data", data);
+    // console.log("this is yup data", data);
     // reset();
     Swal.fire({
       title: "registration succesful",

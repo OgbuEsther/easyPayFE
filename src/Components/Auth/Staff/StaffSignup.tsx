@@ -47,18 +47,18 @@ const StaffSignup = () => {
         dispatch(registerClient(data.data));
       },
       onError: (error: any) => {
-        console.log("error", error);
+        // console.log("error", error);
         // handle error here
         Swal.fire({
           title: "registration failed",
-          text: error.message,
+          text: "Something went wrong! .....make sure you fill in the valid details",
           icon: "error",
         });
       },
     });
     const submit = handleSubmit((data) => {
       newClient.mutate(data);
-      console.log("this is yup data", data);
+      // console.log("this is yup data", data);
       reset();
       Swal.fire({
         title: "registration succesful",
