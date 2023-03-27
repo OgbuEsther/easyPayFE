@@ -6,6 +6,7 @@ import { getAllClients } from "../api/staffEndpoints";
 import { UseAppSelector } from "../Global/Store";
 import {BsArrowRightShort} from "react-icons/bs"
 import { FaGoogleWallet } from "react-icons/fa"
+import { NavLink } from "react-router-dom";
 const Recent = () => {
     const [show, setShow] = useState(false)
     const [show2, setShow2] = useState(false)
@@ -93,7 +94,9 @@ const Recent = () => {
                               <Input2 type="checkbox" /> <label htmlFor="">Subscribe</label>
                           </Subhold>
                       </Tap>
-                      <button>Proceed</button>
+                      <NavLink to="/Rent" style={{textDecoration: "none"}}>
+                          <button>Proceed</button>
+                      </NavLink>
               </Proceed>
           </Savehold>
           ) : null}
@@ -246,8 +249,11 @@ const Wallet = styled.div`
         outline: none;
         border: none;
         width: 90px;
+        background: none;
         height: 35px;
         border-radius: 50px;
+        text-decoration: underline;
+        color: #fff;
 
     }
 `
