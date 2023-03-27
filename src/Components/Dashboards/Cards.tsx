@@ -1,11 +1,20 @@
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { BsFillPiggyBankFill } from "react-icons/bs";
 import { FaMoneyBillAlt } from "react-icons/fa";
 import { GiExpense } from "react-icons/gi";
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 import styled from "styled-components";
+import { getOneAdmin } from "../api/adminEndpoints";
+import { UseAppSelector } from "../Global/Store";
 
 const Cards = () => {
+  const user = UseAppSelector((state) => state.Admin);
+  const getAdmin = useQuery({
+    queryKey: ["singleAdmin"],
+    queryFn: () => getOneAdmin(user?._id),
+  });
+
   return (
     <Container>
       <Card>
@@ -17,8 +26,8 @@ const Cards = () => {
           >
             <MdOutlineAccountBalanceWallet />
           </IconHold>
-          <CardTitle>Balance</CardTitle>
-          <CardInfo>₦230,550</CardInfo>
+          <CardTitle>wallet Number </CardTitle>
+          <CardInfo>{user?.walletNumber} </CardInfo>
         </CardHold>
       </Card>
       <Card>
@@ -31,7 +40,7 @@ const Cards = () => {
             <FaMoneyBillAlt />
           </IconHold>
           <CardTitle>Company name</CardTitle>
-          <CardInfo>Codelab</CardInfo>
+          <CardInfo>{user?.companyname} </CardInfo>
         </CardHold>
       </Card>
       <Card>
@@ -44,7 +53,7 @@ const Cards = () => {
             <GiExpense />
           </IconHold>
           <CardTitle>Company code</CardTitle>
-          <CardInfo>322567</CardInfo>
+          <CardInfo>{user?.companyCode} </CardInfo>
         </CardHold>
       </Card>
       <Card>
@@ -57,7 +66,7 @@ const Cards = () => {
             <BsFillPiggyBankFill />
           </IconHold>
           <CardTitle>Admin name</CardTitle>
-          <CardInfo>Ogbu Esther</CardInfo>
+          <CardInfo>{user?.yourName} </CardInfo>
         </CardHold>
       </Card>
     </Container>
@@ -75,7 +84,7 @@ const Card = styled.div`
   width: 220px;
   background-color: #fff;
   border-radius: 3px;
-  border-bottom: 2px solid #0D71FA;
+  border-bottom: 2px solid #0d71fa;
   font-family: Montserrat;
   display: flex;
   justify-content: center;

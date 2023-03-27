@@ -3,18 +3,21 @@ import styled from 'styled-components'
 import { FaGoogleWallet } from "react-icons/fa"
 import { MdSchool } from "react-icons/md"
 import {BsBusFrontFill, BsHousesFill} from "react-icons/bs"
+import { UseAppSelector } from '../Global/Store'
+import { useQuery } from '@tanstack/react-query'
+import { getOneAdmin } from '../api/adminEndpoints'
 
 const Cards = () => {
-    const [show, setShow] = useState(false)
-    const [cancle, setCancle] = useState(false)
 
-    const Canc = () => {
-        setShow(false)
-    }
+  const admin = UseAppSelector((state)=> state.Admin)
 
-    const Toggle =() => {
-        setShow(!false)
-    }
+  const getAdmin = useQuery({
+    queryFn : ()=> getOneAdmin(admin?._id),
+    queryKey : ["getOneAmin"]
+  })
+
+  console.log("this is getadmin" , getAdmin)
+ 
   return (
     <Container>
         <Boxhold>

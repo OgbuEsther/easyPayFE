@@ -45,7 +45,7 @@ const Dashhead = () => {
               </Left>
               <Mid>
                   <Welcome>
-                      <h3>Welcome Back <span>{user?.yourName}</span></h3>
+                      <h3>Welcome Back <span>{user?.yourName.split(" ")[0]}</span></h3>
                   </Welcome>
               </Mid>
               <Right>
