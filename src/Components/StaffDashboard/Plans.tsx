@@ -6,6 +6,7 @@ import { getAllClients } from "../api/staffEndpoints";
 import { UseAppSelector } from "../Global/Store";
 import {BsArrowRightShort} from "react-icons/bs"
 import { FaGoogleWallet } from "react-icons/fa"
+import { NavLink } from "react-router-dom";
 const Recent = () => {
     const [show, setShow] = useState(false)
     const [show2, setShow2] = useState(false)
@@ -84,6 +85,18 @@ const Recent = () => {
               <Savehold>
                   <Proceed>
                       <Quick><h3>Rents</h3></Quick>
+                      <p>Enter an amount you want to save</p>
+
+                      <Tap>
+                          <p>Tap here & enter .. (e.g 5000)</p>
+                          <Input type="number" placeholder="Tap here & enter .. (e.g 5000)" />
+                          <Subhold>
+                              <Input2 type="checkbox" /> <label htmlFor="">Subscribe</label>
+                          </Subhold>
+                      </Tap>
+                      <NavLink to="/Rent" style={{textDecoration: "none"}}>
+                          <button>Proceed</button>
+                      </NavLink>
               </Proceed>
           </Savehold>
           ) : null}
@@ -93,19 +106,67 @@ const Recent = () => {
 };
 
 export default Recent;
+const Input2 = styled.input`
+    
+`
+const Subhold = styled.div`
+    display: flex;
+    margin-top: 3px;
+    label{
+         margin: 0;
+        font-size: 14px;
+        font-weight: 600;
+    }
+`
+const Input = styled.input`
+    height: 40px;
+    padding-left: 15px;
+    border-radius: 7px;
+    outline-color: #39A081;
+    outline-width: 3px;
+    margin-top: 3px;
+    border: 1px solid gray;
+`
+const Tap = styled.div`
+    p{
+        margin: 0;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+`
 const Quick = styled.div`
     h3{
         font-size: 25px;
         margin: 0;
+        color: #39A081;
     }
 `
 const Proceed = styled.div`
     width: 350px;
-    height: 370px;
+    height: 390px;
     background-color: #fff;
     border-radius: 10px;
     flex-direction: column;
-    padding: 15px;
+    padding: 20px;
+    p{
+        margin: 0;
+        font-size: 14px;
+        margin-top: 3px;
+    }
+    button{
+        width: 100%;
+        height: 50px;
+        background-color: #39A081;
+        color: #fff;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        margin-top: 100px;
+        cursor: pointer;
+    }
 `
 const Savehold = styled.div`
     width: 100%;
@@ -188,8 +249,11 @@ const Wallet = styled.div`
         outline: none;
         border: none;
         width: 90px;
+        background: none;
         height: 35px;
         border-radius: 50px;
+        text-decoration: underline;
+        color: #fff;
 
     }
 `
