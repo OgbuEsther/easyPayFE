@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import { FaSchool } from "react-icons/fa";
+import { FaGoogleWallet, FaSchool } from "react-icons/fa";
 import { MdAdminPanelSettings } from "react-icons/md";
 import { IoQrCode } from "react-icons/io5";
 
 import { UseAppSelector } from "../Global/Store";
-
 
 const Cards = () => {
   const user = UseAppSelector((state) => state.Admin);
@@ -31,6 +30,7 @@ const Cards = () => {
             <span>
 
               Company Name: <strong> {user?.companyname} </strong>{" "}
+
 
             </span>
           </Boxes>
