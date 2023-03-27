@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import img from "../Assets/21.jpeg";
+
 import { getAllClients } from "../api/staffEndpoints";
 import { useQuery } from "@tanstack/react-query";
 import { getOneAdmin } from "../api/adminEndpoints";
@@ -49,8 +49,10 @@ const Recent = () => {
         </Table>
        
         <BtnHold>
-          <NavLink to="/staffs">
-          <Button>View More</Button>
+
+          <NavLink to="/staffs" style={{textDecoration: "none"}}>
+            <Button>View More</Button>
+
           </NavLink>
         </BtnHold>
       </Wrapper>

@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import { FaSchool } from "react-icons/fa";
+import { FaGoogleWallet, FaSchool } from "react-icons/fa";
 import { MdAdminPanelSettings } from "react-icons/md";
 import { IoQrCode } from "react-icons/io5";
+
 import { UseAppSelector } from "../Global/Store";
 
 const Cards = () => {
@@ -11,14 +12,26 @@ const Cards = () => {
   return (
     <Container>
       <Wrapper>
-        <RowOne>
+              <RowOne>
+                  <Boxes>
+            <BoxOneIconHold bg="#EF7914">
+              {" "}
+              <FaGoogleWallet />{" "}
+            </BoxOneIconHold>
+            <span>
+              Wallet Bal: <strong> $0.00 </strong>{" "}
+            </span>
+          </Boxes>
           <Boxes>
             <BoxOneIconHold bg="#023047">
               {" "}
               <FaSchool />{" "}
             </BoxOneIconHold>
             <span>
+
               Company Name: <strong> {user?.companyname} </strong>{" "}
+
+
             </span>
           </Boxes>
           <Boxes>
@@ -72,8 +85,8 @@ const RowOne = styled.div`
   }
 `;
 const Boxes = styled.div`
-  height: 120px;
-  width: 310px;
+  height: 170px;
+  width: 230px;
   background-color: #fff;
   margin: 10px 10px;
   display: flex;
