@@ -27,22 +27,7 @@ const Staffhome = () => {
 }
 
 export default Staffhome
-const Img = styled.img`
-    height: 45px;
-`
-const Right = styled.div`
-    display: flex;
-    align-items: center;
-`
-const P = styled.div`
-    p{
-        color: #718096;
-        font-family: Karla,sans-serif;
-        font-size: .875rem;
-        margin: 0;
-    }
-    margin-top: 7px;
-`
+
 const Bold = styled.div`
     h1{
         font-size: 28px;

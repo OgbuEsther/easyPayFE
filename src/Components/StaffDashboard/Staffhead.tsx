@@ -47,7 +47,7 @@ const Staffdashhead = () => {
               <Left onClick={Toggle}>
                   <FiMenu />
               </Left>
-              <h3>welcome back <span>{user?.yourName}</span> 👋 </h3>
+              <h3>welcome back <span>{user?.yourName.split(" ")[0]}</span> 👋 </h3>
               {/* <Mid>
                   <Inputhold>
                       <
