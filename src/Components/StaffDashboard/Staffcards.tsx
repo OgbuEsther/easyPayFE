@@ -1,4 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7671a49eb50fae8338f9044388eb74a3f8687baa
 import React from 'react'
 import styled from 'styled-components'
 import { FaGoogleWallet } from "react-icons/fa"
@@ -50,6 +54,7 @@ const Cards = () => {
                   </Wallet>
               </Card2> */}
 
+<<<<<<< HEAD
               {/* <Card3>
                   <Circle3>
                       <BsBusFrontFill />
@@ -72,6 +77,8 @@ const Cards = () => {
         </Boxhold>
 
 =======
+=======
+>>>>>>> 7671a49eb50fae8338f9044388eb74a3f8687baa
 import React from "react";
 import { BsFillPiggyBankFill } from "react-icons/bs";
 import { FaMoneyBillAlt } from "react-icons/fa";
@@ -134,12 +141,42 @@ const Staffcards = () => {
           <CardInfo>₦20,890</CardInfo>
         </CardHold>
       </Card>
+<<<<<<< HEAD
 >>>>>>> b1cf657d26ef2b383e13781553c7d40ce8af48f0
+=======
+>>>>>>> 7671a49eb50fae8338f9044388eb74a3f8687baa
     </Container>
   );
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+export default Staffcards;
+
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+const Card = styled.div`
+  height: 120px;
+  width: 220px;
+  background-color: #fff;
+  border-radius: 3px;
+  border-bottom: 2px solid darkred;
+  font-family: Montserrat;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+
+  @media (max-width: 500px) {
+    width: 90%;
+  }
+`;
+
+
+>>>>>>> 7671a49eb50fae8338f9044388eb74a3f8687baa
 export default Cards
 const Spend = styled.div`
     
@@ -208,6 +245,7 @@ const Card2 = styled.div`
     cursor: pointer;
     padding-left: 15px;
 `
+<<<<<<< HEAD
 =======
 export default Staffcards;
 >>>>>>> b1cf657d26ef2b383e13781553c7d40ce8af48f0
@@ -231,11 +269,14 @@ const Card = styled.div`
     width: 90%;
   }
 `;
+=======
+>>>>>>> 7671a49eb50fae8338f9044388eb74a3f8687baa
 
 const CardHold = styled.div`
   width: 85%;
   margin-top: 15px;
 `;
+
 
 const IconHold = styled.div`
   height: 40px;
