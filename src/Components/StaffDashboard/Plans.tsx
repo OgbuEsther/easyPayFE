@@ -9,25 +9,49 @@ import { FaGoogleWallet } from "react-icons/fa"
 import { NavLink } from "react-router-dom";
 import {MdOutlineCancel} from "react-icons/md"
 const Recent = () => {
-    const [show, setShow] = useState(false)
-    const [show2, setShow2] = useState(false)
-    const [show3, setShow3] = useState(false)
+    const [plans, setplans] = useState(false)
+    const [rents, setRents] = useState(false)
+    const [fees, setfees] = useState(false)
+    const [tour, setTour] = useState(false)
+    const [remove, setremove] = useState(false)
+   
 
-    const Toggle = () => {
-        setShow(!show)
-    }
-
-    const Toggle2 = () => {
-        setShow2(!show2)
-        setShow(false)
-    }
-    const Toggle3 = () => {
-        setShow(false)
+    const Showplans = () => {
+        setplans(!plans)
     }
 
-     const Toggle4 = () => {
-        setShow2(false)
+    const Showrents = () => {
+        setRents(!rents)
+        setplans(false)
     }
+
+    const Showfees = () => {
+        setfees(!fees)
+        setplans(false)
+    }
+
+    const Showtour = () => {
+        setTour(!tour)
+        setplans(false)
+    }
+
+    const Remove = () => {
+        setplans(false)
+    }
+
+    const Removerent = () => {
+        setRents(false)
+    }
+
+    const Removefees = () => {
+        setfees(false)
+    }
+
+    const Removetour = () => {
+        setTour(false)
+    }
+
+    
 
    
   const allClients = useQuery({
@@ -49,13 +73,13 @@ const Recent = () => {
                   <P>
                       <p>Discover effective strategies for compounding money over time</p>
                       <Down><p>This savings plan can be your financial nest towards achieving any capital project such as building a house or against unforeseen circumstances such as disability.</p></Down>
-                        <Button onClick={Toggle}>Start Plans</Button>
+                        <Button onClick={Showplans}>Start Plans</Button>
                   </P>
               </Right>
           </Cardhold>
 
-          {show ? (
-              <Plans onClick={Toggle3}>
+          {plans ? (
+              <Plans onClick={Remove}>
                   <Holder>
                 <Card4>
                   <Circle4>
@@ -64,7 +88,7 @@ const Recent = () => {
                   <Wallet>
                         <h3>Rents</h3>
                               <p>Wallet id</p>
-                              <button onClick={Toggle2}>Get Started</button>
+                              <button onClick={Showrents}>Get Started</button>
                   </Wallet>
               </Card4>
 
@@ -74,7 +98,8 @@ const Recent = () => {
                   </Circle2>
                   <Wallet>
                         <h3>School fees</h3>
-                        <p>Wallet id</p>
+                              <p>Wallet id</p>
+                              <button onClick={Showfees}>Get Started</button>
                   </Wallet>
               </Card2>
 
@@ -85,10 +110,11 @@ const Recent = () => {
                   <Wallet>
                       
                         <h3>Travel & Tour</h3>
-                        <p>Wallet id</p>
+                              <p>Wallet id</p>
+                              <button onClick={Showtour}>Get Started</button>
                   </Wallet>
                       </Card3>
-                      <Icons >
+                      <Icons onClick={Remove}>
                       <MdOutlineCancel />
               </Icons>
                   </Holder>
@@ -96,8 +122,8 @@ const Recent = () => {
               </Plans>
           ) : null}
 
-          {show2 ? (
-              <Savehold onClick={Toggle4}>
+          {rents ? (
+              <Savehold >
                   <Proceed>
                       <Quick><h3>Rents</h3></Quick>
                       <p>Enter an amount you want to save</p>
@@ -112,10 +138,56 @@ const Recent = () => {
                       <NavLink to="/Rent" style={{textDecoration: "none"}}>
                           <button>Proceed</button>
                       </NavLink>
-                      <Icron onClick={Toggle4}>
+                      <Icron onClick={Removerent}>
                           <MdOutlineCancel />
                       </Icron>
               </Proceed>
+          </Savehold>
+          ) : null}
+
+          {fees ? (
+              <Savehold >
+                  <Proceed2>
+                      <Quick2><h3>School fees</h3></Quick2>
+                      <p>Enter an amount you want to save</p>
+
+                      <Tap>
+                          <p>Tap here & enter .. (e.g 5000)</p>
+                          <Input3 type="number" placeholder="Tap here & enter .. (e.g 5000)" />
+                          <Subhold>
+                              <Input2 type="checkbox" /> <label htmlFor="">Subscribe</label>
+                          </Subhold>
+                      </Tap>
+                      <NavLink to="/schoolfees" style={{textDecoration: "none"}}>
+                          <button>Proceed</button>
+                      </NavLink>
+                      <Icron onClick={Removefees}>
+                          <MdOutlineCancel />
+                      </Icron>
+              </Proceed2>
+          </Savehold>
+          ) : null}
+
+          {tour ? (
+              <Savehold >
+                  <Proceed3>
+                      <Quick3><h3>Travel & Tour</h3></Quick3>
+                      <p>Enter an amount you want to save</p>
+
+                      <Tap>
+                          <p>Tap here & enter .. (e.g 5000)</p>
+                          <Input4 type="number" placeholder="Tap here & enter .. (e.g 5000)" />
+                          <Subhold>
+                              <Input2 type="checkbox" /> <label htmlFor="">Subscribe</label>
+                          </Subhold>
+                      </Tap>
+                      <NavLink to="/Travel" style={{textDecoration: "none"}}>
+                          <button>Proceed</button>
+                      </NavLink>
+                      <Icron onClick={Removetour}>
+                          <MdOutlineCancel />
+                      </Icron>
+              </Proceed3>
           </Savehold>
           ) : null}
 
@@ -152,6 +224,24 @@ const Subhold = styled.div`
         font-weight: 600;
     }
 `
+const Input4 = styled.input`
+    height: 40px;
+    padding-left: 15px;
+    border-radius: 7px;
+    outline-color: #6A3EB7;
+    outline-width: 3px;
+    margin-top: 3px;
+    border: 1px solid gray;
+`
+const Input3 = styled.input`
+    height: 40px;
+    padding-left: 15px;
+    border-radius: 7px;
+    outline-color: #EF7914;
+    outline-width: 3px;
+    margin-top: 3px;
+    border: 1px solid gray;
+`
 const Input = styled.input`
     height: 40px;
     padding-left: 15px;
@@ -171,11 +261,73 @@ const Tap = styled.div`
     display: flex;
     flex-direction: column;
 `
+const Quick3 = styled.div`
+    h3{
+        font-size: 25px;
+        margin: 0;
+        color: #6A3EB7;
+    }
+`
+const Quick2 = styled.div`
+    h3{
+        font-size: 25px;
+        margin: 0;
+        color: #EF7914;
+    }
+`
 const Quick = styled.div`
     h3{
         font-size: 25px;
         margin: 0;
         color: #39A081;
+    }
+`
+const Proceed3 = styled.div`
+    width: 350px;
+    height: 390px;
+    background-color: #fff;
+    border-radius: 10px;
+    flex-direction: column;
+    padding: 20px;
+    p{
+        margin: 0;
+        font-size: 14px;
+        margin-top: 3px;
+    }
+    button{
+        width: 100%;
+        height: 50px;
+        background-color: #6A3EB7;
+        color: #fff;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        margin-top: 100px;
+        cursor: pointer;
+    }
+`
+const Proceed2 = styled.div`
+    width: 350px;
+    height: 390px;
+    background-color: #fff;
+    border-radius: 10px;
+    flex-direction: column;
+    padding: 20px;
+    p{
+        margin: 0;
+        font-size: 14px;
+        margin-top: 3px;
+    }
+    button{
+        width: 100%;
+        height: 50px;
+        background-color: #EF7914;
+        color: #fff;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        margin-top: 100px;
+        cursor: pointer;
     }
 `
 const Proceed = styled.div`

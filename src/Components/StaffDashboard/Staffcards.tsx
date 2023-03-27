@@ -23,7 +23,7 @@ const Cards = () => {
                       <FaGoogleWallet />
                   </Circle>
                   <Wallet>
-                      <p>Balance</p>
+                      <p>Wallet Balance</p>
                       <h3>$0.00</h3>
                   </Wallet>
               </Card>
