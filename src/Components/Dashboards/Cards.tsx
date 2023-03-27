@@ -1,59 +1,65 @@
+import React from "react";
+import { BsFillPiggyBankFill } from "react-icons/bs";
+import { FaMoneyBillAlt } from "react-icons/fa";
+import { GiExpense } from "react-icons/gi";
+import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 import styled from "styled-components";
-import { FaGoogleWallet, FaSchool } from "react-icons/fa";
-import { MdAdminPanelSettings } from "react-icons/md";
-import { IoQrCode } from "react-icons/io5";
-
-import { UseAppSelector } from "../Global/Store";
 
 const Cards = () => {
-  const user = UseAppSelector((state) => state.Admin);
-
-  console.log(user);
   return (
     <Container>
-      <Wrapper>
-              <RowOne>
-                  <Boxes>
-            <BoxOneIconHold bg="#EF7914">
-              {" "}
-              <FaGoogleWallet />{" "}
-            </BoxOneIconHold>
-            <span>
-              Wallet Bal: <strong> $0.00 </strong>{" "}
-            </span>
-          </Boxes>
-          <Boxes>
-            <BoxOneIconHold bg="#023047">
-              {" "}
-              <FaSchool />{" "}
-            </BoxOneIconHold>
-            <span>
-
-              Company Name: <strong> {user?.companyname} </strong>{" "}
-
-
-            </span>
-          </Boxes>
-          <Boxes>
-            <BoxOneIconHold bg="#89087E">
-              {" "}
-              <MdAdminPanelSettings />{" "}
-            </BoxOneIconHold>
-            <span>
-              Admin Name: <strong>{user?.yourName}  </strong>
-            </span>
-          </Boxes>
-          <Boxes>
-            <BoxOneIconHold bg="#1FAE04">
-              {" "}
-              <IoQrCode />{" "}
-            </BoxOneIconHold>
-            <span>
-              Company's Code: <strong> {user?.companyCode} </strong>
-            </span>
-          </Boxes>
-        </RowOne>
-      </Wrapper>
+      <Card>
+        <CardHold>
+          <IconHold
+            style={{
+              backgroundColor: "#2a9d8f",
+            }}
+          >
+            <MdOutlineAccountBalanceWallet />
+          </IconHold>
+          <CardTitle>Balance</CardTitle>
+          <CardInfo>₦230,550</CardInfo>
+        </CardHold>
+      </Card>
+      <Card>
+        <CardHold>
+          <IconHold
+            style={{
+              backgroundColor: "#e9c46a",
+            }}
+          >
+            <FaMoneyBillAlt />
+          </IconHold>
+          <CardTitle>Company name</CardTitle>
+          <CardInfo>Codelab</CardInfo>
+        </CardHold>
+      </Card>
+      <Card>
+        <CardHold>
+          <IconHold
+            style={{
+              backgroundColor: "#f4a261",
+            }}
+          >
+            <GiExpense />
+          </IconHold>
+          <CardTitle>Company code</CardTitle>
+          <CardInfo>322567</CardInfo>
+        </CardHold>
+      </Card>
+      <Card>
+        <CardHold>
+          <IconHold
+            style={{
+              backgroundColor: "#e76f51",
+            }}
+          >
+            <BsFillPiggyBankFill />
+          </IconHold>
+          <CardTitle>Admin name</CardTitle>
+          <CardInfo>Ogbu Esther</CardInfo>
+        </CardHold>
+      </Card>
     </Container>
   );
 };
@@ -61,56 +67,46 @@ const Cards = () => {
 export default Cards;
 
 const Container = styled.div`
-  width: 100%;
   display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-  /* @media screen and (max-width: 500px) {
-        display
-    } */
-  /* position: fixed; */
-`;
-
-const Wrapper = styled.div`
-  /* background-color: azure; */
-`;
-
-const RowOne = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
   flex-wrap: wrap;
-  @media (max-width: 768px) {
-    justify-content: center;
-  }
 `;
-const Boxes = styled.div`
-  height: 170px;
-  width: 230px;
+const Card = styled.div`
+  height: 120px;
+  width: 220px;
   background-color: #fff;
-  margin: 10px 10px;
+  border-radius: 3px;
+  border-bottom: 2px solid #0D71FA;
+  font-family: Montserrat;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  border-radius: 6px;
-  @media (max-width: 770px) {
+  margin: 10px;
+
+  @media (max-width: 500px) {
     width: 90%;
   }
-  span {
-    font-size: 15px;
-  }
 `;
 
-const BoxOneIconHold = styled.div<{ bg: string }>`
-  height: 60px;
-  width: 60px;
-  border-radius: 50%;
-  background-color: ${({ bg }) => bg};
+const CardHold = styled.div`
+  width: 85%;
+  margin-top: 15px;
+`;
+
+const IconHold = styled.div`
+  height: 40px;
+  width: 40px;
+  border-radius: 30px;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+`;
+const CardTitle = styled.div`
+  font-size: 12px;
+  margin-bottom: 5px;
+`;
+const CardInfo = styled.div`
+  font-size: 20px;
+  font-weight: 800;
 `;
