@@ -6,11 +6,18 @@ import { getAllClients } from "../api/staffEndpoints";
 import { UseAppSelector } from "../Global/Store";
 import {BsArrowRightShort} from "react-icons/bs"
 import { FaGoogleWallet } from "react-icons/fa"
+import { NavLink } from "react-router-dom";
 const Recent = () => {
     const [show, setShow] = useState(false)
+    const [show2, setShow2] = useState(false)
 
     const Toggle = () => {
         setShow(!show)
+    }
+
+    const Toggle2 = () => {
+        setShow2(!show2)
+        setShow(false)
     }
   const allClients = useQuery({
     queryKey: ["viewClients"],
@@ -45,7 +52,8 @@ const Recent = () => {
                   </Circle4>
                   <Wallet>
                         <h3>Rents</h3>
-                        <p>Wallet id</p>
+                              <p>Wallet id</p>
+                              <button onClick={Toggle2}>Get Started</button>
                   </Wallet>
               </Card4>
 
@@ -64,12 +72,33 @@ const Recent = () => {
                       <FaGoogleWallet />
                   </Circle3>
                   <Wallet>
-                      <p>Wallet id</p>
-                      <h3>1126490654</h3>
+                      
+                        <h3>Travel & Tour</h3>
+                        <p>Wallet id</p>
                   </Wallet>
               </Card3>
               </Holder>
           </Plans>
+          ) : null}
+
+          {show2 ? (
+              <Savehold>
+                  <Proceed>
+                      <Quick><h3>Rents</h3></Quick>
+                      <p>Enter an amount you want to save</p>
+
+                      <Tap>
+                          <p>Tap here & enter .. (e.g 5000)</p>
+                          <Input type="number" placeholder="Tap here & enter .. (e.g 5000)" />
+                          <Subhold>
+                              <Input2 type="checkbox" /> <label htmlFor="">Subscribe</label>
+                          </Subhold>
+                      </Tap>
+                      <NavLink to="/Rent" style={{textDecoration: "none"}}>
+                          <button>Proceed</button>
+                      </NavLink>
+              </Proceed>
+          </Savehold>
           ) : null}
 
     </Container>
@@ -77,6 +106,81 @@ const Recent = () => {
 };
 
 export default Recent;
+const Input2 = styled.input`
+    
+`
+const Subhold = styled.div`
+    display: flex;
+    margin-top: 3px;
+    label{
+         margin: 0;
+        font-size: 14px;
+        font-weight: 600;
+    }
+`
+const Input = styled.input`
+    height: 40px;
+    padding-left: 15px;
+    border-radius: 7px;
+    outline-color: #39A081;
+    outline-width: 3px;
+    margin-top: 3px;
+    border: 1px solid gray;
+`
+const Tap = styled.div`
+    p{
+        margin: 0;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+`
+const Quick = styled.div`
+    h3{
+        font-size: 25px;
+        margin: 0;
+        color: #39A081;
+    }
+`
+const Proceed = styled.div`
+    width: 350px;
+    height: 390px;
+    background-color: #fff;
+    border-radius: 10px;
+    flex-direction: column;
+    padding: 20px;
+    p{
+        margin: 0;
+        font-size: 14px;
+        margin-top: 3px;
+    }
+    button{
+        width: 100%;
+        height: 50px;
+        background-color: #39A081;
+        color: #fff;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        margin-top: 100px;
+        cursor: pointer;
+    }
+`
+const Savehold = styled.div`
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 5;
+`
 const Circle3 = styled.div`
     width: 60px;
     height: 60px;
@@ -89,7 +193,7 @@ const Circle3 = styled.div`
     font-size: 30px;
 `
 const Card3 = styled.div`
-    width: 230px;
+    width: 240px;
     height: 150px;
     background-color: #0D71FA;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -113,7 +217,7 @@ const Circle4 = styled.div`
     font-size: 30px;
 `
 const Card4 = styled.div`
-    width: 230px;
+    width: 240px;
     height: 150px;
     background-color: #39A081;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -139,6 +243,19 @@ const Wallet = styled.div`
         font-size: 23px;
         margin: 0;
     }
+    button{
+        cursor: pointer;
+        margin-top: 12px;
+        outline: none;
+        border: none;
+        width: 90px;
+        background: none;
+        height: 35px;
+        border-radius: 50px;
+        text-decoration: underline;
+        color: #fff;
+
+    }
 `
 const Circle2 = styled.div`
     width: 60px;
@@ -152,7 +269,7 @@ const Circle2 = styled.div`
     font-size: 30px;
 `
 const Card2 = styled.div`
-    width: 230px;
+    width: 240px;
     height: 150px;
     background-color: #EF7914;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;

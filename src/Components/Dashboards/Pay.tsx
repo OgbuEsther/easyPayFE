@@ -5,146 +5,78 @@ import img from "../Assets/21.jpeg"
 const Pay = () => {
   return (
       <Container>
-          <Top><h2>Add Payment</h2></Top>
-          <Boxhold>
-              
-              
-          </Boxhold>
-          <Input placeholder='Account No*' type="number"/>
-            
-          <Input placeholder='Staff Name*' type="text"/>
-          
-          <Input placeholder='Amount*' type="number"/>
+          <Top><h3>Pay Staffs</h3></Top>
+          <Inputhold>
+              <Text>Wallet Number</Text>
 
-          <Button>SUbmit</Button>
+                  <Input type="text" placeholder='**** **** **** 1234'/>
 
+          </Inputhold>
+
+          <Inputhold>
+              <Text>Staff name</Text>
+                  <Input type="text" placeholder='Savio'/>
+          </Inputhold>
+
+          <Inputhold>
+              <Text>Amount</Text>
+                  <Input type="number" placeholder='$300.00'/>
+          </Inputhold>
           
+          <Down>
+              <button>Send</button>
+          </Down>
     </Container>
   )
 }
 
 export default Pay
+const Down = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 50px;
+    button{
+        width: 130px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        color: #fff;
+        background-color: #0D71FA;
+        cursor: pointer;
+    }
+`
 const Input = styled.input`
-    height: 50px;
-    border: 1px solid #555;
-    color: #555;
-    padding-left: 20px;
-    margin-top: 50px;
-    font-size: 16px;
-    border-radius: 5px;
-`
-const Button = styled.div`
-    width: 120px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    background-color: #0D71FA;
-    border-radius: 50px;
-    cursor: pointer;
-    margin-top: 50px;
-`
-const View = styled.div`
-    width: 100%;
-    display: flex;
-    margin-top: 30px;
-    justify-content: center;
-    align-items: center;
-`
-const Joined = styled.div`
-    
-`
-const Role = styled.div`
-    width: 200px;
-    /* background-color: green; */
-    margin-right: 90px;
-    display: flex;
-    justify-content: center;
-`
-const Img = styled.img`
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-`
-const Name = styled.div`
-    display: flex;
-    margin-left: 10px;
-    
-`
-const Circle = styled.div`
-    width: 45px;
+    width: 400px;
+    margin-left: 60px;
     height: 45px;
-    border: 1px solid #fff;
-    /* background-color: red; */
+    border-radius: 12px;
+    padding-left: 15px;
+    border: 1px solid gray;
+    outline: none;
+    font-size: 17px;
+`
+const Text = styled.div`
+    width: 150px;
+`
+const Inputhold = styled.div`
     display: flex;
-    /* justify-content */
+    margin-top: 60px;
     align-items: center;
-    border-radius: 50px;
-    overflow: hidden;
-`
-const Profilehold = styled.div`
-    display: flex;
-    align-items: center;
-`
-const Hold = styled.div`
-    height: 40px;
-    width: 100%;
-    display: flex;
-    margin-top: 10px;
-    justify-content: space-between;
-    background-color: blue;
-    align-items: center;
-`
-const Navs2 = styled.div`
-    color: #5a5a5a;
-    font-size: 18px;
-`
-const Navs = styled.div`
-    color: #fff;
-    font-size: 18px;
-    cursor: pointer;
-`
-const Head2 = styled.div`
-    background-color: #F6F7F9;
-    height: 80px;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-    display: flex;
-    /* height: 100%; */
-    /* height: 60px; */
-    padding-left: 10px;
-    padding-right: 10px;
-`
-const Head = styled.div`
-    margin-top: 15px;
-    justify-content: space-between;
-    background-color: #03993f;
-    align-items: center;
-    display: flex;
-    height: 70px;
-    padding-left: 10px;
-    padding-right: 10px;
-    position: sticky;
-`
-const Boxhold = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    
-    background-color: green;
 `
 const Top = styled.div`
-    h2{
-        margin: 0;
+    h3{
         font-size: 20px;
+        margin: 0;
     }
 `
 
 const Container = styled.div`
-    width: 93%;
+    width: 57%;
     display: flex;
     height: 100%;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -153,6 +85,7 @@ const Container = styled.div`
     flex-direction: column;
     margin-bottom: 30px;
     background-color: #fff;
+    border-radius: 12px;
     margin-left: 270px;
     @media screen and (max-width: 1024px) {
         margin-left: 0px;
