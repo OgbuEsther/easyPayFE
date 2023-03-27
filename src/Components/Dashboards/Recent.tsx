@@ -49,7 +49,9 @@ const Recent = () => {
         </Table>
        
         <BtnHold>
+          <NavLink to="/staffs">
           <Button>View More</Button>
+          </NavLink>
         </BtnHold>
       </Wrapper>
     </Container>

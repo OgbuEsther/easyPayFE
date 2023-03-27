@@ -1,20 +1,16 @@
-import React, {useState} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { FaGoogleWallet } from "react-icons/fa"
-import { MdSchool } from "react-icons/md"
-import {BsBusFrontFill, BsHousesFill} from "react-icons/bs"
+
+
+import { UseAppSelector } from '../Global/Store'
 
 const Cards = () => {
-    const [show, setShow] = useState(false)
-    const [cancle, setCancle] = useState(false)
 
-    const Canc = () => {
-        setShow(false)
-    }
+    const user = UseAppSelector((state) => state.Client);
 
-    const Toggle =() => {
-        setShow(!false)
-    }
+  console.log(user);
+ 
   return (
     <Container>
         <Boxhold>
@@ -33,8 +29,8 @@ const Cards = () => {
                       <FaGoogleWallet />
                   </Circle2>
                   <Wallet>
-                      <p>Wallet id</p>
-                      <h3>1126490654</h3>
+                      <p>Wallet Number</p>
+                      <h3>{user?.walletNumber} </h3>
                   </Wallet>
               </Card2>
 
@@ -97,28 +93,7 @@ const Wallet = styled.div`
         font-size: 23px;
     }
 `
-const Circle4 = styled.div`
-    width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50px;
-    background-color: #82d1b9;
-    color: #fff;
-    font-size: 30px;
-`
-const Circle3 = styled.div`
-    width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50px;
-    background-color: #8856dd;
-    color: #fff;
-    font-size: 30px;
-`
+
 const Circle2 = styled.div`
     width: 60px;
     height: 60px;
@@ -141,19 +116,7 @@ const Circle = styled.div`
     color: #fff;
     font-size: 30px;
 `
-const Card4 = styled.div`
-    width: 230px;
-    height: 150px;
-    background-color: #39A081;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius:10px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    padding-left: 15px;
-`
+
 const Card3 = styled.div`
     width: 330px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;

@@ -13,6 +13,8 @@ interface userData {
   companyname: string;
   position: string;
   _id: string;
+  balance:number
+  walletNumber:number
 }
 
 interface loginAdmin {
@@ -21,12 +23,14 @@ interface loginAdmin {
 }
 
 interface adminData {
+  walletNumber:number
   companyname: string;
   companyEmail: string;
   yourName: string;
   password: string;
     _id: string;
-    companyCode:string
+    companyCode:string;
+    balance:number
 }
 
 
