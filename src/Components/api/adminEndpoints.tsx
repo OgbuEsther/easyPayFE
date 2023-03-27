@@ -35,3 +35,4 @@ export const adminLogin = async ({ companyEmail, password }: login) => {
 export const getOneAdmin = async(id:any) =>{
 return await axios.get(`${live}/${id}`).then((res) => res.data);
 }
+
