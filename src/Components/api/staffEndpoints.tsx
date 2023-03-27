@@ -48,3 +48,12 @@ export const getAllClients = async () => {
 export const getOneStaff = async(id:any) =>{
   return await axios.get(`${live}/staff/${id}`).then((res) => res.data);
   }
+
+
+//create plans
+
+export const live1 = "https://easypayendpoints.onrender.com/plans"
+
+export const createHousePlan = async(id:any , data:any)=>{
+  return await axios.post(`${live1}/houseplan${id}` , data).then((res)=> res.data)
+}

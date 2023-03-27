@@ -2,18 +2,63 @@ import { useQuery } from "@tanstack/react-query";
 import React, {useState} from "react";
 import styled from "styled-components";
 import img from "../Assets/save.svg";
-import { getAllClients } from "../api/staffEndpoints";
+import { getAllClients, live1 } from "../api/staffEndpoints";
 import { UseAppSelector } from "../Global/Store";
 import {BsArrowRightShort} from "react-icons/bs"
 import { FaGoogleWallet } from "react-icons/fa"
 import { NavLink } from "react-router-dom";
 import {MdOutlineCancel} from "react-icons/md"
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+import axios from "axios";
+import * as yup from "yup";
 const Recent = () => {
+
+    const user = UseAppSelector((state)=> state.Client)
+
+    const schema = yup
+    .object({
+        amount: yup.number().required("field must be"),
+      subscribe: yup.boolean().required("field must be checked"),
+    })
+    .required();
+  type formData = yup.InferType<typeof schema>;
+  const {
+    handleSubmit,
+    formState: { errors },
+    reset,
+    register,
+  } = useForm<formData>({
+    resolver: yupResolver(schema),
+  });
+
+
+
+  const onSubmit = handleSubmit(async (data) => {
+   await axios.post(`${live1}/houseplan/${user?._id}` , data)
+      .then((res) => {
+        Swal.fire({
+          title: "succeful",
+          icon: "success",
+        });
+      })
+      .catch((err) => {
+        Swal.fire({
+          title: "an error occured",
+          icon: "error",
+          text: `${err.response?.data?.message}`,
+        });
+        console.log(err);
+      });
+  });
+
+
     const [plans, setplans] = useState(false)
     const [rents, setRents] = useState(false)
     const [fees, setfees] = useState(false)
     const [tour, setTour] = useState(false)
-    const [remove, setremove] = useState(false)
+   
    
 
     const Showplans = () => {
@@ -59,7 +104,7 @@ const Recent = () => {
     queryFn: getAllClients,
   });
   console.log("this is all staffs", allClients.data);
-  const user = UseAppSelector((state) => state.Client);
+
 
   console.log(user);
   return (
@@ -130,13 +175,17 @@ const Recent = () => {
 
                       <Tap>
                           <p>Tap here & enter .. (e.g 5000)</p>
-                          <Input type="number" placeholder="Tap here & enter .. (e.g 5000)" />
+                          <Input type="number"  {...register("amount")} placeholder="Tap here & enter .. (e.g 5000)" />
+                          <p>{errors?.amount && errors?.amount?.message} </p>
                           <Subhold>
-                              <Input2 type="checkbox" /> <label htmlFor="">Subscribe</label>
+                              <Input2  {...register("subscribe")} type="checkbox" /> <label htmlFor="">Subscribe to this plan</label>
+                              <p>{errors?.subscribe && errors?.subscribe?.message} </p>
                           </Subhold>
                       </Tap>
                       <NavLink to="/Rent" style={{textDecoration: "none"}}>
-                          <button>Proceed</button>
+                          <button  onClick={() => {
+                onSubmit();
+              }}>Proceed</button>
                       </NavLink>
                       <Icron onClick={Removerent}>
                           <MdOutlineCancel />
