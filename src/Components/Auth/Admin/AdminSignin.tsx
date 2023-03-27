@@ -141,7 +141,7 @@ const Container = styled.div`
   background-color: ${(props) => props.theme.pageBackground};
 `;
 const Wrapper = styled.div`
-  width: 55%;
+  width: 57%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
