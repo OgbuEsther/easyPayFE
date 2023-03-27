@@ -53,7 +53,7 @@ export const getOneStaff = async(id:any) =>{
 //create plans
 
 export const live1 = "https://easypayendpoints.onrender.com/plans"
-export const live2 = "https://easypayendpoints.onrender.com/plans"
+export const live2 = "https://easypayendpoints.onrender.com/pay"
 
 export const createHousePlan = async(id:any , data:any)=>{
   return await axios.post(`${live1}/houseplan${id}` , data).then((res)=> res.data)

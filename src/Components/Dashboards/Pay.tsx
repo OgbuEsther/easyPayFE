@@ -32,7 +32,7 @@ const Pay = () => {
 
   const onSubmit = handleSubmit(async (data) => {
     await axios
-      .post(`${live2}/pay/paysalary/${user?._id}`, data)
+      .post(`${live2}/paysalary/${user?._id}`, data)
       .then((res) => {
         Swal.fire({
           icon: "success",
