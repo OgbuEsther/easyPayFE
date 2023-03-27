@@ -182,7 +182,7 @@ export default Team
 const Right = styled.div`
     width: 48%;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     @media screen and (max-width: 425px) {
         width: 100%;
         display: flex;
@@ -272,6 +272,7 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    flex-direction: row-reverse;
 `
 
 const Container = styled.div`
