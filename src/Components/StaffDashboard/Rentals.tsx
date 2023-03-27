@@ -2,32 +2,39 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import styled from "styled-components";
 import img from "../Assets/21.jpeg";
-import { getAllClients } from "../api/staffEndpoints";
+import { getAllClients, getOneStaff } from "../api/staffEndpoints";
 import { UseAppSelector } from "../Global/Store";
 import {AiOutlineHome} from "react-icons/ai"
 
 
+
 const Rentals = () => {
-  const allClients = useQuery({
-    queryKey: ["viewClients"],
-    queryFn: getAllClients,
-  });
-  console.log("this is all staffs", allClients.data);
+
   const user = UseAppSelector((state) => state.Client);
 
+  const getOneClient = useQuery({
+    queryKey: ["singleStaff"],
+    queryFn: () => getOneStaff(user?._id),
+  });
   console.log(user);
   return (
     <Container>
-          <Top><h3>Travel $ Tour</h3></Top>
+          <Top><h3> House Rents</h3></Top>
+          {getOneClient?.data?.data?.houseRentPlan?.map((props:any) => (
+
+ 
           <Box>
+            
               <p>Total Balance</p>
-              <h3>$000.00</h3>
+              <h3>{props?.totalBal}</h3>
               <Div></Div>
               <Down>
                   <AiOutlineHome />
                   <p>Withdraw</p>
               </Down>
           </Box>
+                   ))
+                  }
           <Transact>
               <Up>Transaction</Up>
               <Buttonhold>
