@@ -11,25 +11,22 @@ import { NavLink } from "react-router-dom";
 
 const Recent = () => {
 
-  const user = UseAppSelector((state)=> state.Client)
+  const user = UseAppSelector((state) => state.Client);
   const getOneClient = useQuery({
     queryKey: ["singleStaff"],
     queryFn: () => getOneStaff(user?._id),
   });
 
-
-  const allClients = useQuery({
-    queryKey: ["viewClients"],
-    queryFn: getAllClients,
-  });
-  // console.log("this is all staffs", allClients.data);
-
+//totalBal
   return (
     <Container>
           <Top><h3>School Fees</h3></Top>
-          <Box>
+          
+            {getOneClient?.data?.data?.schoolFeesPlan.map((props:any) =>(
+
+  <Box>
               <p>Total Balance</p>
-              <h3>$000.00</h3>
+              <h3>{props?.totalBal}</h3>
               <Div></Div>
               <Down>
                   <AiOutlineHome />
@@ -38,6 +35,8 @@ const Recent = () => {
                   </NavLink>
               </Down>
           </Box>
+                    ))
+                  }
           <Transact>
               <Up>Transaction</Up>
               <Buttonhold>
