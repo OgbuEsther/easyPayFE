@@ -65,7 +65,7 @@ const Header = () => {
           </Wrapper>
         </Container>
       ) : (
-        <Container bd="" bg="#005AD9">
+        <Container bd="" bg="#fff">
           <Wrapper>
             {/* <LogoDiv src="/image/ttlogo.png" alt="" /> */}
 

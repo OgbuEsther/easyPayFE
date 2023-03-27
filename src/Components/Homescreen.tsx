@@ -6,13 +6,19 @@ import Header from "./Header/Header";
 import Hero from "./Hero/Hero";
 import Join from "./Join/Join";
 import Solutions from "./Solutions/Solutions";
+import Superhero from "./Superhero";
 import Team from "./Team/Team";
 
 const Homescreen = () => {
   return (
     <div>
       <Header />
-      <Hero />
+      <br />
+      <br />
+      <br />
+      <br />
+      <Superhero />
+      {/* <Hero /> */}
       {/* <Solutions /> */}
       {/* <Join /> */}
       <br />
