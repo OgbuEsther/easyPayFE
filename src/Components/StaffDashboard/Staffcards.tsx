@@ -38,7 +38,7 @@ const Cards = () => {
                   </Wallet>
               </Card2>
 
-              <Card2>
+              <Card3>
                   <Circle2>
                       <FaGoogleWallet />
                   </Circle2>
@@ -46,7 +46,7 @@ const Cards = () => {
                       <p>Expenses</p>
                       <h3>$0.00</h3>
                   </Wallet>
-              </Card2>
+              </Card3>
 
               
 
@@ -168,6 +168,7 @@ const Card3 = styled.div`
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius:10px;
+    background-color: #39A081;
     display: flex;
     cursor: pointer;
     padding-left: 15px;
