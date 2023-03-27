@@ -45,6 +45,14 @@ const AdminSignUp = () => {
       console.log("my data", data);
       dispatch(registerAdmin(data.data));
     },
+    onError: () => {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        // text: "Something went wrong! .....email or password  incorrect",
+        //  footer: '<a href="">Why do I have this issue?</a>',
+      });
+    },
   });
   const submit = handleSubmit((data) => {
     newClient.mutate(data);

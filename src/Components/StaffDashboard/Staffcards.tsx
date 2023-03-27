@@ -48,7 +48,6 @@ const Cards = () => {
                   </Wallet>
               </Card2>
 
-
               
 
               
@@ -170,7 +169,6 @@ const Card3 = styled.div`
     border-top-right-radius: 10px;
     border-bottom-right-radius:10px;
     display: flex;
-
     cursor: pointer;
     padding-left: 15px;
     padding-top: 15px;
@@ -206,7 +204,7 @@ const Card = styled.div`
 const Boxhold = styled.div`
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     margin-top: 15px;
     flex-wrap: wrap;
     @media screen and (max-width: 500px) {

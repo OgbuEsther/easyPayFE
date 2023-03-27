@@ -24,7 +24,7 @@ const AdminSignIn = () => {
     .object({
       companyEmail: yup.string().email().required(),
       password: yup.string().required(),
-      // companyName: yup.string().required("field must be required"),
+      companyname: yup.string().required("field must be required"),
     })
     .required();
 
@@ -95,6 +95,11 @@ const AdminSignIn = () => {
                 {...register("password")}
                 placeholder="Password"
                 type="password"
+              />
+              <InputDiv
+                {...register("companyname")}
+                placeholder="companyname"
+                type="text"
               />
               <InputButton type="submit">Sign In</InputButton>
             </InputForm>

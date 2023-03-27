@@ -19,16 +19,12 @@ const Dashhead = () => {
 
   console.log(user);
 
-  const getAdmin = useQuery({
-    queryKey: ["singleAdmin"],
-    queryFn: () => getOneAdmin(user?._id),
-  });
-
+ 
   
 
     const [show, setShow] = useState(false)
     const [show2, setShow2] = useState(false)
-    const [show3, setShow3] = useState(false)
+   
 
     const Toggle = () => {
         setShow(!show)

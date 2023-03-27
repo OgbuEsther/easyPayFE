@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const staffAuth = "http://localhost:2023/staff";
-export const live = "https://easypayendpoints.onrender.com"
+// const staffAuth = "http://localhost:2023/staff";
+export const live = "https://easypayendpoints.onrender.com/staff"
 
 export interface staffData {
   companyname: string;
@@ -23,25 +23,25 @@ export interface staffData {
 
 export interface login {
   email: string;
-  companyName: string;
+  companyname: string;
   password: string;
 }
 
 export const staffReg = async (data:staffData
  ) => {
   return await axios
-    .post(`${live}/staff/staffregister`, data)
+    .post(`${live}/staffregister`, data)
     .then((res) => res.data);
 };
 
-export const loginClient = async ({ email, companyName, password }: login) => {
+export const loginClient = async ({ email, companyname, password }: login) => {
   return await axios
-    .post(`${staffAuth}/stafflogin`, { email, companyName, password })
+    .post(`${live}/stafflogin`, { email, companyname, password })
     .then((res) => res.data);
 };
 
 export const getAllClients = async () => {
-  return await axios.get(`${staffAuth}/`).then((res) => res.data);
+  return await axios.get(`${live}/allstaff`).then((res) => res.data);
 };
 
 
