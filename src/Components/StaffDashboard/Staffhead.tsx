@@ -18,7 +18,7 @@ const Staffdashhead = () => {
 
   console.log(user);
 
-  const getAStaff = useQuery({
+   useQuery({
     queryKey: ["singleStaff"],
     queryFn: () => getOneStaff(user?._id),
   });
@@ -28,7 +28,7 @@ const Staffdashhead = () => {
 
     const [show, setShow] = useState(false)
     const [show2, setShow2] = useState(false)
-    const [show3, setShow3] = useState(false)
+    // const [show3, setShow3] = useState(false)
 
     const Toggle = () => {
         setShow(!show)
@@ -317,28 +317,8 @@ const Right = styled.div`
     width: 120px;
     justify-content: space-between;
 `
-const Input = styled.input`
-    flex: 1;
-    height: 100%;
-    border: none;
-    outline: none;
-`
-const Icon = styled.div`
-    width: 70px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 25px;
-`
-const Inputhold = styled.div`
-    width: 350px;
-    height: 45px;
-    border-radius: 50px;
-    border: 1px solid #f1f1f1;
-    display: flex;
-    overflow: hidden;
-`
+
+
 const Wrapper = styled.div`
     width: 76%;
     height: 100%;

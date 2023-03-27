@@ -4,15 +4,15 @@ import styled from "styled-components";
 import img from "../Assets/21.jpeg";
 import { getAllClients } from "../api/staffEndpoints";
 import { UseAppSelector } from "../Global/Store";
+import { getOneAdmin } from "../api/adminEndpoints";
 const Recent = () => {
-  const allClients = useQuery({
-    queryKey: ["viewClients"],
-    queryFn: getAllClients,
+  const user = UseAppSelector((state)=> state.Admin)
+  const getAdmin = useQuery({
+    queryKey: ["singleAdmin"],
+    queryFn: () => getOneAdmin(user?._id),
   });
-  console.log("this is all staffs", allClients.data);
-  const user = UseAppSelector((state) => state.Client);
 
-  console.log(user);
+
   return (
     <Container>
       <div>
@@ -27,25 +27,20 @@ const Recent = () => {
               <th>Role</th>
               <th>Joined</th>
             </tr>
+            {
+ getAdmin?.data?.data?.viewUser.map((el:any)=>(
+  <tr key={el?._id}>
+              <td>{el?.yourName} </td>
+              <td>{el?.position}</td>
+              <td>{el.companyname} </td>
+            </tr>
+ ))
+            }
             </table>
         </Table>
-        {allClients?.data?.data?.map((props: any) => (
-          <Table2 key={props._id}>
-            <table>
-              <th>
-                {/* <Img src={img} /> */}
-                {props.yourName.charAt().toUpperCase()}
-                <Name>{props.yourName}</Name>
-              </th>
-              
-            
-
-            <th>{props.position}</th>
-
-            <th>10/12/09</th>
-            </table>
-          </Table2>
-        ))}
+    
+        
+        
         
       </div>
     </Container>
@@ -82,7 +77,6 @@ const Table2 = styled.div`
 const Table = styled.div`
   overflow-x: auto;
   font-size: 14px;
-  margin-top: 30px;
   table {
     width: 100%;
   }

@@ -2,8 +2,12 @@ import styled from "styled-components";
 import { FaSchool } from "react-icons/fa";
 import { MdAdminPanelSettings } from "react-icons/md";
 import { IoQrCode } from "react-icons/io5";
+import { UseAppSelector } from "../Global/Store";
 
 const Cards = () => {
+  const user = UseAppSelector((state) => state.Admin);
+
+  console.log(user);
   return (
     <Container>
       <Wrapper>
@@ -14,7 +18,7 @@ const Cards = () => {
               <FaSchool />{" "}
             </BoxOneIconHold>
             <span>
-              Company Name: <strong> Esther & Sons LTD </strong>{" "}
+              Company Name: <strong> {user?.companyname} </strong>{" "}
             </span>
           </Boxes>
           <Boxes>
@@ -23,7 +27,7 @@ const Cards = () => {
               <MdAdminPanelSettings />{" "}
             </BoxOneIconHold>
             <span>
-              Admin Name: <strong> Ogbu Esther </strong>
+              Admin Name: <strong>{user?.yourName}  </strong>
             </span>
           </Boxes>
           <Boxes>
@@ -32,7 +36,7 @@ const Cards = () => {
               <IoQrCode />{" "}
             </BoxOneIconHold>
             <span>
-              Company's Code: <strong> 283892 </strong>
+              Company's Code: <strong> {user?.companyCode} </strong>
             </span>
           </Boxes>
         </RowOne>

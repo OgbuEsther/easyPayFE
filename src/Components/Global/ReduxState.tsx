@@ -26,6 +26,7 @@ interface adminData {
   yourName: string;
   password: string;
     _id: string;
+    companyCode:string
 }
 
 
