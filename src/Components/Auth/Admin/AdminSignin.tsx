@@ -1,5 +1,5 @@
 import React from "react";
-import { FcGoogle } from "react-icons/fc";
+
 import { NavLink } from "react-router-dom";
 import { FiArrowLeftCircle } from "react-icons/fi";
 import styled from "styled-components";
@@ -9,15 +9,15 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { adminLogin } from "../../api/adminEndpoints";
-import { registerAdmin } from "../../Global/ReduxState";
-import { UseAppDispatch } from "../../Global/Store";
-import { useQuery } from "@tanstack/react-query";
+
+
+
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 
 const AdminSignIn = () => {
-  const dispatch = UseAppDispatch();
+
 
   const navigate = useNavigate();
   const schema = yup
@@ -58,7 +58,7 @@ const AdminSignIn = () => {
           navigate("/dashboard");
         },
       });
-      console.log("this is on success", dispatch(registerAdmin(myData.data)));
+      // console.log("this is on success", dispatch(registerAdmin(myData.data)));
     },
     onError: () => {
       Swal.fire({
@@ -71,7 +71,7 @@ const AdminSignIn = () => {
 
   const submit = handleSubmit((data) => {
     signin.mutate(data);
-    console.log(`this is yup signin`, data);
+    // console.log(`this is yup signin`, data);
     reset();
   });
 

@@ -1,5 +1,4 @@
 import React from "react";
-import { FcGoogle } from "react-icons/fc";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FiArrowLeftCircle } from "react-icons/fi";
 import styled from "styled-components";
@@ -7,16 +6,15 @@ import image from "../../Assets/usersignin.png";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { UseAppDispatch } from "../../Global/Store";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { registerClient } from "../../Global/ReduxState";
+
+import { useMutation } from "@tanstack/react-query";
+
 import { loginClient } from "../../api/staffEndpoints";
-import { useDispatch } from "react-redux";
+
 import Swal from "sweetalert2";
 
 const StaffSignin = () => {
-  const dispatch = useDispatch();
-  const client = useQueryClient();
+
   const navigate = useNavigate();
 
   const schema = yup
@@ -43,19 +41,19 @@ const StaffSignin = () => {
     mutationKey: ["loginClients"],
 
     onSuccess: (myData) => {
-      console.log(myData);
-      Swal.fire({
-        title: "login",
-        html: "redirecting to dashboard",
-        timer: 2000,
-        timerProgressBar: true,
+      // console.log(myData);
+      // Swal.fire({
+      //   title: "login",
+      //   html: "redirecting to dashboard",
+      //   timer: 2000,
+      //   timerProgressBar: true,
 
-        willClose: () => {
-          navigate("/staffdashboard");
-        },
-      });
+      //   willClose: () => {
+      //     navigate("/staffdashboard");
+      //   },
+      // });
 
-      console.log("this is on success", dispatch(registerClient(myData.data)));
+      // console.log("this is on success", dispatch(registerClient(myData.data)));
     },
     onError: () => {
       Swal.fire({
@@ -68,9 +66,26 @@ const StaffSignin = () => {
   });
 
   const Submit = handleSubmit((data) => {
-    signin.mutate(data);
-    console.log(`this is yup signin`, data);
-    reset();
+    signin.mutate(data)
+    // console.log(`this is yup signin`, data);
+    // reset();
+
+    Swal.fire({
+      title: "login",
+      html: "redirecting to dashboard",
+      timer: 2000,
+      timerProgressBar: true,
+
+      willClose: () => {
+        navigate("/staffdashboard");
+      },
+    });
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Something went wrong! .....email or password  incorrect",
+      //  footer: '<a href="">Why do I have this issue?</a>',
+    });
   });
 
   return (
