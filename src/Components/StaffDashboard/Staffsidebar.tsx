@@ -1,15 +1,20 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
-import {FiMenu, FiTarget, FiPower,FiUpload} from "react-icons/fi"
+import { FiPower} from "react-icons/fi"
 // import img from "../Assets/piggy.svg"
-import {ImHome2} from "react-icons/im"
-import {IoIosRocket, IoMdPerson} from "react-icons/io"
-import { NavLink } from 'react-router-dom'
+// import {ImHome2} from "react-icons/im"
+import { IoMdPerson} from "react-icons/io"
+import { NavLink, useNavigate } from 'react-router-dom'
 import {MdDashboard} from "react-icons/md"
 import img from "../Assets/easy.png"
-import {BsArrowRightShort} from "react-icons/bs"
+import { UseAppDispatch } from '../Global/Store'
+import Swal from 'sweetalert2'
+import { logOut } from '../Global/ReduxState'
+// import {BsArrowRightShort} from "react-icons/bs"
 
 const Staffsidebar = () => {
+     const dispatch = UseAppDispatch();
+  const navigate = useNavigate();
     const [show, setShow] = useState(false)
 
     const Toggle = () => {
@@ -80,7 +85,48 @@ const Staffsidebar = () => {
             </NavLink>
         </Home2>
 
-        <Power>
+        <Power   onClick={() => {
+          dispatch(logOut());
+
+          const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+              confirmButton: "btn btn-success",
+              cancelButton: "btn btn-danger",
+            },
+            buttonsStyling: false,
+          });
+
+          swalWithBootstrapButtons
+            .fire({
+              title: "Are you sure you want to logout?",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonText: "Yes, logout!",
+              cancelButtonText: "No, cancel!",
+              reverseButtons: true,
+            })
+            .then((result) => {
+              if (result.isConfirmed) {
+                navigate("/optionsignin");
+                swalWithBootstrapButtons.fire(
+                  "logout successful!",
+                  "logout successful.",
+                  "success"
+                  //   navigate("/optionsignin")
+                );
+              } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+              ) {
+                navigate("/dashboard");
+                swalWithBootstrapButtons.fire(
+                  "Cancelled",
+                  "still on dashboard :)",
+                  "error"
+                );
+              }
+            });
+        }}>
             <Icon2><FiPower /></Icon2>
             <Text>Logout</Text>
         </Power>
@@ -89,20 +135,7 @@ const Staffsidebar = () => {
 }
 
 export default Staffsidebar
-const Sta = styled.div`
-    font-size: 17px;
-    font-family: U8,sans-serif;
-    cursor: pointer;
-    /* color: #fff; */
-    align-items: center;
-    display: flex;
-    margin-left: 40px;
-    width: 410px;
-    height: 40px;
-    margin-bottom: 8px;
-    /* margin-bottom: 10px; */
-    /* background-color: green; */
-`
+
 const Staffs = styled.div`
     width: 100%;
     /* background-color: red; */
@@ -113,11 +146,7 @@ const Staffs = styled.div`
         
     }
 `
-const Ico = styled.div`
-    font-size: 20px;
-    margin-left: 100px;
-    margin-top: 5px;
-`
+
 const Img = styled.img`
     height: 30px;
 `
@@ -127,30 +156,8 @@ const Power = styled.div`
     margin-top: 195px; 
     align-items: center; 
 `
-const Text5 = styled.div`
-    font-size: 17px;
-    font-family: U8,sans-serif;
-    cursor: pointer;
-    /* color: #fff; */
-    align-items: center;
-    display: flex;
-    margin-left: 30px;
-    width: 120px;
-    height: 40px;
-    /* background-color: white; */
-`
-const Text4 = styled.div`
-    font-size: 17px;
-    font-family: U8,sans-serif;
-    cursor: pointer;
-    color: #fff;
-    align-items: center;
-    display: flex;
-    margin-left: 30px;
-    width: 120px;
-    height: 40px;
-    /* background-color: white; */
-`
+
+
 const Text3 = styled.div`
     font-size: 17px;
     font-family: U8,sans-serif;
@@ -219,20 +226,7 @@ const Home = styled.div`
     margin-top: 70px;
     align-items: center;
 `
-const Image = styled.img`
-    height: 25px;
-    margin-left: 30px;
-`
-const Icon = styled.div`
-    color: #fff;
-    font-size: 25px;
-    width: 100%;
-    h3{
-        text-align: center;
-        margin: 0;
-        margin-left: -20px;
-    }
-`
+
 const Top = styled.div`
     display: flex;
     width: 100%;

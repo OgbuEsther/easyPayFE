@@ -23,7 +23,7 @@ const StaffSignin = () => {
     .object({
       email: yup.string().email().required(),
       password: yup.string().required(),
-      companyName: yup.string().required("field must be required"),
+      companyname: yup.string().required("field must be required"),
     })
     .required();
 
@@ -97,11 +97,11 @@ const StaffSignin = () => {
               />
               <p>{errors?.password && errors?.password?.message}</p>
               <InputDiv
-                {...register("companyName")}
+                {...register("companyname")}
                 placeholder="Company's Name"
                 type="text"
               />
-              <p>{errors?.companyName && errors?.companyName?.message}</p>
+              <p>{errors?.companyname && errors?.companyname?.message}</p>
               <InputButton type="submit">Sign In</InputButton>
             </InputForm>
             <HasAcc>
