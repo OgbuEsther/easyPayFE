@@ -5,6 +5,7 @@ import img from "../Assets/save.svg";
 import { getAllClients } from "../api/staffEndpoints";
 import { UseAppSelector } from "../Global/Store";
 import {BsArrowRightShort} from "react-icons/bs"
+import { FaGoogleWallet } from "react-icons/fa"
 const Recent = () => {
     const [show, setShow] = useState(false)
 
@@ -37,7 +38,37 @@ const Recent = () => {
 
           {show ? (
               <Plans>
-              
+                  <Holder>
+                <Card4>
+                  <Circle4>
+                      <FaGoogleWallet />
+                  </Circle4>
+                  <Wallet>
+                        <h3>Rents</h3>
+                        <p>Wallet id</p>
+                  </Wallet>
+              </Card4>
+
+                      <Card2>
+                  <Circle2>
+                      <FaGoogleWallet />
+                  </Circle2>
+                  <Wallet>
+                        <h3>School fees</h3>
+                        <p>Wallet id</p>
+                  </Wallet>
+              </Card2>
+
+                      <Card3>
+                  <Circle3>
+                      <FaGoogleWallet />
+                  </Circle3>
+                  <Wallet>
+                      <p>Wallet id</p>
+                      <h3>1126490654</h3>
+                  </Wallet>
+              </Card3>
+              </Holder>
           </Plans>
           ) : null}
 
@@ -46,6 +77,102 @@ const Recent = () => {
 };
 
 export default Recent;
+const Circle3 = styled.div`
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: #3184f7;
+    color: #fff;
+    font-size: 30px;
+`
+const Card3 = styled.div`
+    width: 230px;
+    height: 150px;
+    background-color: #0D71FA;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius:10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 15px;
+`
+const Circle4 = styled.div`
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: #82d1b9;
+    color: #fff;
+    font-size: 30px;
+`
+const Card4 = styled.div`
+    width: 230px;
+    height: 150px;
+    background-color: #39A081;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius:10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 15px;
+`
+const Wallet = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-left: 18px;
+    margin-top: 15px;
+    p{
+        color: #fff;
+        margin: 0;
+    }
+    h3{
+        color: #fff;
+        font-size: 23px;
+        margin: 0;
+    }
+`
+const Circle2 = styled.div`
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: #f7a156;
+    color: #fff;
+    font-size: 30px;
+`
+const Card2 = styled.div`
+    width: 230px;
+    height: 150px;
+    background-color: #EF7914;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius:10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 15px;
+`
+const Holder = styled.div`
+    width: 830px;
+    height: 400px;
+    display: flex;
+    background-color: #fff;
+    border-radius: 10px;
+    justify-content: space-around;
+    align-items: center;
+`
 const Plans = styled.div`
     width: 100%;
     height: 100vh;
