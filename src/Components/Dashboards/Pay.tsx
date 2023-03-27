@@ -1,30 +1,77 @@
 import React from 'react'
 import styled from 'styled-components'
+import { live1, live2 } from '../api/staffEndpoints';
 import img from "../Assets/21.jpeg"
 
+import Swal from "sweetalert2";
+import axios from "axios";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { UseAppSelector } from '../Global/Store';
+
 const Pay = () => {
+    const user = UseAppSelector((state) => state.Admin);
+
+    const schema = yup
+    .object({
+      walletNumber: yup.number().required("field must be"),
+      amount: yup.number().required("field mu"),
+    })
+    .required();
+  type formData = yup.InferType<typeof schema>;
+  const {
+    handleSubmit,
+    formState: { errors },
+    reset,
+    register,
+  } = useForm<formData>({
+    resolver: yupResolver(schema),
+  });
+
+
+  const onSubmit = handleSubmit(async (data) => {
+    await axios
+      .post(`${live2}/pay/paysalary/${user?._id}`, data)
+      .then((res) => {
+        Swal.fire({
+          icon: "success",
+        });
+      })
+      .catch((err) => {
+        Swal.fire({
+          title: "an error occured",
+          icon: "error",
+          text: `${err.response?.data?.message}`,
+        });
+        console.log(err);
+      });
+  });
   return (
       <Container>
           <Top><h3>Pay Staffs</h3></Top>
           <Inputhold>
               <Text>Wallet Number</Text>
 
-                  <Input type="text" placeholder='**** **** **** 1234'/>
-
+                  <Input {...register("walletNumber")}  type="text" placeholder='**** **** **** 1234'/>
+                  <p>{errors?.walletNumber && errors?.walletNumber?.message} </p>
           </Inputhold>
 
-          <Inputhold>
+          {/* <Inputhold>
               <Text>Staff name</Text>
                   <Input type="text" placeholder='Savio'/>
-          </Inputhold>
+          </Inputhold> */}
 
           <Inputhold>
               <Text>Amount</Text>
-                  <Input type="number" placeholder='$300.00'/>
+                  <Input {...register("amount")}  type="number" placeholder='$300.00'/>
+                  <p>{errors?.amount && errors?.amount?.message} </p>
           </Inputhold>
           
           <Down>
-              <button>Send</button>
+              <button onClick={()=>{
+                onSubmit()
+              }}>Send</button>
           </Down>
     </Container>
   )
