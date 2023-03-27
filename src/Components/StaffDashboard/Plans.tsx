@@ -7,9 +7,11 @@ import { UseAppSelector } from "../Global/Store";
 import {BsArrowRightShort} from "react-icons/bs"
 import { FaGoogleWallet } from "react-icons/fa"
 import { NavLink } from "react-router-dom";
+import {MdOutlineCancel} from "react-icons/md"
 const Recent = () => {
     const [show, setShow] = useState(false)
     const [show2, setShow2] = useState(false)
+    const [show3, setShow3] = useState(false)
 
     const Toggle = () => {
         setShow(!show)
@@ -19,6 +21,15 @@ const Recent = () => {
         setShow2(!show2)
         setShow(false)
     }
+    const Toggle3 = () => {
+        setShow(false)
+    }
+
+     const Toggle4 = () => {
+        setShow2(false)
+    }
+
+   
   const allClients = useQuery({
     queryKey: ["viewClients"],
     queryFn: getAllClients,
@@ -44,7 +55,7 @@ const Recent = () => {
           </Cardhold>
 
           {show ? (
-              <Plans>
+              <Plans onClick={Toggle3}>
                   <Holder>
                 <Card4>
                   <Circle4>
@@ -76,13 +87,17 @@ const Recent = () => {
                         <h3>Travel & Tour</h3>
                         <p>Wallet id</p>
                   </Wallet>
-              </Card3>
-              </Holder>
-          </Plans>
+                      </Card3>
+                      <Icons >
+                      <MdOutlineCancel />
+              </Icons>
+                  </Holder>
+
+              </Plans>
           ) : null}
 
           {show2 ? (
-              <Savehold>
+              <Savehold onClick={Toggle4}>
                   <Proceed>
                       <Quick><h3>Rents</h3></Quick>
                       <p>Enter an amount you want to save</p>
@@ -97,6 +112,9 @@ const Recent = () => {
                       <NavLink to="/Rent" style={{textDecoration: "none"}}>
                           <button>Proceed</button>
                       </NavLink>
+                      <Icron onClick={Toggle4}>
+                          <MdOutlineCancel />
+                      </Icron>
               </Proceed>
           </Savehold>
           ) : null}
@@ -106,6 +124,22 @@ const Recent = () => {
 };
 
 export default Recent;
+const Icron = styled.div`
+    position: absolute;
+    font-size: 25px;
+    right: 32%;
+    color: #fff;
+    cursor: pointer;
+    top: 120px;
+`
+const Icons = styled.div`
+    position: absolute;
+    font-size: 25px;
+    right: 18%;
+    color: #fff;
+    cursor: pointer;
+    top: 120px;
+`
 const Input2 = styled.input`
     
 `
@@ -295,6 +329,7 @@ const Plans = styled.div`
     height: 100vh;
     display: flex;
     align-items: center;
+    position: relative;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.7);
     position: absolute;
@@ -302,6 +337,7 @@ const Plans = styled.div`
     right: 0;
     top: 0;
     z-index: 5;
+    transition: all 350ms ease-in-out;
 `
 const Button = styled.button`
     width: 120px;

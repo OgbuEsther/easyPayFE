@@ -162,17 +162,31 @@ const Card4 = styled.div`
     cursor: pointer;
     padding-left: 15px;
 `
+// const Card3 = styled.div`
+//     width: 330px;
+//     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+//     border-top-left-radius: 10px;
+//     border-top-right-radius: 10px;
+//     border-bottom-right-radius:10px;
+//     background-color: #39A081;
+//     display: flex;
+//     cursor: pointer;
+//     padding-left: 15px;
+//     padding-top: 15px;
+// `
 const Card3 = styled.div`
-    width: 330px;
+    width: 310px;
+    height: 150px;
+    background-color: #EF7914;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius:10px;
-    background-color: #39A081;
+    margin-left: 15px;
     display: flex;
+    align-items: center;
     cursor: pointer;
     padding-left: 15px;
-    padding-top: 15px;
 `
 const Card2 = styled.div`
     width: 310px;
