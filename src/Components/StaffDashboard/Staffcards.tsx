@@ -35,8 +35,8 @@ const Cards = () => {
             <FaGoogleWallet />
           </Circle2>
           <Wallet>
-            <p>Income</p>
-            <h3>$0.00</h3>
+            <p>Wallet Number</p>
+            <h3>{user?.walletNumber} </h3>
           </Wallet>
         </Card2>
 
