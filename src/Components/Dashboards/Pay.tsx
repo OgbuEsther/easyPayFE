@@ -34,8 +34,10 @@ const Pay = () => {
     await axios
       .post(`${live2}/paysalary/${user?._id}`, data)
       .then((res) => {
+        reset()
         Swal.fire({
           icon: "success",
+          text: `${res?.data?.message}`
         });
       })
       .catch((err) => {
