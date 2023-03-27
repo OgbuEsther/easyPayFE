@@ -40,7 +40,7 @@ const Cards = () => {
           </Wallet>
         </Card2>
 
-        <Card3>
+        <Card2>
           <Circle2>
             <FaGoogleWallet />
           </Circle2>
@@ -48,7 +48,7 @@ const Cards = () => {
             <p>Expenses</p>
             <h3>$0.00</h3>
           </Wallet>
-        </Card3>
+        </Card2>
 
         {/* <Card2>
                   <Circle2>
@@ -159,16 +159,18 @@ const Card4 = styled.div`
   padding-left: 15px;
 `;
 const Card3 = styled.div`
-  width: 330px;
+  width: 310px;
+  height: 150px;
+  background-color: #ef7914;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  background-color: #39a081;
+  margin-left: 15px;
   display: flex;
+  align-items: center;
   cursor: pointer;
   padding-left: 15px;
-  padding-top: 15px;
 `;
 const Card2 = styled.div`
   width: 310px;
@@ -201,7 +203,7 @@ const Card = styled.div`
 const Boxhold = styled.div`
   width: 100%;
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   margin-top: 15px;
   flex-wrap: wrap;
   @media screen and (max-width: 500px) {
