@@ -313,6 +313,9 @@ const Icons = styled.div`
     position: relative;
     font-size: 27px;
     margin-right: 30px;
+    @media screen and (max-width: 500px) {
+        display: none;
+    }
 `
 const Right = styled.div`
     display: flex;

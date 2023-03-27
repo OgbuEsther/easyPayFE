@@ -40,15 +40,15 @@ const Cards = () => {
           </Wallet>
         </Card2>
 
-        <Card2>
-          <Circle2>
+        <Card3>
+          <Circle4>
             <FaGoogleWallet />
-          </Circle2>
+          </Circle4>
           <Wallet>
             <p>Expenses</p>
             <h3>$0.00</h3>
           </Wallet>
-        </Card2>
+        </Card3>
 
         {/* <Card2>
                   <Circle2>
@@ -161,7 +161,7 @@ const Card4 = styled.div`
 const Card3 = styled.div`
   width: 310px;
   height: 150px;
-  background-color: #ef7914;
+  background-color: #39a081;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
