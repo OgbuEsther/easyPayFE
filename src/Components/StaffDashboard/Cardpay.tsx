@@ -4,18 +4,20 @@ import { AiFillLock } from "react-icons/ai"
 import { CiWallet } from "react-icons/ci"
 import img from "../Assets/payk.png"
 import img2 from "../Assets/visa.png"
-
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {useForm} from "react-hook-form"
 import { useMutation } from '@tanstack/react-query'
 import { adminPayIn } from '../api/adminEndpoints'
 import Swal from 'sweetalert2'
-import { useDispatch } from 'react-redux'
+import { UseAppSelector } from '../Global/Store'
 
 
 const Card = () => {
 
+
+const user = UseAppSelector(state => state.Admin)
+  const id = user?._id!
     const schema = yup
     .object({
       cardName: yup.string().required(),
@@ -40,11 +42,10 @@ const Card = () => {
 
 
   const newClient = useMutation({
-    mutationFn: (data: any) => adminPayIn(data),
+    mutationFn: (data: any) => adminPayIn(data, id),
     mutationKey: ["makePayment"],
 
-    onSuccess: (data: any) => {   
-     
+    onSuccess: (data: any) => {       
       Swal.fire({
         title: "payment succesful",
         // html: "redirecting to login",
@@ -67,15 +68,12 @@ const Card = () => {
   });
     
   const submit = handleSubmit((data:any) => {
-    // newClient.mutate(data);
+    newClient.mutate(data);
     // console.log("this is yup data", data);
       
     reset();
   
   });
-
-
-    // adminPayIn
 
   return (
       <Container>
@@ -84,7 +82,7 @@ const Card = () => {
                   <Lock><AiFillLock /></Lock>
                   <P>Secured by Korapay</P>
               </Lockhold>
-              <Hold>
+              <Hold onSubmit={submit} >
                   <Text>TEST MODE</Text>
                   <Check>
                       <Icon><CiWallet /></Icon>
@@ -116,7 +114,7 @@ const Card = () => {
                               <Input2 placeholder='Expire Year: 123'  {...register("expireYear")} />
                           </Inputhold>
                       </Details>
-                      <Button><Icons><AiFillLock /></Icons> <Ngn>Pay NGN 1,000.00</Ngn></Button>
+                      <Button type="submit" ><Icons><AiFillLock /></Icons> <Ngn>Pay NGN 1,000.00</Ngn></Button>
                   </Check>
               </Hold>
               <Last><Img3 src={ img2} /></Last>
@@ -239,7 +237,7 @@ const Text = styled.div`
     font-weight: 500;
     color: #fff;
 `
-const Hold = styled.div`
+const Hold = styled.form`
     width: 370px;
     display: flex;
     border-radius: 15px;
