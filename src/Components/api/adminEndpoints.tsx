@@ -61,7 +61,7 @@ export const adminPayOut = async (
   id: string
 ) => {
   return await axios
-    .patch(`https://easypayendpoints.onrender.com/pay/pay-out/${id}`, {
+    .post(`https://easypayendpoints.onrender.com/pay/pay-out/${id}`, {
       amount,
       account, 
       bank
