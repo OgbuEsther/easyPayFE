@@ -8,49 +8,35 @@ import { getOneAdmin } from "../api/adminEndpoints";
 import { UseAppSelector } from "../Global/Store";
 
 const Recent = () => {
-
-  const user = UseAppSelector((state)=> state.Admin)
+  const user = UseAppSelector((state) => state.Admin);
   const getAdmin = useQuery({
     queryKey: ["singleAdmin"],
     queryFn: () => getOneAdmin(user?._id),
   });
 
-
-
   return (
     <Container>
       <Wrapper>
         <Title>List Of Staff</Title>
-      
-          <Table>
-         
+
+        <Table>
           <table>
             <tr>
               <th>Staff</th>
               <th>Role</th>
               <th>companyname</th>
             </tr>
-            {
- getAdmin?.data?.data?.viewUser.map((el:any)=>(
-  <tr key={el?._id}>
-              <td>{el?.yourName} </td>
-              <td>{el?.position}</td>
-              <td>{el.companyname} </td>
-            </tr>
- ))
-            }
-       
-
-          
-           
-         
+            {getAdmin?.data?.data?.viewUser.map((el: any) => (
+              <tr key={el?._id}>
+                <td>{el?.yourName} </td>
+                <td>{el?.position}</td>
+                <td>{el.companyname} </td>
+              </tr>
+            ))}
           </table>
-         
         </Table>
-       
-        <BtnHold>
 
-        </BtnHold>
+        <BtnHold></BtnHold>
       </Wrapper>
     </Container>
   );
