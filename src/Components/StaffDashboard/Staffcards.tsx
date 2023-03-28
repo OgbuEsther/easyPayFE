@@ -6,6 +6,8 @@ import { BsBusFrontFill, BsHousesFill } from "react-icons/bs";
 import { UseAppSelector } from "../Global/Store";
 import { useQuery } from "@tanstack/react-query";
 import { getOneAdmin } from "../api/adminEndpoints";
+import { BiMoney } from "react-icons/bi"
+import {SiExpensify} from "react-icons/si"
 
 const Cards = () => {
   const admin = UseAppSelector((state) => state.Admin);
@@ -32,7 +34,7 @@ const Cards = () => {
 
         <Card2>
           <Circle2>
-            <FaGoogleWallet />
+            <BiMoney />
           </Circle2>
           <Wallet>
             <p>Income</p>
@@ -41,9 +43,9 @@ const Cards = () => {
         </Card2>
 
         <Card3>
-          <Circle2>
-            <FaGoogleWallet />
-          </Circle2>
+          <Circle4>
+            <SiExpensify />
+          </Circle4>
           <Wallet>
             <p>Expenses</p>
             <h3>$0.00</h3>
@@ -173,7 +175,7 @@ const Card4 = styled.div`
 const Card3 = styled.div`
   width: 310px;
   height: 150px;
-  background-color: #ef7914;
+  background-color: #39a081;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;

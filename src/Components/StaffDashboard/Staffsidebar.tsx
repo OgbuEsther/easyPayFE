@@ -126,7 +126,6 @@ export default Staffsidebar
 
 const Staffs = styled.div`
     width: 100%;
-    /* background-color: red; */
     display: flex;
     flex-direction: column;
     p{
@@ -141,61 +140,46 @@ const Img = styled.img`
 const Power = styled.div`
     width: 100%;
     display: flex;
-    margin-top: 195px; 
+    margin-top: 250px; 
     align-items: center; 
 `
 
 
 const Text3 = styled.div`
     font-size: 17px;
-    font-family: U8,sans-serif;
     cursor: pointer;
-    /* color: #fff; */
     align-items: center;
     display: flex;
     margin-left: 15px;
     width: 410px;
     height: 40px;
-    /* margin-bottom: 10px; */
-    /* background-color: green; */
 `
 const Text2 = styled.div`
     font-size: 17px;
-    font-family: U8,sans-serif;
     cursor: pointer;
-    /* color: #fff; */
     align-items: center;
     display: flex;
     margin-left: 15px;
     width: 410px;
     height: 40px;
-    /* margin-bottom: 10px; */
-    /* background-color: green; */
 `
 const Text = styled.div`
     font-size: 17px;
-    font-family: U8,sans-serif;
     cursor: pointer;
-    /* color: #fff; */
     align-items: center;
     display: flex;
     margin-left: 30px;
     width: 120px;
     height: 40px;
-    /* background-color: white; */
 `
 const Text1 = styled.div`
     font-size: 17px;
-    font-family: U8,sans-serif;
     cursor: pointer;
-    /* color: #fff; */
     align-items: center;
     display: flex;
     margin-left: 15px;
     width: 210px;
     height: 40px;
-    /* margin-bottom: 10px; */
-    /* background-color: white; */
 `
 const Icon2 = styled.div`
     color: #3e4956;
@@ -230,7 +214,6 @@ const Container = styled.div`
     padding-left: 25px;
     position: fixed;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    /* border-top-right-radius: 120px; */
     z-index: 2;
     overflow: hidden;
     @media screen and (max-width: 1024px) {
