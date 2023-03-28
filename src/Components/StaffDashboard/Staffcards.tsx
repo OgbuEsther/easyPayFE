@@ -98,6 +98,7 @@ const Wallet = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 18px;
+  margin-bottom: 10px;
   margin-top: 15px;
   p {
     color: #fff;
@@ -191,6 +192,9 @@ const Card3 = styled.div`
   align-items: center;
   cursor: pointer;
   padding-left: 15px;
+  @media screen and (max-width: 1024px) {
+    margin-top: 15px;
+  }
 `;
 const Card2 = styled.div`
   width: 310px;
@@ -211,6 +215,7 @@ const Card = styled.div`
   width: 310px;
   height: 150px;
   background-color: #0d71fa;
+  margin-bottom: 17px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -226,6 +231,11 @@ const Boxhold = styled.div`
   /* justify-content: space-between; */
   margin-top: 15px;
   flex-wrap: wrap;
+  @media screen and (max-width: 1024px) {
+    display: flex;
+    justify-content: center;
+    /* background-color: red; */
+  }
   @media screen and (max-width: 500px) {
     display: flex;
     justify-content: center;

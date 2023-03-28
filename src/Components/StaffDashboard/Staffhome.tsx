@@ -37,7 +37,7 @@ const Home = () => {
         <Top>
           <Left>
             <Bold>Dashboard</Bold>
-            <button onClick={Toggle}>Credit Wallet</button>
+            <button onClick={Toggle}>Staff details</button>
           </Left>
           {show ? (
             <Slidein>
