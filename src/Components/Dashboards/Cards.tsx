@@ -86,7 +86,7 @@ const Container = styled.div`
 `;
 const Card = styled.div`
   height: 180px;
-  width: 328px;
+  width: 228px;
   background-color: #fff;
   border-radius: 3px;
   border-bottom: 2px solid #0d71fa;
@@ -94,6 +94,10 @@ const Card = styled.div`
   display: flex;
   justify-content: center;
   margin: 10px;
+
+  @media (max-width: 1024px) {
+    width: 320px;
+  }
 
   @media (max-width: 500px) {
     width: 90%;

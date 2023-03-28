@@ -36,7 +36,9 @@ const Recent = () => {
           </table>
         </Table>
 
-        <BtnHold></BtnHold>
+        <BtnHold>
+                <Button>View More</Button>
+        </BtnHold>
       </Wrapper>
     </Container>
   );

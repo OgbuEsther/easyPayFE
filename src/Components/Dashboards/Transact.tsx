@@ -45,6 +45,7 @@ const Recent = () => {
           
           </table>
         </Table>
+  
       </Wrapper>
     </Container>
   );

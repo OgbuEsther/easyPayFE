@@ -29,8 +29,8 @@ const Pay = () => {
     resolver: yupResolver(schema),
   });
 
-/*/pay/paysalarywithhouseplan/64205f692e1bee7121efb1c7 */
-  const onSubmit = handleSubmit(async (data) => {
+
+  const onSubmit = handleSubmit(async (data:any) => {
     await axios
       .post(`${live2}/paysalary/${user?._id}`, data)
       .then((res) => {
@@ -111,6 +111,9 @@ const Input = styled.input`
 `
 const Text = styled.div`
     width: 150px;
+    @media screen and (max-width: 500px) {
+      width: 100%;
+    }
 `
 const Inputhold = styled.div`
     display: flex;

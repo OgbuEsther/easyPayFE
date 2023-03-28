@@ -16,9 +16,7 @@ const Recent = () => {
   return (
     <Container>
       <div>
-        <Top>
-          <h2>List of Staffs</h2>
-        </Top>
+        <Title>Latest transactions</Title>
         <Boxhold></Boxhold>
         <Table>
           <table>
@@ -48,6 +46,10 @@ const Recent = () => {
 };
 
 export default Recent;
+const Title = styled.div`
+  font-weight: bold;
+  margin-bottom: 20px;
+`;
 const Table2 = styled.div`
   overflow-x: auto;
   font-size: 14px;
@@ -218,8 +220,8 @@ const Boxhold = styled.div`
 `;
 const Top = styled.div`
   h2 {
-    margin: 0;
-    font-size: 20px;
+    font-weight: bold;
+  margin-bottom: 20px;
   }
 `;
 
