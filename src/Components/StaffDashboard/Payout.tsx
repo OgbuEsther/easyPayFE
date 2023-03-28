@@ -54,7 +54,7 @@ const Payout = () => {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "insufficient money in your wallet",
+        text: "Something went wrong! .....make sure you fill in the valid details",
         //  footer: '<a href="">Why do I have this issue?</a>',
       });
     },
