@@ -145,12 +145,12 @@ const Team = () => {
           <Wrapper>
               <Left>
                   <Top><h1>Connecting all your business banking needs.</h1></Top>
-                  <P><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe omnis excepturi dolore quibusdam aspernatur, libero voluptate facere dolores laborum delectus esse itaque?</p></P>
+                  <P><p>Get a unique bank account number that enables your company to pay employees' salaries through the wallet, view transaction history, check account balance, make deposits, withdraw, & transfer with ease!</p></P>
                   <Payment>
                       <Img2 src={img2} />
                       <Second>
                           <Up><h3>Payment Solution</h3></Up>
-                          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae pariatur libero delectus repellendus eum deleniti?</p>
+                          <p>We automatically route payments through the most optimal channels, ensuring the highest transaction success rates in the market.</p>
                       </Second>
                   </Payment>
 
