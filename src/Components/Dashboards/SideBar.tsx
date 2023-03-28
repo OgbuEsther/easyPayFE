@@ -16,9 +16,14 @@ const SideBar = () => {
   const dispatch = UseAppDispatch();
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
+  const [show2, setShow2] = useState(false);
 
   const Toggle = () => {
     setShow(!show);
+  };
+
+  const Toggle2 = () => {
+    setShow2(!show2);
   };
   return (
     <Container>
@@ -70,8 +75,13 @@ const SideBar = () => {
           <NavLink to="/payroll" style={{ textDecoration: "none" }}>
             <p>Send Payment</p>
           </NavLink>
-          <p>Past Payment</p>
+          <p onClick={Toggle2}>Credit Wallet</p>
         </Staffs>
+      ) : null}
+      {show2 ? (
+        <Slidein>
+
+      </Slidein>
       ) : null}
       <Home2>
         <Icon2>
@@ -144,6 +154,16 @@ const SideBar = () => {
 };
 
 export default SideBar;
+const Slidein = styled.div`
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  z-index: 15;
+`
 const Sta = styled.div`
   font-size: 17px;
   font-family: U8, sans-serif;
