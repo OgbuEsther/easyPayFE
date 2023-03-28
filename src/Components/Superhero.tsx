@@ -68,6 +68,7 @@ const Right = styled.div`
         width: 100%;
         display: flex;
         justify-content: center;
+        margin-top: 30px;
     }
   @media screen and (max-width: 500px) {
     margin-top: 30px;
@@ -95,6 +96,11 @@ const Down = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 25px;
+  @media screen and (max-width: 768px) {
+    display: flex;
+    /* background-color: red; */
+    align-items: center;
+  }
 `
 const Top = styled.div`
     h1{
@@ -105,6 +111,7 @@ const Top = styled.div`
     margin: 0;
     @media screen and (max-width: 768px) {
         font-size: 55px;
+        text-align: center;
     }
   @media screen and (max-width: 500px) {
    font-size: 40px;

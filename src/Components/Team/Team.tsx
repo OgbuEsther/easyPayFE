@@ -239,6 +239,10 @@ const Top = styled.div`
         @media screen and (max-width: 425px) {
             font-size: 26px;
         }
+        @media screen and (max-width: 768px) {
+            font-size: 26px;
+            text-align: center;
+        }
          @media screen and (max-width: 375px) {
             font-size: 22px;
         }
