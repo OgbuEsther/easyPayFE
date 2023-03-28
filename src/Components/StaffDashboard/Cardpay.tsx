@@ -11,12 +11,13 @@ import { useMutation } from '@tanstack/react-query'
 import { adminPayIn } from '../api/adminEndpoints'
 import Swal from 'sweetalert2'
 import { UseAppSelector } from '../Global/Store'
+import { useNavigate } from 'react-router-dom'
 
 
 
 const Card = () => {
 
-
+const navigate = useNavigate()
 const user = UseAppSelector(state => state.Admin)
   const id = user?._id!
     const schema = yup
@@ -54,7 +55,7 @@ const user = UseAppSelector(state => state.Admin)
         timerProgressBar: true,
   
         willClose: () => {
-        //   navigate("/dashboard");
+          navigate("/dashboard");
         },
       });
     },
