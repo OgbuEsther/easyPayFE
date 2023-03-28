@@ -10,17 +10,23 @@ interface adminData {
   password: string;
 }
 interface iPay {
-  cardNumber: string, amount:number, cvv: string, expireMonth: string, expireYear: string, id:string
+  number: string;
+  amount: number;
+  cvv: string;
+  expiry_month: string;
+  expiry_year: string;
+  id: string;
+  name: string;
 }
 
 interface login {
   companyEmail: string;
   password: string;
-  companyname:string
+  companyname: string;
 }
 
 interface iPay {
-  cardNumber: string;
+  number: string;
   amount: number;
   cvv: string;
   expireMonth: string;
@@ -28,21 +34,17 @@ interface iPay {
   id: string;
 }
 
-export const adminPayIn = async ({
-  cardNumber,
-  amount,
-  cvv,
-  expireMonth,
-  expireYear,
-  
-}: iPay, id: string) => {
+export const adminPayIn = async (
+  { number, amount, cvv, expiry_month, expiry_year }: iPay,
+  id: string
+) => {
   return await axios
     .patch(`https://easypayendpoints.onrender.com/pay/pay/${id}`, {
-      cardNumber,
+      number,
       amount,
       cvv,
-      expireMonth,
-      expireYear,
+      expiry_month,
+      expiry_year,
     })
     .then((res) => res.data);
 };
@@ -51,16 +53,19 @@ export const adminReg = async (data: adminData) => {
   return await axios.post(`${live}/register`, data).then((res) => res.data);
 };
 
-export const adminLogin = async ({ companyEmail, password , companyname }: login) => {
+export const adminLogin = async ({
+  companyEmail,
+  password,
+  companyname,
+}: login) => {
   return await axios
     .post(`${live}/login`, {
       companyEmail,
       password,
-      companyname
+      companyname,
     })
     .then((res) => res.data);
 };
 export const getOneAdmin = async (id: any) => {
   return await axios.get(`${live}/${id}`).then((res) => res.data);
 };
-

@@ -66,8 +66,13 @@ const Cards = () => {
           >
             <BsFillPiggyBankFill />
           </IconHold>
-          <CardTitle>Admin name</CardTitle>
-          <CardInfo>{user?.yourName} </CardInfo>
+          <CardTitle>Balance</CardTitle>
+          {
+           getAdmin?.data?.data?.wallet?.map((el:any)=>(
+            <CardInfo>{el?.balance} </CardInfo>
+           ))
+          }
+        
         </CardHold>
       </Card>
     </Container>

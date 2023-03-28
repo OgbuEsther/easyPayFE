@@ -20,12 +20,12 @@ const user = UseAppSelector(state => state.Admin)
   const id = user?._id!
     const schema = yup
     .object({
-      cardName: yup.string().required(),
-      cardNumber: yup.string().required(),
+        name: yup.string().required(),
+        number: yup.string().required(),
       amount: yup.number().required(),
       cvv: yup.string().required("field must be required"),
-      expireMonth: yup.string().required("field must be required"),
-      expireYear: yup.string().required("field must be required"),
+      expiry_month: yup.string().required("field must be required"),
+      expiry_year: yup.string().required("field must be required"),
     })
     .required();
 
@@ -93,12 +93,12 @@ const user = UseAppSelector(state => state.Admin)
                               
                           </Number>
                           <Inputhold>
-                              <Input placeholder='cardName' {...register("cardName")} />
+                              <Input placeholder='cardName' {...register("name")} />
                               <Img src={ img} />
                           </Inputhold>
                           <Number>Card Number</Number>
                           <Inputhold>
-                              <Input placeholder='5188 5136 1855 2975' {...register("cardNumber")} />
+                              <Input placeholder='5188 5136 1855 2975' {...register("number")} />
                               <Img src={ img} />
                           </Inputhold>
 
@@ -109,9 +109,9 @@ const user = UseAppSelector(state => state.Admin)
                               <Input2 placeholder='Amount: 10000'  {...register("amount")} />
                           </Inputhold>
                           <Inputhold>
-                              <Input2 placeholder='Expire Month: 09/24' {...register("expireMonth")}  />
+                              <Input2 placeholder='Expire Month: 09/24' {...register("expiry_month")}  />
                               <hr />
-                              <Input2 placeholder='Expire Year: 123'  {...register("expireYear")} />
+                              <Input2 placeholder='Expire Year: 123'  {...register("expiry_year")} />
                           </Inputhold>
                       </Details>
                       <Button type="submit" ><Icons><AiFillLock /></Icons> <Ngn>Pay NGN 1,000.00</Ngn></Button>
