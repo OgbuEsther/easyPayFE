@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import img from "../Assets/person.png";
-import Staffcards from "./Staffcards"
-import Plans from "./Plans"
+import Staffcards from "./Staffcards";
+import Plans from "./Plans";
 import { FaGoogleWallet } from "react-icons/fa";
 import { MdOutlineCancel } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import { UseAppSelector } from "../Global/Store";
 import { useQuery } from "@tanstack/react-query";
 import { getOneAdmin } from "../api/adminEndpoints";
+import { getOneStaff } from "../api/staffEndpoints";
 
 const Home = () => {
   const [show, setShow] = useState(false);
@@ -21,12 +22,12 @@ const Home = () => {
     setShow(false);
   };
 
-  const user = UseAppSelector((state) => state.Admin);
-  const getAdmin = useQuery({
-    queryKey: ["singleAdmin"],
-    queryFn: () => getOneAdmin(user?._id),
+  const user = UseAppSelector((state) => state.Client);
+  const getStaff = useQuery({
+    queryKey: ["singleStaff"],
+    queryFn: () => getOneStaff(user?._id),
   });
-  console.log("this is getadmin", getAdmin);
+  console.log("this is getStaff", getStaff);
 
   return (
     <Container>
@@ -48,7 +49,7 @@ const Home = () => {
                   <Circle>
                     <FaGoogleWallet />
                   </Circle>
-                  {getAdmin?.data?.data?.wallet.map((el: any) => (
+                  {getStaff?.data?.data?.wallet.map((el: any) => (
                     <Wallet key={el?._id}>
                       <p>Wallet Balance</p>
                       <h3>{el.balance}</h3>
@@ -70,7 +71,7 @@ const Home = () => {
                 </Tap2>
 
                 <Holder>
-                  <NavLink to="/payout" style={{textDecoration: "none"}}>
+                  <NavLink to="/payout" style={{ textDecoration: "none" }}>
                     <button>Withdraw to bank</button>
                   </NavLink>
                 </Holder>
