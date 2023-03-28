@@ -3,6 +3,8 @@ import styled from "styled-components"
 import img from "./Assets/tick.svg"
 import img2 from "./Assets/acc.png"
 import img3 from "./Assets/grid.svg"
+import img4 from "./Assets/her.png"
+import { NavLink } from 'react-router-dom'
 
 const Superhero = () => {
   return (
@@ -23,11 +25,13 @@ const Superhero = () => {
                           <Img src={img} />
                           <Text><p>No hidden fees</p></Text>
                       </Hold>
-                      <Button>Start now</Button>
+                      <NavLink to="/optionsignup" style={{textDecoration: "none"}}>
+                          <Button>Start now</Button>
+                      </NavLink>
                   </Down>
               </Left>
               <Right>
-                  <Img2 src={img2} />
+                  <Img2 src={img4} />
               </Right>
           </Wrapper>
     </Container>
@@ -36,13 +40,13 @@ const Superhero = () => {
 
 export default Superhero
 const Img2 = styled.img`
-  height: 500px;
+  height: 530px;
   @media screen and (max-width: 500px) {
     height: 300px;
   }
 `
 const Button = styled.div`
-    color: #232333;
+    color: #fff;
     font-size: 18px;
     font-weight: 600;
     width: 135px;
@@ -68,6 +72,7 @@ const Right = styled.div`
         width: 100%;
         display: flex;
         justify-content: center;
+        margin-top: 30px;
     }
   @media screen and (max-width: 500px) {
     margin-top: 30px;
@@ -95,19 +100,28 @@ const Down = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 25px;
+  @media screen and (max-width: 768px) {
+    display: flex;
+    /* background-color: red; */
+    align-items: center;
+  }
 `
 const Top = styled.div`
     h1{
-        color: #232333;
+        color: #00214f;
     font-size: 68px;
     line-height: 1.1;
     font-weight: 600;
     margin: 0;
     @media screen and (max-width: 768px) {
         font-size: 55px;
+        text-align: center;
     }
   @media screen and (max-width: 500px) {
    font-size: 40px;
+  }
+  @media screen and (max-width: 375px) {
+   font-size: 35px;
   }
   @media screen and (max-width: 320px) {
    font-size: 33px;
@@ -127,10 +141,12 @@ const Wrapper = styled.div`
     display: flex;
     padding-top: 80px;
     flex-wrap: wrap;
+    margin-top: 70px;
 `
 
 const Container = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
+    overflow: hidden;
 `

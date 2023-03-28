@@ -43,29 +43,31 @@ const Home = () => {
         </Card2>
 
                 <Tap>
-              <p>Tap here & enter amount .. (e.g 5000)</p>
-              <Input type="number"
-                placeholder="Tap here & enter .. (e.g 5000)"
-              />
+              <h3>Admin Details: </h3>
+              <p>Wallet number: <strong>1680017527172</strong></p>
                 </Tap>
                 
                 <Tap2>
-              <p>Tap here & enter ATM CVV</p>
-              <Input type="number"
-                placeholder="Enter Cvv"
-              />
+              <p>Company name: <strong>Godwin and Sons</strong></p>
                 </Tap2>
                 
                 <Tap2>
-              <p>Tap here & enter Card number</p>
-              <Input type="number"
-                placeholder="Enter card number"
-                  />
-                  
+              <p>Company code: <strong>211424</strong></p>
                 </Tap2>
-                <NavLink to="/payment" style={{textDecoration: "none"}}>
-                  <button>Proceed</button>
+
+                <Tap2>
+              <p>Admin name: <strong>Godwin</strong></p>
+                </Tap2>
+                
+                
+                  <Holder>
+                    <NavLink to="/payment" style={{textDecoration: "none"}}>
+                  <button>Credit wallet</button>
                 </NavLink>
+                
+                <button>Withdraw to bank</button>
+                  </Holder>
+                
               </Wallets>
               
           </Slidein>
@@ -83,6 +85,21 @@ const Home = () => {
 };
 
 export default Home;
+const Holder = styled.div`
+  display: flex;
+   button {
+    width: 160%;
+    height: 50px;
+    background-color: #3184f7;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin-top: 60px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+`
 const Icon = styled.div`
   position: absolute;
   font-size: 25px;
@@ -99,25 +116,43 @@ const Input = styled.input`
   border: 1px solid gray;
 `;
 const Tap2 = styled.div`
-  p {
+  h3{
     margin: 0;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 19px;
+    font-weight: 500;
   }
-  
   margin-top: 30px;
   display: flex;
   flex-direction: column;
+  p{
+    margin: 0;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  strong{
+    font-size: 16px;
+    margin-left: 15px;
+  }
 `;
 const Tap = styled.div`
-  p {
+  h3{
     margin: 0;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 19px;
+    font-weight: 500;
   }
   margin-top: 60px;
   display: flex;
   flex-direction: column;
+  p{
+    margin: 0;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 30px;
+  }
+  strong{
+    font-size: 16px;
+    margin-left: 15px;
+  }
 `;
 
 const Circle = styled.div`
@@ -167,17 +202,6 @@ const Wallets = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
-  button {
-    width: 100%;
-    height: 50px;
-    background-color: #3184f7;
-    color: #fff;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    margin-top: 60px;
-    cursor: pointer;
-  }
 `
 const Slidein = styled.div`
   width: 100%;

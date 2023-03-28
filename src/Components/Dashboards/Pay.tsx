@@ -11,11 +11,12 @@ import { useForm } from "react-hook-form";
 import { UseAppSelector } from '../Global/Store';
 
 const Pay = () => {
+
     const user = UseAppSelector((state) => state.Admin);
 
     const schema = yup
     .object({
-      walletNumber: yup.number().required("field must be"),
+      walletNumber: yup.number().required("field must be filled"),
       amount: yup.number().required("field mu"),
     })
     .required();
@@ -29,7 +30,7 @@ const Pay = () => {
     resolver: yupResolver(schema),
   });
 
-
+/*/pay/paysalarywithhouseplan/64205f692e1bee7121efb1c7 */
   const onSubmit = handleSubmit(async (data) => {
     await axios
       .post(`${live2}/paysalary/${user?._id}`, data)

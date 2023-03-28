@@ -116,6 +116,7 @@ const Container = styled.div<{ bd: string; bg: string }>`
   align-items: center;
   font-family: Montserrat;
   transition: all 350ms ease-in-out; ;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 `;
 const Wrapper = styled.div`
   width: 92%;
@@ -148,7 +149,7 @@ const SignDiv = styled.div`
   align-items: center;
 `;
 const SignBtn2 = styled.button`
-  height: 34px;
+  height: 40px;
   width: 120px;
   /* margin: 12px; */
   margin-left: 10px;
@@ -165,7 +166,7 @@ const SignBtn2 = styled.button`
   }
 `;
 const SignBtn = styled.button`
-  height: 34px;
+  height: 40px;
   width: 120px;
   /* margin: 12px; */
   margin-left: 10px;

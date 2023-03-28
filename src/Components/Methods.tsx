@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import img from "./Assets/old.png"
 import img2 from "./Assets/happy.png"
 import img3 from "./Assets/jump.png"
+import img4 from "./Assets/pigsave.jpg"
 
 const Methods = () => {
   return (
@@ -19,7 +20,7 @@ const Methods = () => {
                   </Card>
 
                   <Card>
-                      <Img src={img2} />
+                      <Img src={img4} />
                       <Down>
                           <h3>You decide exactly how to get paid</h3>
                           <Started>Get started</Started>
@@ -88,11 +89,16 @@ const Boxhold = styled.div`
     }
 `
 const Top = styled.div`
+    @media screen and (max-width: 500px){
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
     h1{
         color: #00214F;
-        /* text-align: center; */
-        @media screen and (max-width: 425px) {
+        @media screen and (max-width: 500px) {
             font-size: 26px;
+            text-align: center;
         }
          @media screen and (max-width: 375px) {
             font-size: 22px;
@@ -105,6 +111,10 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
+  @media screen and (max-width: 500px) {
+    display: flex;
+    justify-content: center;
+  }
 `
 const Container = styled.div`
     width: 100%;

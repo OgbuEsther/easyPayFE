@@ -15,26 +15,10 @@ const Homescreen = () => {
   return (
     <div>
       <Header />
-      <br />
-      <br />
-      <br />
-      <br />
       <Superhero />
-      <br />
-      <br />
-      <br />
       <Team />
-      <br />
-      <br />
-      <br />
       <Accept />
-      <br />
-      <br />
-      <br />
       <Methods />
-      <br />
-      <br />
-      <br />
       <Footer />
     </div>
   );

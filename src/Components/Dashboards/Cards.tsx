@@ -15,6 +15,7 @@ const Cards = () => {
     queryFn: () => getOneAdmin(user?._id),
   });
 
+
   return (
     <Container>
       <Card>
@@ -65,8 +66,13 @@ const Cards = () => {
           >
             <BsFillPiggyBankFill />
           </IconHold>
-          <CardTitle>Admin name</CardTitle>
-          <CardInfo>{user?.yourName} </CardInfo>
+          <CardTitle>Balance</CardTitle>
+          {
+           getAdmin?.data?.data?.wallet?.map((el:any)=>(
+            <CardInfo>{el?.balance} </CardInfo>
+           ))
+          }
+        
         </CardHold>
       </Card>
     </Container>
@@ -78,10 +84,14 @@ export default Cards;
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
+  @media screen and (max-width: 768px){
+    display: flex;
+    justify-content: center;
+  }
 `;
 const Card = styled.div`
   height: 180px;
-  width: 220px;
+  width: 328px;
   background-color: #fff;
   border-radius: 3px;
   border-bottom: 2px solid #0d71fa;

@@ -72,8 +72,9 @@ const Top = styled.div`
     h1{
         color: #00214F;
         /* text-align: center; */
-        @media screen and (max-width: 425px) {
+        @media screen and (max-width: 500px) {
             font-size: 26px;
+            text-align: center;
         }
          @media screen and (max-width: 375px) {
             font-size: 22px;
@@ -94,4 +95,5 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     overflow: hidden;
+    margin-top: 60px;
 `

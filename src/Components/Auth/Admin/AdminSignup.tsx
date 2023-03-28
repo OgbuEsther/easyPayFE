@@ -63,7 +63,7 @@ const AdminSignUp = () => {
       });
     },
   });
-  const submit = handleSubmit((data) => {
+  const submit = handleSubmit((data: any) => {
     newClient.mutate(data);
     // console.log("this is yup data", data);
     reset();

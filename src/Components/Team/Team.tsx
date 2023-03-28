@@ -183,6 +183,11 @@ const Right = styled.div`
     width: 48%;
     display: flex;
     /* justify-content: center; */
+    @media screen and (max-width: 1024px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     @media screen and (max-width: 425px) {
         width: 100%;
         display: flex;
@@ -239,6 +244,10 @@ const Top = styled.div`
         @media screen and (max-width: 425px) {
             font-size: 26px;
         }
+        @media screen and (max-width: 768px) {
+            font-size: 26px;
+            text-align: center;
+        }
          @media screen and (max-width: 375px) {
             font-size: 22px;
         }
@@ -246,6 +255,9 @@ const Top = styled.div`
 `
 const Img = styled.img`
     height: 650px;
+     @media screen and (max-width: 1024px) {
+        height: 430px;
+    }
     @media screen and (max-width: 768px) {
         height: 390px;
     }
@@ -279,4 +291,5 @@ const Container = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-top: 70px;
 `
