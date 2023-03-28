@@ -17,7 +17,7 @@ const Payout = () => {
 
     
 
-const user = UseAppSelector(state => state.Admin)
+const user = UseAppSelector(state => state.Client)
   const id = user?._id!
     const schema = yup
     .object({
