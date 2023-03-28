@@ -101,8 +101,12 @@ const Transact = styled.div`
     border-radius: 12px;
     flex-direction: column;
      padding-left: 30px;
+     /* background-color: red; */
      padding-top: 20px;
     margin-top: 40px;
+    @media screen and (max-width: 500px){
+      width: 355px;
+    }
 `
 const Down = styled.div`
     width: 100%;
@@ -145,12 +149,6 @@ const Box = styled.div`
         margin: 0;
     }
 `
-
-
-
-
-
-
 const Top = styled.div`
   h3 {
     margin: 0;
