@@ -10,8 +10,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { adminLogin } from "../../api/adminEndpoints";
 
-
-
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import Swal from "sweetalert2";
@@ -19,8 +17,7 @@ import { UseAppDispatch } from "../../Global/Store";
 import { registerAdmin } from "../../Global/ReduxState";
 
 const AdminSignIn = () => {
-
-const dispatch = UseAppDispatch()
+  const dispatch = UseAppDispatch()
   const navigate = useNavigate();
   const schema = yup
     .object({
@@ -56,7 +53,6 @@ const dispatch = UseAppDispatch()
         html: "redirecting to dashboard",
         timer: 2000,
         timerProgressBar: true,
-  
         willClose: () => {
           navigate("/dashboard");
         },

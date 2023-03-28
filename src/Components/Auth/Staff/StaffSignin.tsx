@@ -16,7 +16,9 @@ import { UseAppDispatch } from "../../Global/Store";
 import { registerClient } from "../../Global/ReduxState";
 
 const StaffSignin = () => {
+
   const dispatch = UseAppDispatch();
+
   const navigate = useNavigate();
 
   const schema = yup
@@ -43,20 +45,19 @@ const StaffSignin = () => {
     mutationKey: ["loginClients"],
 
     onSuccess: (myData) => {
-      dispatch(registerClient(myData.data));
-      // console.log(myData);
+
       Swal.fire({
         title: "login",
         html: "redirecting to dashboard",
         timer: 2000,
         timerProgressBar: true,
 
+
         willClose: () => {
           navigate("/staffdashboard");
         },
       });
 
-      
     },
     onError: () => {
       Swal.fire({
@@ -69,7 +70,7 @@ const StaffSignin = () => {
   });
 
   const Submit = handleSubmit((data) => {
-    signin.mutate(data)
+    signin.mutate(data);
     // console.log(`this is yup signin`, data);
     // reset();
 
