@@ -4,7 +4,7 @@ import styled from "styled-components";
 import img from "../Assets/save.svg";
 import { getAllClients, live1 } from "../api/staffEndpoints";
 import { UseAppSelector } from "../Global/Store";
-import { BsArrowRightShort } from "react-icons/bs";
+import { BsArrowRightShort, BsFillHousesFill, BsBusFront } from "react-icons/bs";
 import { FaGoogleWallet } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
 import { MdOutlineCancel } from "react-icons/md";
@@ -13,6 +13,9 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import axios from "axios";
 import * as yup from "yup";
+import {IoIosSchool} from "react-icons/io"
+
+
 const Recent = () => {
   const user = UseAppSelector((state) => state.Client);
   const navigate = useNavigate()
@@ -168,7 +171,7 @@ const Recent = () => {
           <Holder>
             <Card4>
               <Circle4>
-                <FaGoogleWallet />
+                <BsFillHousesFill />
               </Circle4>
               <Wallet>
                 <h3>Rents</h3>
@@ -179,7 +182,7 @@ const Recent = () => {
 
             <Card2>
               <Circle2>
-                <FaGoogleWallet />
+                <IoIosSchool />
               </Circle2>
               <Wallet>
                 <h3>School fees</h3>
@@ -190,7 +193,7 @@ const Recent = () => {
 
             <Card3>
               <Circle3>
-                <FaGoogleWallet />
+                <BsBusFront />
               </Circle3>
               <Wallet>
                 <h3>Travel & Tour</h3>
@@ -320,7 +323,7 @@ export default Recent;
 const Icron = styled.div`
   position: absolute;
   font-size: 25px;
-  right: 32%;
+  right: 30%;
   color: #fff;
   cursor: pointer;
   top: 120px;
@@ -509,6 +512,7 @@ const Card3 = styled.div`
   align-items: center;
   cursor: pointer;
   padding-left: 15px;
+  margin: 10px;
 `;
 const Circle4 = styled.div`
   width: 60px;
@@ -533,6 +537,7 @@ const Card4 = styled.div`
   align-items: center;
   cursor: pointer;
   padding-left: 15px;
+  margin: 10px;
 `;
 const Wallet = styled.div`
   display: flex;
@@ -586,12 +591,12 @@ const Card2 = styled.div`
   padding-left: 15px;
 `;
 const Holder = styled.div`
-  width: 830px;
+  width: 900px;
   height: 400px;
   display: flex;
   background-color: #fff;
   border-radius: 10px;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 `;
 const Plans = styled.div`

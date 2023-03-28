@@ -75,13 +75,7 @@ const SideBar = () => {
           <NavLink to="/payroll" style={{ textDecoration: "none" }}>
             <p>Send Payment</p>
           </NavLink>
-          <p onClick={Toggle2}>Credit Wallet</p>
         </Staffs>
-      ) : null}
-      {show2 ? (
-        <Slidein>
-
-      </Slidein>
       ) : null}
       <Home2>
         <Icon2>
@@ -102,7 +96,7 @@ const SideBar = () => {
 
       <Power
         onClick={() => {
-          dispatch(logoutAdmin());
+        
 
           const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
@@ -123,6 +117,7 @@ const SideBar = () => {
             })
             .then((result) => {
               if (result.isConfirmed) {
+                dispatch(logoutAdmin());
                 navigate("/optionsignin");
                 swalWithBootstrapButtons.fire(
                   "logout successful!",
@@ -154,16 +149,16 @@ const SideBar = () => {
 };
 
 export default SideBar;
-const Slidein = styled.div`
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  right: 0;
-  left: 0;
-  top: 0;
-  z-index: 15;
-`
+// const Slidein = styled.div`
+//   width: 100%;
+//   height: 100vh;
+//   background-color: rgba(0, 0, 0, 0.5);
+//   position: absolute;
+//   right: 0;
+//   left: 0;
+//   top: 0;
+//   z-index: 15;
+// `
 const Sta = styled.div`
   font-size: 17px;
   font-family: U8, sans-serif;

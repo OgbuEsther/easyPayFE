@@ -80,7 +80,7 @@ const Container = styled.div`
   flex-wrap: wrap;
 `;
 const Card = styled.div`
-  height: 120px;
+  height: 180px;
   width: 220px;
   background-color: #fff;
   border-radius: 3px;
@@ -116,6 +116,7 @@ const CardTitle = styled.div`
   margin-bottom: 5px;
 `;
 const CardInfo = styled.div`
-  font-size: 20px;
-  font-weight: 800;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
 `;

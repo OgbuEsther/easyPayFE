@@ -6,16 +6,19 @@ import { BsBusFrontFill, BsHousesFill } from "react-icons/bs";
 import { UseAppSelector } from "../Global/Store";
 import { useQuery } from "@tanstack/react-query";
 import { getOneAdmin } from "../api/adminEndpoints";
+import { BiMoney } from "react-icons/bi"
+import {SiExpensify} from "react-icons/si"
+import { getOneStaff } from "../api/staffEndpoints";
 
 const Cards = () => {
-  const admin = UseAppSelector((state) => state.Admin);
+  const staff = UseAppSelector((state) => state.Client);
 
-  const getAdmin = useQuery({
-    queryFn: () => getOneAdmin(admin?._id),
-    queryKey: ["getOneAmin"],
+  const getStaff = useQuery({
+    queryFn: () => getOneStaff(staff?._id),
+    queryKey: ["getOneStaff"],
   });
 
-  console.log("this is getadmin", getAdmin);
+
 
   return (
     <Container>
@@ -24,26 +27,31 @@ const Cards = () => {
           <Circle>
             <FaGoogleWallet />
           </Circle>
-          <Wallet>
-            <p>Balance</p>
-            <h3>$0.00</h3>
-          </Wallet>
+          {
+getStaff?.data?.data?.wallet?.map((el:any)=>(
+  <Wallet key ={el?._id}>
+  <p>Balance</p>
+  <h3>{el?.balance}</h3>
+</Wallet>
+))
+          }
+       
         </Card>
 
         <Card2>
           <Circle2>
-            <FaGoogleWallet />
+            <BiMoney />
           </Circle2>
           <Wallet>
-            <p>Income</p>
-            <h3>$0.00</h3>
+            <p>Wallet Number</p>
+            <h3> {staff?.walletNumber} </h3>
           </Wallet>
         </Card2>
 
         <Card3>
-          <Circle2>
-            <FaGoogleWallet />
-          </Circle2>
+          <Circle4>
+            <SiExpensify />
+          </Circle4>
           <Wallet>
             <p>Expenses</p>
             <h3>$0.00</h3>
@@ -173,7 +181,7 @@ const Card4 = styled.div`
 const Card3 = styled.div`
   width: 310px;
   height: 150px;
-  background-color: #ef7914;
+  background-color: #39a081;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;

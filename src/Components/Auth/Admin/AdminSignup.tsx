@@ -41,8 +41,18 @@ const AdminSignUp = () => {
     mutationKey: ["registerAdmin"],
 
     onSuccess: (data: any) => {
-      // console.log("my data", data);
+    
       dispatch(registerAdmin(data.data));
+      Swal.fire({
+        title: "registration succesful",
+        // html: "redirecting to login",
+        timer: 2000,
+        timerProgressBar: true,
+  
+        willClose: () => {
+          navigate("/dashboard");
+        },
+      });
     },
     onError: () => {
       Swal.fire({
@@ -56,17 +66,8 @@ const AdminSignUp = () => {
   const submit = handleSubmit((data) => {
     newClient.mutate(data);
     // console.log("this is yup data", data);
-    // reset();
-    Swal.fire({
-      title: "registration succesful",
-      // html: "redirecting to login",
-      timer: 2000,
-      timerProgressBar: true,
-
-      willClose: () => {
-        navigate("/dashboard");
-      },
-    });
+    reset();
+  
   });
 
   return (
