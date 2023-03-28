@@ -87,7 +87,9 @@ const Home = () => {
                     <button>Credit wallet</button>
                   </NavLink>
 
-                  <button>Withdraw to bank</button>
+                  <NavLink to="/payout" style={{textDecoration: "none"}}>
+                    <button>Withdraw to bank</button>
+                  </NavLink>
                 </Holder>
               </Wallets>
             </Slidein>
