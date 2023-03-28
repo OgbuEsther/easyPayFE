@@ -9,6 +9,9 @@ interface adminData {
   yourName: string;
   password: string;
 }
+interface iPay {
+  cardNumber: string, amount:number, cvv: string, expireMonth: string, expireYear: string, id:string
+}
 
 interface login {
   companyEmail: string;
@@ -27,6 +30,14 @@ export const adminLogin = async ({ companyEmail, password }: login) => {
     .post(`${live}/login`, {
       companyEmail,
       password,
+    })
+    .then((res) => res.data);
+};
+
+export const adminPayIn = async ({ cardNumber, amount, cvv, expireMonth, expireYear, id }: iPay) => {
+  return await axios
+    .post(`https://easypayendpoints.onrender.com/pay/pay/${id}`, {
+      cardNumber, amount, cvv, expireMonth, expireYear
     })
     .then((res) => res.data);
 };
