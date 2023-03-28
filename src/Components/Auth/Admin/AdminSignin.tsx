@@ -14,7 +14,7 @@ import { useMutation } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import { UseAppDispatch } from "../../Global/Store";
 import { registerAdmin } from "../../Global/ReduxState";
-
+import {BallTriangle} from "react-loader-spinner"
 const AdminSignIn = () => {
   const dispatch = UseAppDispatch()
   const navigate = useNavigate();
@@ -76,7 +76,9 @@ const AdminSignIn = () => {
   });
 
   return (
+    
     <Container>
+      {signin?.isLoading ? <BallTriangle /> : null }
       <Wrapper>
         <InputPart>
           <IconTop to="/optionsignin">
