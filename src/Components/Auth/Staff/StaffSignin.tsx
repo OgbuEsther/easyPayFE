@@ -12,8 +12,13 @@ import { useMutation } from "@tanstack/react-query";
 import { loginClient } from "../../api/staffEndpoints";
 
 import Swal from "sweetalert2";
+import { UseAppDispatch } from "../../Global/Store";
+import { registerClient } from "../../Global/ReduxState";
 
 const StaffSignin = () => {
+
+  const dispatch = UseAppDispatch();
+
   const navigate = useNavigate();
 
   const schema = yup
@@ -40,16 +45,19 @@ const StaffSignin = () => {
     mutationKey: ["loginClients"],
 
     onSuccess: (myData) => {
+
       Swal.fire({
         title: "login",
         html: "redirecting to dashboard",
         timer: 2000,
         timerProgressBar: true,
+
+
         willClose: () => {
           navigate("/staffdashboard");
         },
       });
-      // console.log("this is on success", dispatch(registerClient(myData.data)));
+
     },
     onError: () => {
       Swal.fire({

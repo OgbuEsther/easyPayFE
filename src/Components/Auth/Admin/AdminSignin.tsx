@@ -13,8 +13,11 @@ import { adminLogin } from "../../api/adminEndpoints";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import { UseAppDispatch } from "../../Global/Store";
+import { registerAdmin } from "../../Global/ReduxState";
 
 const AdminSignIn = () => {
+  const dispatch = UseAppDispatch()
   const navigate = useNavigate();
   const schema = yup
     .object({
@@ -44,6 +47,7 @@ const AdminSignIn = () => {
     // },
 
     onSuccess: (myData) => {
+            dispatch(registerAdmin(myData.data));
       Swal.fire({
         title: "login",
         html: "redirecting to dashboard",
@@ -53,7 +57,7 @@ const AdminSignIn = () => {
           navigate("/dashboard");
         },
       });
-      // console.log("this is on success", dispatch(registerAdmin(myData.data)));
+
     },
     onError: () => {
       Swal.fire({
@@ -68,6 +72,7 @@ const AdminSignIn = () => {
     signin.mutate(data);
     // console.log(`this is yup signin`, data);
     reset();
+    
   });
 
   return (
