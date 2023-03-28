@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import img from "../Assets/person.png";
 import Cards from "./Cards";
@@ -7,17 +7,28 @@ import { FaGoogleWallet } from "react-icons/fa";
 import { MdOutlineCancel } from "react-icons/md";
 import Recent from "./Recent";
 import { NavLink } from "react-router-dom";
+import { UseAppSelector } from "../Global/Store";
+import { useQuery } from "@tanstack/react-query";
+import { getOneAdmin } from "../api/adminEndpoints";
 
 const Home = () => {
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(false);
 
   const Toggle = () => {
-    setShow(!show)
-  }
+    setShow(!show);
+  };
 
   const Toggle2 = () => {
-    setShow(false)
-  }
+    setShow(false);
+  };
+
+  const user = UseAppSelector((state) => state.Admin);
+  const getAdmin = useQuery({
+    queryKey: ["singleAdmin"],
+    queryFn: () => getOneAdmin(user?._id),
+  });
+  console.log("this is getadmin", getAdmin);
+
   return (
     <Container>
       <Wrapper>
@@ -31,46 +42,55 @@ const Home = () => {
           {show ? (
             <Slidein>
               <Wallets>
-                <Icon onClick={Toggle2}><MdOutlineCancel /></Icon>
-                 <Card2>
-          <Circle>
-            <FaGoogleWallet />
-          </Circle>
-          <Wallet>
-            <p>Wallet Balance</p>
-            <h3>$0.00</h3>
-          </Wallet>
-        </Card2>
+                <Icon onClick={Toggle2}>
+                  <MdOutlineCancel />
+                </Icon>
+                <Card2>
+                  <Circle>
+                    <FaGoogleWallet />
+                  </Circle>
+                  {getAdmin?.data?.data?.wallet.map((el: any) => (
+                    <Wallet key={el?._id}>
+                      <p>Wallet Balance</p>
+                      <h3>{el.balance}</h3>
+                    </Wallet>
+                  ))}
+                </Card2>
 
                 <Tap>
-              <h3>Admin Details: </h3>
-              <p>Wallet number: <strong>1680017527172</strong></p>
+                  <h3>Admin Details: </h3>
+                  <p>
+                    Wallet number: <strong>{user?.walletNumber}</strong>
+                  </p>
                 </Tap>
-                
+
                 <Tap2>
-              <p>Company name: <strong>Godwin and Sons</strong></p>
-                </Tap2>
-                
-                <Tap2>
-              <p>Company code: <strong>211424</strong></p>
+                  <p>
+                    Company name: <strong>{user?.companyname}</strong>
+                  </p>
                 </Tap2>
 
                 <Tap2>
-              <p>Admin name: <strong>Godwin</strong></p>
+                  <p>
+                    Company code: <strong>{user?.companyCode}</strong>
+                  </p>
                 </Tap2>
-                
-                
-                  <Holder>
-                    <NavLink to="/payment" style={{textDecoration: "none"}}>
-                  <button>Credit wallet</button>
-                </NavLink>
-                
-                <button>Withdraw to bank</button>
-                  </Holder>
-                
+
+                <Tap2>
+                  <p>
+                    Admin name: <strong>{user?.yourName}</strong>
+                  </p>
+                </Tap2>
+
+                <Holder>
+                  <NavLink to="/payment" style={{ textDecoration: "none" }}>
+                    <button>Credit wallet</button>
+                  </NavLink>
+
+                  <button>Withdraw to bank</button>
+                </Holder>
               </Wallets>
-              
-          </Slidein>
+            </Slidein>
           ) : null}
         </Top>
         <br />
@@ -87,7 +107,7 @@ const Home = () => {
 export default Home;
 const Holder = styled.div`
   display: flex;
-   button {
+  button {
     width: 160%;
     height: 50px;
     background-color: #3184f7;
@@ -99,13 +119,13 @@ const Holder = styled.div`
     cursor: pointer;
     margin-right: 10px;
   }
-`
+`;
 const Icon = styled.div`
   position: absolute;
   font-size: 25px;
   top: 15px;
   cursor: pointer;
-`
+`;
 const Input = styled.input`
   height: 40px;
   padding-left: 15px;
@@ -116,7 +136,7 @@ const Input = styled.input`
   border: 1px solid gray;
 `;
 const Tap2 = styled.div`
-  h3{
+  h3 {
     margin: 0;
     font-size: 19px;
     font-weight: 500;
@@ -124,18 +144,18 @@ const Tap2 = styled.div`
   margin-top: 30px;
   display: flex;
   flex-direction: column;
-  p{
+  p {
     margin: 0;
     font-size: 13px;
     font-weight: 500;
   }
-  strong{
+  strong {
     font-size: 16px;
     margin-left: 15px;
   }
 `;
 const Tap = styled.div`
-  h3{
+  h3 {
     margin: 0;
     font-size: 19px;
     font-weight: 500;
@@ -143,13 +163,13 @@ const Tap = styled.div`
   margin-top: 60px;
   display: flex;
   flex-direction: column;
-  p{
+  p {
     margin: 0;
     font-size: 13px;
     font-weight: 500;
     margin-top: 30px;
   }
-  strong{
+  strong {
     font-size: 16px;
     margin-left: 15px;
   }
@@ -202,7 +222,7 @@ const Wallets = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
-`
+`;
 const Slidein = styled.div`
   width: 100%;
   height: 100vh;
@@ -219,13 +239,13 @@ const Slidein = styled.div`
 
   @keyframes slide-in {
     from {
-      transform: translateX(-100%)
+      transform: translateX(-100%);
     }
     to {
-      transform: translateX(0)
+      transform: translateX(0);
     }
   }
-`
+`;
 const Img = styled.img`
   height: 45px;
 `;
@@ -263,7 +283,7 @@ const Top = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  button{
+  button {
     width: 130px;
     height: 40px;
     display: flex;
@@ -278,7 +298,7 @@ const Top = styled.div`
     position: relative;
     border: none;
     outline: none;
-}
+  }
 `;
 const Container = styled.div`
   width: calc(100% - 19%);
