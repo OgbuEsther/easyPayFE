@@ -29,7 +29,7 @@ const Pay = () => {
     resolver: yupResolver(schema),
   });
 
-
+/*/pay/paysalarywithhouseplan/64205f692e1bee7121efb1c7 */
   const onSubmit = handleSubmit(async (data) => {
     await axios
       .post(`${live2}/paysalary/${user?._id}`, data)
