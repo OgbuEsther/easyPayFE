@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { IoIosSearch, IoIosNotificationsOutline } from "react-icons/io";
 import { FiMenu, FiPower } from "react-icons/fi";
 import { IoIosRocket, IoMdPerson } from "react-icons/io";
 import img from "../Assets/blush12.png";
@@ -51,10 +50,6 @@ const Staffdashhead = () => {
                   </Inputhold>
               </Mid> */}
         <Right>
-          <Icons>
-            <IoIosNotificationsOutline />
-            <Circle>2</Circle>
-          </Icons>
           <Up>
             <Profile>{user?.yourName?.charAt(0).toUpperCase()}</Profile>
           </Up>
@@ -84,52 +79,46 @@ const Staffdashhead = () => {
             </Home>
 
             <Home2>
-              <Icon2>
-                <IoMdPerson />
-              </Icon2>
-              <NavLink
-                to="/staffs"
-                style={({ isActive }) => {
-                  return {
-                    textDecoration: isActive ? "none" : "none",
-                    color: isActive ? "#2AA7FF" : "#3e4956",
-                  };
-                }}
-              >
-                <Text2>Staffs</Text2>
-              </NavLink>
-            </Home2>
-
-            <Home2>
-              <Icon2>
-                <IoMdPerson />
-              </Icon2>
-              <Text3 onClick={Toggle2}>Financials</Text3>
-            </Home2>
-            {show2 ? (
+            <Icon2><IoMdPerson  /></Icon2>
+            <Text2 onClick={Toggle}>Savings</Text2>
+          </Home2>
+          {show ? (
               <Staffs>
-                <NavLink to="/payroll" style={{ textDecoration: "none" }}>
-                  <p>Send Payment</p>
-                </NavLink>
-                <p>Past Payment</p>
-              </Staffs>
-            ) : null}
-
+                  <NavLink to="/schoolfees" style={({isActive}) => {
+                return {
+                    textDecoration: isActive ? "none" : "none",
+                    color: isActive ? "#2AA7FF" : "#3e4956",
+                }
+            }}>
+                      <p>School Fees</p>
+                    </NavLink>
+                  <NavLink to="/travel" style={({isActive}) => {
+                return {
+                    textDecoration: isActive ? "none" : "none",
+                    color: isActive ? "#2AA7FF" : "#3e4956",
+                }
+            }}>
+                      <p>Travel & Tour</p>
+                  </NavLink>
+                  <NavLink to="/Rent" style={({isActive}) => {
+                return {
+                    textDecoration: isActive ? "none" : "none",
+                    color: isActive ? "#2AA7FF" : "#3e4956",
+                }
+            }}>
+                      <p>Rents</p>
+                  </NavLink>
+          </Staffs>
+          ) : null}
+           
             <Home2>
               <Icon2>
                 <IoMdPerson />
               </Icon2>
-              <NavLink
-                to="/transaction"
-                style={({ isActive }) => {
-                  return {
-                    textDecoration: isActive ? "none" : "none",
-                    color: isActive ? "#2AA7FF" : "#3e4956",
-                  };
-                }}
-              >
-                <Text3>Transaction</Text3>
-              </NavLink>
+              
+                          <NavLink to="/history" style={{textDecoration: "none"}}>
+                              <Text3>Transaction</Text3>
+                </NavLink>
             </Home2>
 
             <Power>
