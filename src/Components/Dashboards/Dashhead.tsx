@@ -7,12 +7,16 @@ import SideBar from "./SideBar";
 import img from "../Assets/blush12.png";
 import img2 from "../Assets/easy.png";
 import { MdDashboard } from "react-icons/md";
-import { NavLink } from "react-router-dom";
-import { UseAppSelector } from "../Global/Store";
+import { NavLink, useNavigate } from "react-router-dom";
+import { UseAppDispatch, UseAppSelector } from "../Global/Store";
 import { useQuery } from "@tanstack/react-query";
 import { getOneAdmin } from "../api/adminEndpoints";
+import Swal from "sweetalert2";
+import { logoutAdmin } from "../Global/ReduxState";
 
 const Dashhead = () => {
+  const dispatch = UseAppDispatch();
+  const navigate = useNavigate();
   const user = UseAppSelector((state) => state.Admin);
 
   console.log(user);
@@ -135,7 +139,49 @@ const Dashhead = () => {
               </NavLink>
             </Home2>
 
-            <Power>
+            <Power
+              onClick={() => {
+                const swalWithBootstrapButtons = Swal.mixin({
+                  customClass: {
+                    confirmButton: "btn btn-success",
+                    cancelButton: "btn btn-danger",
+                  },
+                  buttonsStyling: false,
+                });
+
+                swalWithBootstrapButtons
+                  .fire({
+                    title: "Are you sure you want to logout?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Yes, logout!",
+                    cancelButtonText: "No, cancel!",
+                    reverseButtons: true,
+                  })
+                  .then((result) => {
+                    if (result.isConfirmed) {
+                      dispatch(logoutAdmin());
+                      navigate("/optionsignin");
+                      swalWithBootstrapButtons.fire(
+                        "logout successful!",
+                        "logout successful.",
+                        "success"
+                        //   navigate("/optionsignin")
+                      );
+                    } else if (
+                      /* Read more about handling dismissals below */
+                      result.dismiss === Swal.DismissReason.cancel
+                    ) {
+                      navigate("/dashboard");
+                      swalWithBootstrapButtons.fire(
+                        "Cancelled",
+                        "still on dashboard :)",
+                        "error"
+                      );
+                    }
+                  });
+              }}
+            >
               <Icon2>
                 <FiPower />
               </Icon2>
