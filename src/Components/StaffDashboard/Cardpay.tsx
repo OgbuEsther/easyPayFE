@@ -4,20 +4,17 @@ import { AiFillLock } from "react-icons/ai"
 import { CiWallet } from "react-icons/ci"
 import img from "../Assets/payk.png"
 import img2 from "../Assets/visa.png"
-
-
-
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
+import {useForm} from "react-hook-form"
 import { useMutation } from '@tanstack/react-query'
 import { adminPayIn } from '../api/adminEndpoints'
 import Swal from 'sweetalert2'
 import { UseAppSelector } from '../Global/Store'
 
 
-
 const Card = () => {
+
 
 const user = UseAppSelector(state => state.Admin)
   const id = user?._id!
@@ -171,7 +168,7 @@ const Inputhold = styled.div`
     overflow: hidden;
     border: 1px solid #f1f1f1;
     border-radius: 10px;
-    margin-top: 12px;
+    margin-top: 17px;
     hr{
         height: 100%;
     }
@@ -197,6 +194,7 @@ const Number2 = styled.div`
 `
 const Number = styled.div`
     font-size: 13px;
+    margin-top: 10px;
 `
 const Details = styled.div`
     width: 290px;

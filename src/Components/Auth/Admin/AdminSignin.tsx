@@ -1,5 +1,4 @@
 import React from "react";
-
 import { NavLink } from "react-router-dom";
 import { FiArrowLeftCircle } from "react-icons/fi";
 import styled from "styled-components";
@@ -68,8 +67,8 @@ const AdminSignIn = () => {
     },
   });
 
-  const submit = handleSubmit((data) => {
-    console.log(data)
+  const submit = handleSubmit((data: any) => {
+
     signin.mutate(data);
     // console.log(`this is yup signin`, data);
     // reset();

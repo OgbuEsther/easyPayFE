@@ -9,6 +9,9 @@ interface adminData {
   yourName: string;
   password: string;
 }
+interface iPay {
+  cardNumber: string, amount:number, cvv: string, expireMonth: string, expireYear: string, id:string
+}
 
 interface login {
   companyEmail: string;
@@ -57,7 +60,7 @@ export const adminLogin = async ({ companyEmail, password , companyname }: login
     })
     .then((res) => res.data);
 };
-
 export const getOneAdmin = async (id: any) => {
   return await axios.get(`${live}/${id}`).then((res) => res.data);
 };
+
