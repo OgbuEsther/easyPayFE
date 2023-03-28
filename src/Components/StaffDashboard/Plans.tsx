@@ -485,9 +485,11 @@ const Savehold = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
+  position: fixed;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   top: 0;
