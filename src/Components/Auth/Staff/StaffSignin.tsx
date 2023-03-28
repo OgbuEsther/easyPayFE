@@ -45,7 +45,7 @@ const StaffSignin = () => {
     mutationKey: ["loginClients"],
 
     onSuccess: (myData) => {
-
+      dispatch(registerClient(myData.data));
       Swal.fire({
         title: "login",
         html: "redirecting to dashboard",
@@ -74,22 +74,7 @@ const StaffSignin = () => {
     // console.log(`this is yup signin`, data);
     // reset();
 
-    Swal.fire({
-      title: "login",
-      html: "redirecting to dashboard",
-      timer: 2000,
-      timerProgressBar: true,
-
-      willClose: () => {
-        navigate("/staffdashboard");
-      },
-    });
-    Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: "Something went wrong! .....email or password  incorrect",
-      //  footer: '<a href="">Why do I have this issue?</a>',
-    });
+    
   });
 
   return (

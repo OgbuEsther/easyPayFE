@@ -74,7 +74,7 @@ const Staffsidebar = () => {
         </Home2>
 
         <Power   onClick={() => {
-          dispatch(logOut());
+        
 
           const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
@@ -95,6 +95,7 @@ const Staffsidebar = () => {
             })
             .then((result) => {
               if (result.isConfirmed) {
+                dispatch(logOut());
                 navigate("/optionsignin");
                 swalWithBootstrapButtons.fire(
                   "logout successful!",
@@ -106,7 +107,7 @@ const Staffsidebar = () => {
                 /* Read more about handling dismissals below */
                 result.dismiss === Swal.DismissReason.cancel
               ) {
-                navigate("/dashboard");
+                navigate("/staffdashboard");
                 swalWithBootstrapButtons.fire(
                   "Cancelled",
                   "still on dashboard :)",
