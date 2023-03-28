@@ -130,6 +130,11 @@ const Dashhead = () => {
 
 export default Dashhead
 const Welcome = styled.div`
+    width: 170px;
+    text-align: center;
+    @media screen and (max-width: 500px){
+        font-size: 15px;
+    }
     span{
         color: #0D71FA;
     }
@@ -261,6 +266,16 @@ const Hold = styled.div`
     /* border-top-right-radius: 120px; */
     z-index: 2;
     overflow: hidden;
+    animation: slides 0.5s ease-in-out;
+
+  @keyframes slides {
+    from {
+      transform: translateY(-100%)
+    }
+    to {
+      transform: translateY(0)
+    }
+  }
     @media screen and (max-width: 1024px) {
         width: 100%;
     }
@@ -291,7 +306,6 @@ const Profile = styled.div`
     display: flex;
     margin-right: 35px;
     border-radius: 50px;
-    background-color: red;
 `
 const Circle = styled.div`
     width: 17px;
@@ -302,7 +316,6 @@ const Circle = styled.div`
     align-items: center;
     color: white;
     position: absolute;
-    background-color: red;
     font-size: 13px;
     top: 20px;
 `
@@ -323,6 +336,9 @@ const Right = styled.div`
     align-items: center;
     width: 120px;
     justify-content: space-between;
+    @media screen and (max-width: 500px) {
+        width: 30px;
+    }
 `
 const Input = styled.input`
     flex: 1;
@@ -357,6 +373,12 @@ const Wrapper = styled.div`
     @media screen and (max-width: 1024px) {
         width: 93%;
         justify-content: space-between;
+        display: flex;
+    }
+    @media screen and (max-width: 500px) {
+        width: 93%;
+        justify-content: space-between;
+        display: flex;
     }
 `
 const Container = styled.div`
