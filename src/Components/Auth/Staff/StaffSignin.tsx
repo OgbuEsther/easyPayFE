@@ -14,7 +14,6 @@ import { loginClient } from "../../api/staffEndpoints";
 import Swal from "sweetalert2";
 
 const StaffSignin = () => {
-
   const navigate = useNavigate();
 
   const schema = yup
@@ -41,18 +40,15 @@ const StaffSignin = () => {
     mutationKey: ["loginClients"],
 
     onSuccess: (myData) => {
-      // console.log(myData);
-      // Swal.fire({
-      //   title: "login",
-      //   html: "redirecting to dashboard",
-      //   timer: 2000,
-      //   timerProgressBar: true,
-
-      //   willClose: () => {
-      //     navigate("/staffdashboard");
-      //   },
-      // });
-
+      Swal.fire({
+        title: "login",
+        html: "redirecting to dashboard",
+        timer: 2000,
+        timerProgressBar: true,
+        willClose: () => {
+          navigate("/staffdashboard");
+        },
+      });
       // console.log("this is on success", dispatch(registerClient(myData.data)));
     },
     onError: () => {
@@ -66,7 +62,7 @@ const StaffSignin = () => {
   });
 
   const Submit = handleSubmit((data) => {
-    signin.mutate(data)
+    signin.mutate(data);
     // console.log(`this is yup signin`, data);
     // reset();
 

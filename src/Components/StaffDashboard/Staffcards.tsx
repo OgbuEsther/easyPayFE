@@ -6,14 +6,16 @@ import { BsBusFrontFill, BsHousesFill } from "react-icons/bs";
 import { UseAppSelector } from "../Global/Store";
 import { useQuery } from "@tanstack/react-query";
 import { getOneAdmin } from "../api/adminEndpoints";
-import { getOneStaff } from "../api/staffEndpoints";
 
 const Cards = () => {
-  const user = UseAppSelector((state) => state.Client);
-  const getOneClient = useQuery({
-    queryKey: ["singleStaff"],
-    queryFn: () => getOneStaff(user?._id),
+  const admin = UseAppSelector((state) => state.Admin);
+
+  const getAdmin = useQuery({
+    queryFn: () => getOneAdmin(admin?._id),
+    queryKey: ["getOneAmin"],
   });
+
+  console.log("this is getadmin", getAdmin);
 
   return (
     <Container>
@@ -22,12 +24,10 @@ const Cards = () => {
           <Circle>
             <FaGoogleWallet />
           </Circle>
-          {getOneClient?.data?.data?.wallet?.map((el: any) => (
-            <Wallet>
-              <p>Balance</p>
-              <h3>{el?.balance} </h3>
-            </Wallet>
-          ))}
+          <Wallet>
+            <p>Balance</p>
+            <h3>$0.00</h3>
+          </Wallet>
         </Card>
 
         <Card2>
@@ -35,15 +35,15 @@ const Cards = () => {
             <FaGoogleWallet />
           </Circle2>
           <Wallet>
-            <p>Wallet Number</p>
-            <h3>{user?.walletNumber} </h3>
+            <p>Income</p>
+            <h3>$0.00</h3>
           </Wallet>
         </Card2>
 
         <Card3>
-          <Circle4>
+          <Circle2>
             <FaGoogleWallet />
-          </Circle4>
+          </Circle2>
           <Wallet>
             <p>Expenses</p>
             <h3>$0.00</h3>
@@ -158,10 +158,22 @@ const Card4 = styled.div`
   cursor: pointer;
   padding-left: 15px;
 `;
+// const Card3 = styled.div`
+//     width: 330px;
+//     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+//     border-top-left-radius: 10px;
+//     border-top-right-radius: 10px;
+//     border-bottom-right-radius:10px;
+//     background-color: #39A081;
+//     display: flex;
+//     cursor: pointer;
+//     padding-left: 15px;
+//     padding-top: 15px;
+// `
 const Card3 = styled.div`
   width: 310px;
   height: 150px;
-  background-color: #39a081;
+  background-color: #ef7914;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -203,7 +215,7 @@ const Card = styled.div`
 const Boxhold = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   margin-top: 15px;
   flex-wrap: wrap;
   @media screen and (max-width: 500px) {
