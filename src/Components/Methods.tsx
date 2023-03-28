@@ -89,9 +89,14 @@ const Boxhold = styled.div`
     }
 `
 const Top = styled.div`
+    @media screen and (max-width: 500px){
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
     h1{
         color: #00214F;
-        @media screen and (max-width: 500pxpx) {
+        @media screen and (max-width: 500px) {
             font-size: 26px;
             text-align: center;
         }
@@ -106,6 +111,10 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
+  @media screen and (max-width: 500px) {
+    display: flex;
+    justify-content: center;
+  }
 `
 const Container = styled.div`
     width: 100%;

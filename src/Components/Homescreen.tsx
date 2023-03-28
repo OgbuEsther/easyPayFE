@@ -18,8 +18,8 @@ const Homescreen = () => {
       <Superhero />
       <Team />
       <Accept />
-      {/* <Methods />
-      <Footer /> */}
+      <Methods />
+      <Footer />
     </div>
   );
 };
