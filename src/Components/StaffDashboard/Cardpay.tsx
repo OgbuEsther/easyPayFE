@@ -5,7 +5,79 @@ import { CiWallet } from "react-icons/ci"
 import img from "../Assets/payk.png"
 import img2 from "../Assets/visa.png"
 
+
+
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { useMutation } from '@tanstack/react-query'
+import { adminPayIn } from '../api/adminEndpoints'
+import Swal from 'sweetalert2'
+import { UseAppSelector } from '../Global/Store'
+
+
+
 const Card = () => {
+
+const user = UseAppSelector(state => state.Admin)
+  const id = user?._id!
+    const schema = yup
+    .object({
+      cardName: yup.string().required(),
+      cardNumber: yup.string().required(),
+      amount: yup.number().required(),
+      cvv: yup.string().required("field must be required"),
+      expireMonth: yup.string().required("field must be required"),
+      expireYear: yup.string().required("field must be required"),
+    })
+    .required();
+
+  type formData = yup.InferType<typeof schema>;
+
+  const {
+    handleSubmit,
+    formState: { errors },
+    reset,
+    register,
+  } = useForm<formData>({
+    resolver: yupResolver(schema),
+  });
+
+
+  const newClient = useMutation({
+    mutationFn: (data: any) => adminPayIn(data, id),
+    mutationKey: ["makePayment"],
+
+    onSuccess: (data: any) => {       
+      Swal.fire({
+        title: "payment succesful",
+        // html: "redirecting to login",
+        timer: 2000,
+        timerProgressBar: true,
+  
+        willClose: () => {
+        //   navigate("/dashboard");
+        },
+      });
+    },
+    onError: () => {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong! .....make sure you fill in the valid details",
+        //  footer: '<a href="">Why do I have this issue?</a>',
+      });
+    },
+  });
+    
+  const submit = handleSubmit((data:any) => {
+    newClient.mutate(data);
+    // console.log("this is yup data", data);
+      
+    reset();
+  
+  });
+
   return (
       <Container>
           <Box>
@@ -13,27 +85,39 @@ const Card = () => {
                   <Lock><AiFillLock /></Lock>
                   <P>Secured by Korapay</P>
               </Lockhold>
-              <Hold>
+              <Hold onSubmit={submit} >
                   <Text>TEST MODE</Text>
                   <Check>
                       <Icon><CiWallet /></Icon>
                       <Pay><h3>Pay NGN 1,000.00</h3></Pay>
                       <Enter>Enter your card information to complete this payment</Enter>
                       <Details>
+                          <Number>Card Name
+                              
+                          </Number>
+                          <Inputhold>
+                              <Input placeholder='cardName' {...register("cardName")} />
+                              <Img src={ img} />
+                          </Inputhold>
                           <Number>Card Number</Number>
                           <Inputhold>
-                              <Input placeholder='5188 5136 1855 2975' />
+                              <Input placeholder='5188 5136 1855 2975' {...register("cardNumber")} />
                               <Img src={ img} />
                           </Inputhold>
 
-                          <Number2>Expiry Date <Cvv>Cvv</Cvv></Number2>
+                          <Number2>Expiry Date <Cvv>CVV</Cvv></Number2>
                           <Inputhold>
-                              <Input2 placeholder='09/24' />
+                              <Input2 placeholder='CVV: 419' {...register("cvv")}  />
                               <hr />
-                              <Input2 placeholder='123' />
+                              <Input2 placeholder='Amount: 10000'  {...register("amount")} />
+                          </Inputhold>
+                          <Inputhold>
+                              <Input2 placeholder='Expire Month: 09/24' {...register("expireMonth")}  />
+                              <hr />
+                              <Input2 placeholder='Expire Year: 123'  {...register("expireYear")} />
                           </Inputhold>
                       </Details>
-                      <Button><Icons><AiFillLock /></Icons> <Ngn>Pay NGN 1,000.00</Ngn></Button>
+                      <Button type="submit" ><Icons><AiFillLock /></Icons> <Ngn>Pay NGN 1,000.00</Ngn></Button>
                   </Check>
               </Hold>
               <Last><Img3 src={ img2} /></Last>
@@ -155,7 +239,7 @@ const Text = styled.div`
     font-weight: 500;
     color: #fff;
 `
-const Hold = styled.div`
+const Hold = styled.form`
     width: 370px;
     display: flex;
     border-radius: 15px;
