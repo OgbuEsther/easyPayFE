@@ -101,6 +101,10 @@ const Transact = styled.div`
      padding-left: 30px;
      padding-top: 20px;
     margin-top: 40px;
+    @media screen and (max-width: 500px){
+      width: 320px;
+      overflow: hidden;
+    }
 `
 const Down = styled.div`
     width: 100%;
@@ -162,6 +166,7 @@ const Container = styled.div`
   margin-top: 30px;
   flex-direction: column;
   background-color: #fff;
+  overflow: hidden;
   /* background-color: black; */
   margin-left: 260px;
   @media screen and (max-width: 500px) {
