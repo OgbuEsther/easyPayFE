@@ -19,6 +19,13 @@ interface iPay {
   name: string;
 }
 
+interface IPayOut{
+  account : string;
+  amount : number;
+  bank : string;
+  id: string;
+}
+
 interface login {
   companyEmail: string;
   password: string;
@@ -45,6 +52,19 @@ export const adminPayIn = async (
       cvv,
       expiry_month,
       expiry_year,
+    })
+    .then((res) => res.data);
+};
+export const adminPayOut = async (
+  { amount ,account, 
+    bank }: IPayOut,
+  id: string
+) => {
+  return await axios
+    .patch(`https://easypayendpoints.onrender.com/pay/pay-out/${id}`, {
+      amount,
+      account, 
+      bank
     })
     .then((res) => res.data);
 };

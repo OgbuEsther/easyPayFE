@@ -8,24 +8,23 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {useForm} from "react-hook-form"
 import { useMutation } from '@tanstack/react-query'
-import { adminPayIn } from '../api/adminEndpoints'
+import { adminPayIn, adminPayOut } from '../api/adminEndpoints'
 import Swal from 'sweetalert2'
 import { UseAppSelector } from '../Global/Store'
 
 
 const Payout = () => {
 
+    
 
 const user = UseAppSelector(state => state.Admin)
   const id = user?._id!
     const schema = yup
     .object({
-        name: yup.string().required(),
-        number: yup.string().required(),
+       
       amount: yup.number().required(),
-      cvv: yup.string().required("field must be required"),
-      expiry_month: yup.string().required("field must be required"),
-      expiry_year: yup.string().required("field must be required"),
+      account: yup.string().required("field must be required"),
+      bank: yup.string().required("field must be required"),
     })
     .required();
 
@@ -42,12 +41,12 @@ const user = UseAppSelector(state => state.Admin)
 
 
   const newClient = useMutation({
-    mutationFn: (data: any) => adminPayIn(data, id),
-    mutationKey: ["makePayment"],
+    mutationFn: (data: any) => adminPayOut(data, id),
+    mutationKey: ["makePaymentCheckout"],
 
     onSuccess: (data: any) => {       
       Swal.fire({
-        title: "payment succesful",
+        title: "withdraw succesful",
         // html: "redirecting to login",
         timer: 2000,
         timerProgressBar: true,
@@ -93,18 +92,18 @@ const user = UseAppSelector(state => state.Admin)
                               
                           </Number>
                           <Inputhold>
-                              <Input placeholder='cardName' {...register("name")} />
+                              <Input placeholder='cardName' {...register("account")} />
                               <Img src={ img} />
                           </Inputhold>
                           <Number>Bank</Number>
                           <Inputhold>
-                              <Input placeholder='5188 5136 1855 2975' {...register("number")} />
+                              <Input placeholder='bank code' {...register("bank")} />
                               <Img src={ img} />
                           </Inputhold>
 
                           <Number>Amount</Number>
                           <Inputhold>
-                              <Input placeholder='5188 5136 1855 2975' {...register("number")} />
+                              <Input placeholder='enter amount' {...register("amount")} />
                               <Img src={ img} />
                           </Inputhold>
                       </Details>
