@@ -1,14 +1,17 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+
 import styled from "styled-components";
-import img from "../Assets/21.jpeg";
-import { getAllClients } from "../api/staffEndpoints";
+
+
 import { useQuery } from "@tanstack/react-query";
+import { UseAppSelector } from "../Global/Store";
+import { getOneAdmin } from "../api/adminEndpoints";
 
 const Recent = () => {
-  const allClients = useQuery({
-    queryKey: ["viewClients"],
-    queryFn: getAllClients,
+  const user = UseAppSelector((state) => state.Admin);
+  const getAdmin = useQuery({
+    queryKey: ["singleAdmin"],
+    queryFn: () => getOneAdmin(user?._id),
   });
 
   return (
@@ -22,26 +25,13 @@ const Recent = () => {
               <th>Date</th>
               <th>Amount</th>
             </tr>
-            <tr>
-              <td>Okwoli Godwin</td>
-              <td>12/09/23</td>
-              <td>$400</td>
-            </tr>
-            <tr>
-               <td>Okwoli Godwin</td>
-              <td>12/09/23</td>
-              <td>$400</td>
-            </tr>
-            <tr>
-               <td>Okwoli Godwin</td>
-              <td>12/09/23</td>
-              <td>$400</td>
-            </tr>
-            <tr>
-               <td>Okwoli Godwin</td>
-              <td>12/09/23</td>
-              <td>$400</td>
-            </tr>
+            {getAdmin?.data?.data?.transactionHistory.map((el: any) => (
+              <tr key={el?._id}>
+                <td>{el?.receiver} </td>
+                <td>{el?.date} </td>
+                <td>{el?.transactionReference} </td>
+              </tr>
+            ))}
           </table>
         </Table>
         <BtnHold>
