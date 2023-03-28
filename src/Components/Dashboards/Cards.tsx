@@ -91,7 +91,7 @@ const Container = styled.div`
 `;
 const Card = styled.div`
   height: 180px;
-  width: 220px;
+  width: 328px;
   background-color: #fff;
   border-radius: 3px;
   border-bottom: 2px solid #0d71fa;
