@@ -69,9 +69,10 @@ const AdminSignIn = () => {
   });
 
   const submit = handleSubmit((data) => {
+    console.log(data)
     signin.mutate(data);
     // console.log(`this is yup signin`, data);
-    reset();
+    // reset();
     
   });
 
