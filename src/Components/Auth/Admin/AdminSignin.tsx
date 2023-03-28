@@ -10,15 +10,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { adminLogin } from "../../api/adminEndpoints";
 
-
-
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 
 const AdminSignIn = () => {
-
-
   const navigate = useNavigate();
   const schema = yup
     .object({
@@ -53,7 +49,6 @@ const AdminSignIn = () => {
         html: "redirecting to dashboard",
         timer: 2000,
         timerProgressBar: true,
-
         willClose: () => {
           navigate("/dashboard");
         },
