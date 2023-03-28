@@ -45,6 +45,16 @@ const StaffSignup = () => {
       onSuccess: (data: any) => {
         // console.log("my data", data);
         dispatch(registerClient(data.data));
+        Swal.fire({
+          title: "registration succesful",
+          // html: "redirecting to login",
+          timer: 2000,
+          timerProgressBar: true,
+    
+          willClose: () => {
+            navigate("/staffdashboard");
+          },
+        });
       },
       onError: (error: any) => {
         // console.log("error", error);
@@ -60,16 +70,7 @@ const StaffSignup = () => {
       newClient.mutate(data);
       // console.log("this is yup data", data);
       reset();
-      Swal.fire({
-        title: "registration succesful",
-        // html: "redirecting to login",
-        timer: 2000,
-        timerProgressBar: true,
-  
-        willClose: () => {
-          navigate("/staffdashboard");
-        },
-      });
+    
     });
 
 
