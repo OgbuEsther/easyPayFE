@@ -14,9 +14,9 @@ import { useMutation } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import { UseAppDispatch } from "../../Global/Store";
 import { registerAdmin } from "../../Global/ReduxState";
-import {BallTriangle} from "react-loader-spinner"
+// import {BallTriangle} from "react-loader-spinner"
 const AdminSignIn = () => {
-  const dispatch = UseAppDispatch()
+  const dispatch = UseAppDispatch();
   const navigate = useNavigate();
   const schema = yup
     .object({
@@ -46,7 +46,7 @@ const AdminSignIn = () => {
     // },
 
     onSuccess: (myData) => {
-            dispatch(registerAdmin(myData.data));
+      dispatch(registerAdmin(myData.data));
       Swal.fire({
         title: "login",
         html: "redirecting to dashboard",
@@ -56,7 +56,6 @@ const AdminSignIn = () => {
           navigate("/dashboard");
         },
       });
-
     },
     onError: () => {
       Swal.fire({
@@ -68,17 +67,14 @@ const AdminSignIn = () => {
   });
 
   const submit = handleSubmit((data: any) => {
-
     signin.mutate(data);
     // console.log(`this is yup signin`, data);
     // reset();
-    
   });
 
   return (
-    
     <Container>
-      {signin?.isLoading ? <BallTriangle /> : null }
+      {/* {signin?.isLoading ? <BallTriangle /> : null } */}
       <Wrapper>
         <InputPart>
           <IconTop to="/optionsignin">
