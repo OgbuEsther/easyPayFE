@@ -12,6 +12,7 @@ import Travel from './StaffDashboard/Travel'
 import Rents from "./StaffDashboard/Rents"
 import Withdraw from './StaffDashboard/Withdraw'
 import Payout from './StaffDashboard/Payout'
+import History from "../Components/StaffDashboard/History"
 
 
 
@@ -65,6 +66,10 @@ const AllRoutes = () => {
       {
             path: "/payout",
             element: <Payout />,
+          },
+      {
+            path: "/history",
+            element: <History />,
           },
 ])
   return element
