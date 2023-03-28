@@ -191,6 +191,16 @@ const Slidein = styled.div`
   z-index: 12345;
   position: fixed;
   justify-content: flex-end;
+  animation: slide-in 0.5s ease-out;
+
+  @keyframes slide-in {
+    from {
+      transform: translateX(-100%)
+    }
+    to {
+      transform: translateX(0)
+    }
+  }
 `
 const Img = styled.img`
   height: 45px;
