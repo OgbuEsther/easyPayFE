@@ -96,7 +96,7 @@ const SideBar = () => {
 
       <Power
         onClick={() => {
-          dispatch(logoutAdmin());
+        
 
           const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
@@ -117,6 +117,7 @@ const SideBar = () => {
             })
             .then((result) => {
               if (result.isConfirmed) {
+                dispatch(logoutAdmin());
                 navigate("/optionsignin");
                 swalWithBootstrapButtons.fire(
                   "logout successful!",
