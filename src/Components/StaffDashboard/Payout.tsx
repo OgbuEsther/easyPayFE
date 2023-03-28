@@ -11,8 +11,10 @@ import { useMutation } from "@tanstack/react-query";
 import { adminPayIn, adminPayOut } from "../api/adminEndpoints";
 import Swal from "sweetalert2";
 import { UseAppSelector } from "../Global/Store";
+import { useNavigate } from "react-router";
 
 const Payout = () => {
+  const navigate = useNavigate();
   const user = UseAppSelector((state) => state.Client);
   const id = user?._id!;
   const schema = yup
@@ -46,7 +48,7 @@ const Payout = () => {
         timerProgressBar: true,
 
         willClose: () => {
-          //   navigate("/dashboard");
+          navigate("/staffdashboard");
         },
       });
     },
@@ -55,6 +57,9 @@ const Payout = () => {
         icon: "error",
         title: "Oops...",
         text: "insufficient money for this transaction",
+        willClose: () => {
+          navigate("/staffdashboard");
+        },
         //  footer: '<a href="">Why do I have this issue?</a>',
       });
     },
