@@ -62,8 +62,8 @@ const Container = styled.div`
   flex-direction: column;
   background-color: #fff;
   margin-left: 260px;
-  @media screen and (max-width: 500px) {
-    padding: 20px;
+  @media screen and (max-width: 1024px) {
+    margin-left: 0px;
   }
 `;
 
