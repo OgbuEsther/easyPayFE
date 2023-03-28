@@ -162,6 +162,7 @@ const Recent = () => {
               </p>
             </Down>
             <Button onClick={Showplans}>Start Plans</Button>
+            <Cming>Coming Soon......!</Cming>
           </P>
         </Right>
       </Cardhold>
@@ -320,6 +321,9 @@ const Recent = () => {
 };
 
 export default Recent;
+const Cming = styled.div`
+  color: #ef7914;
+`
 const Icron = styled.div`
   position: absolute;
   font-size: 25px;
@@ -604,6 +608,7 @@ const Plans = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
+  z-index: 123456;
   position: relative;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.7);
@@ -646,11 +651,22 @@ const Right = styled.div`
   align-items: center;
   flex-direction: column;
   margin-left: 40px;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 10px;
+  }
 `;
 const Left = styled.div`
   width: 300px;
   display: flex;
   align-items: center;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 `;
 const Icon = styled.div`
   margin-left: 40px;
@@ -699,6 +715,7 @@ const Cardhold = styled.div`
   align-items: center;
   margin-left: -30px;
   margin-top: 40px;
+  flex-wrap: wrap;
 `;
 const Top = styled.div`
   display: flex;
