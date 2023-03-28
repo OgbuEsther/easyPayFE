@@ -67,22 +67,10 @@ const Staffsidebar = () => {
                   </NavLink>
           </Staffs>
           ) : null}
-
-        <Home2>
-            <Icon2><IoMdPerson /></Icon2>
-                  <Text3 >Transfers</Text3>
-          </Home2>
           
         <Home2>
             <Icon2><IoMdPerson /></Icon2>
-              <NavLink to="/transaction" style={({isActive}) => {
-                return {
-                    textDecoration: isActive ? "none" : "none",
-                    color: isActive ? "#2AA7FF" : "#3e4956",
-                }
-            }}>
                   <Text3>Transaction</Text3>
-            </NavLink>
         </Home2>
 
         <Power   onClick={() => {

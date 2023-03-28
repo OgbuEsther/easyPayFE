@@ -10,6 +10,7 @@ import Cardpay from "../Components/StaffDashboard/Cardpay"
 import Schoolfees from "./StaffDashboard/Schoolfees"
 import Travel from './StaffDashboard/Travel'
 import Rents from "./StaffDashboard/Rents"
+import Withdraw from './StaffDashboard/Withdraw'
 
 
 
@@ -55,6 +56,10 @@ const AllRoutes = () => {
       {
             path: "/Rent",
             element: <Rents />,
+          },
+      {
+            path: "/withdraw",
+            element: <Withdraw />,
           },
 ])
   return element
