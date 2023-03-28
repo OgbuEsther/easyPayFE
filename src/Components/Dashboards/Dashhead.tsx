@@ -28,6 +28,7 @@ const Dashhead = () => {
 
     const [show, setShow] = useState(false)
     const [show2, setShow2] = useState(false)
+    const [show4, setShow4] = useState(false)
    
 
     const Toggle = () => {
@@ -40,6 +41,10 @@ const Dashhead = () => {
 
     const Toggle3 = () => {
         setShow2(!show)
+    }
+
+    const Toggle4 = () => {
+        setShow4(!show4)
     }
   return (
       <Container>
@@ -96,14 +101,13 @@ const Dashhead = () => {
 
                   <Home2>
             <Icon2><IoMdPerson /></Icon2>
-                  <Text3 onClick={Toggle2}>Financials</Text3>
+                  <Text3 onClick={Toggle4}>Financials</Text3>
           </Home2>
-          {show2 ? (
+          {show4 ? (
               <Staffs>
                   <NavLink to="/payroll" style={{textDecoration: "none"}}>
                       <p>Send Payment</p>
               </NavLink>
-              <p>Past Payment</p>
           </Staffs>
                   ) : null}
                   
