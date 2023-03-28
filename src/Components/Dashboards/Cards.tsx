@@ -79,6 +79,10 @@ export default Cards;
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
+  @media screen and (max-width: 768px){
+    display: flex;
+    justify-content: center;
+  }
 `;
 const Card = styled.div`
   height: 180px;
