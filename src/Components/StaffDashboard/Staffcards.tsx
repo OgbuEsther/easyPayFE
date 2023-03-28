@@ -8,16 +8,17 @@ import { useQuery } from "@tanstack/react-query";
 import { getOneAdmin } from "../api/adminEndpoints";
 import { BiMoney } from "react-icons/bi"
 import {SiExpensify} from "react-icons/si"
+import { getOneStaff } from "../api/staffEndpoints";
 
 const Cards = () => {
-  const admin = UseAppSelector((state) => state.Admin);
+  const staff = UseAppSelector((state) => state.Client);
 
-  const getAdmin = useQuery({
-    queryFn: () => getOneAdmin(admin?._id),
-    queryKey: ["getOneAmin"],
+  const getStaff = useQuery({
+    queryFn: () => getOneStaff(staff?._id),
+    queryKey: ["getOneStaff"],
   });
 
-  console.log("this is getadmin", getAdmin);
+
 
   return (
     <Container>
@@ -26,10 +27,15 @@ const Cards = () => {
           <Circle>
             <FaGoogleWallet />
           </Circle>
-          <Wallet>
-            <p>Balance</p>
-            <h3>$0.00</h3>
-          </Wallet>
+          {
+getStaff?.data?.data?.wallet?.map((el:any)=>(
+  <Wallet key ={el?._id}>
+  <p>Balance</p>
+  <h3>{el?.balance}</h3>
+</Wallet>
+))
+          }
+       
         </Card>
 
         <Card2>
@@ -37,8 +43,8 @@ const Cards = () => {
             <BiMoney />
           </Circle2>
           <Wallet>
-            <p>Income</p>
-            <h3>$0.00</h3>
+            <p>Wallet Number</p>
+            <h3> {staff?.walletNumber} </h3>
           </Wallet>
         </Card2>
 
