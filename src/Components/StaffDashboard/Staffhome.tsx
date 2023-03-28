@@ -221,6 +221,22 @@ const Left = styled.div`
     display: flex;
     width: 100%;
     justify-content: space-between;
+    button{
+    width: 130px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0d71fa;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    position: relative;
+    border: none;
+    outline: none;
+}
 `
 const Wrapper = styled.div`
     width: 92%;
