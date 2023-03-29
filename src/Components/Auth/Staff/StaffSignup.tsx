@@ -12,6 +12,7 @@ import { useMutation } from "@tanstack/react-query";
 import { live, staffReg } from "../../api/staffEndpoints";
 import { registerClient } from "../../Global/ReduxState";
 import Swal from "sweetalert2";
+import Loading from "../../Loading";
 
 import { staffData } from "../../api/staffEndpoints";
 import axios from "axios";
@@ -77,6 +78,9 @@ const StaffSignup = () => {
 
   return (
     <Container>
+      {
+              newClient.isLoading ? <Loading /> : null
+            }
       <Wrapper>
         <InputPart>
           <IconTop to="/optionsignup">

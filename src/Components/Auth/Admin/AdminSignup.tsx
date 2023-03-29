@@ -11,6 +11,7 @@ import { useMutation } from "@tanstack/react-query";
 import { adminReg } from "../../api/adminEndpoints";
 import { registerAdmin } from "../../Global/ReduxState";
 import Swal from "sweetalert2"
+import Loading from "../../Loading";
 
 const AdminSignUp = () => {
   const dispatch = UseAppDispatch();
@@ -72,6 +73,9 @@ const AdminSignUp = () => {
 
   return (
     <Container>
+      {
+              newClient.isLoading ? <Loading /> : null
+            }
       <Wrapper>
         <InputPart>
           <IconTop to="/optionsignup">
