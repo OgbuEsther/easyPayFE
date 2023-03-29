@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FiArrowLeftCircle } from "react-icons/fi";
 import styled from "styled-components";
@@ -6,14 +6,14 @@ import image from "../../Assets/usersignin.png";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-
 import { useMutation } from "@tanstack/react-query";
-
 import { loginClient } from "../../api/staffEndpoints";
-
 import Swal from "sweetalert2";
 import { UseAppDispatch } from "../../Global/Store";
 import { registerClient } from "../../Global/ReduxState";
+import Loading from "../../Loading";
+
+
 
 const StaffSignin = () => {
 
@@ -77,12 +77,18 @@ const StaffSignin = () => {
     
   });
 
+  const [show, setShow] = useState(false)
+
   return (
     <Container>
+      {
+              signin.isLoading ? <Loading /> : null
+            }
       <Wrapper>
         <InputPart>
           <IconTop to="/optionsignin">
             <FiArrowLeftCircle />
+            
           </IconTop>
           <SignInputHold>
             <SignTitle>Log In</SignTitle>

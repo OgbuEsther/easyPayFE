@@ -14,6 +14,7 @@ import { useMutation } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import { UseAppDispatch } from "../../Global/Store";
 import { registerAdmin } from "../../Global/ReduxState";
+import Loading from "../../Loading";
 // import {BallTriangle} from "react-loader-spinner"
 const AdminSignIn = () => {
   const dispatch = UseAppDispatch();
@@ -74,6 +75,9 @@ const AdminSignIn = () => {
 
   return (
     <Container>
+      {
+              signin.isLoading ? <Loading /> : null
+            }
       {/* {signin?.isLoading ? <BallTriangle /> : null } */}
       <Wrapper>
         <InputPart>
