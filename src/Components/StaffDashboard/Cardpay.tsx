@@ -88,7 +88,6 @@ const user = UseAppSelector(state => state.Admin)
                   <Text>TEST MODE</Text>
                   <Check>
                       <Icon><CiWallet /></Icon>
-                      <Pay><h3>Pay NGN 1,000.00</h3></Pay>
                       <Enter>Enter your card information to complete this payment</Enter>
                       <Details>
                           <Number>Card Name
