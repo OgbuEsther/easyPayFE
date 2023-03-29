@@ -19,6 +19,9 @@ const Homescreen = () => {
       <Team />
       <Accept />
       <Methods />
+      <br />
+      <br />
+      <br />
       <Footer />
     </div>
   );
