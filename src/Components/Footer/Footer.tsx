@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <Container>
         <Last>
-              <Copy>Copyright © 2022 EasyPay</Copy>
+              <Copy>Copyright © 2023 EasyPay</Copy>
               <Insu>Insurance offered through EasyPay Insurance Agency, LLC (CA License #0L29422)</Insu>
               <Tems>Terms and Conditions | Privacy | Sitemap</Tems>
         </Last>
