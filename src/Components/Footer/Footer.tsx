@@ -11,7 +11,7 @@ const Footer = () => {
     <Container>
         <Last>
               <Copy>Copyright © 2022 EasyPay</Copy>
-              <Insu>Insurance offered through OnPay Insurance Agency, LLC (CA License #0L29422)</Insu>
+              <Insu>Insurance offered through EasyPay Insurance Agency, LLC (CA License #0L29422)</Insu>
               <Tems>Terms and Conditions | Privacy | Sitemap</Tems>
         </Last>
     </Container>
