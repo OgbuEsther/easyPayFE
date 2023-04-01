@@ -4,9 +4,9 @@ import styled from "styled-components";
 import img from "../Assets/save.svg";
 import { getAllClients, live1 } from "../api/staffEndpoints";
 import { UseAppSelector } from "../Global/Store";
-import { BsArrowRightShort, BsFillHousesFill, BsBusFront } from "react-icons/bs";
-import { FaGoogleWallet } from "react-icons/fa";
-import { NavLink, useNavigate } from "react-router-dom";
+import { BsFillHousesFill, BsBusFront } from "react-icons/bs";
+
+import {  useNavigate } from "react-router-dom";
 import { MdOutlineCancel } from "react-icons/md";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
