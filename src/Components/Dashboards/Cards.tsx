@@ -95,7 +95,6 @@ const Card = styled.div`
   background-color: #fff;
   border-radius: 3px;
   border-bottom: 2px solid #0d71fa;
-  font-family: Montserrat;
   display: flex;
   justify-content: center;
   margin: 10px;

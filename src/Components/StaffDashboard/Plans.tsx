@@ -56,7 +56,7 @@ const Recent = () => {
         console.log(err);
       });
   });
-  const onSubmitFeesPlan = handleSubmit(async (data) => {
+  const onSubmitFeesPlan = handleSubmit(async (data: any) => {
     await axios
       .post(`${live1}/schoolplan/${user?._id}`, data)
       .then((res) => {
@@ -76,7 +76,7 @@ const Recent = () => {
         console.log(err);
       });
   });
-  const onSubmitTourPlan = handleSubmit(async (data) => {
+  const onSubmitTourPlan = handleSubmit(async (data: any) => {
     await axios
       .post(`${live1}/travel/${user?._id}`, data)
       .then((res) => {
