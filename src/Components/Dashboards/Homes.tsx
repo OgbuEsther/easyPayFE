@@ -10,6 +10,7 @@ import { NavLink } from "react-router-dom";
 import { UseAppSelector } from "../Global/Store";
 import { useQuery } from "@tanstack/react-query";
 import { getOneAdmin } from "../api/adminEndpoints";
+import Chathold from "./Chathold";
 
 const Home = () => {
   const [show, setShow] = useState(false);
@@ -99,8 +100,9 @@ const Home = () => {
         <br />
         <br />
         <Cards />
-        <Recent />
-        <Latesttransact />
+        <Chathold />
+        {/* <Recent />
+        <Latesttransact /> */}
       </Wrapper>
     </Container>
   );
