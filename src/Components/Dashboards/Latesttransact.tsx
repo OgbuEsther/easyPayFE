@@ -130,8 +130,9 @@ const Stat3 = styled.div`
   border-radius: 50px;
 `
 const Stat = styled.div`
-  width: 100px;
-  height: 35px;
+  width: 70px;
+  height: 30px;
+  font-size: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
