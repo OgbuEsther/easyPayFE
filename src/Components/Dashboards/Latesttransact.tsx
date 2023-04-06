@@ -61,7 +61,7 @@ const Recent = () => {
                 <Text>Salary</Text>
                 </td>
               <td> 
-                $3,500
+                $2,500
               </td>
               <td>
                 4, April, 2023
@@ -83,7 +83,7 @@ const Recent = () => {
                 <Text>Salary</Text>
                 </td>
               <td> 
-                $3,500
+                $1,500
               </td>
               <td>
                 4, April, 2023
