@@ -132,7 +132,7 @@ const Stat3 = styled.div`
 const Stat = styled.div`
   width: 70px;
   height: 30px;
-  font-size: 15px;
+  font-size: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
