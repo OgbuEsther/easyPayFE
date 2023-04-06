@@ -54,7 +54,7 @@ const Recent = () => {
               <td>
                 <Hold>
                   <Circle></Circle>
-                <Name>Okwoli Godwin</Name>
+                <Name>Ogbu Esther</Name>
                 </Hold>
               </td>
               <td>
@@ -76,7 +76,7 @@ const Recent = () => {
               <td>
                 <Hold>
                   <Circle></Circle>
-                <Name>Okwoli Godwin</Name>
+                <Name>Ovouke Esther</Name>
                 </Hold>
               </td>
               <td>
