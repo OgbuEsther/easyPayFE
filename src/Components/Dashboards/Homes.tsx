@@ -11,6 +11,9 @@ import { UseAppSelector } from "../Global/Store";
 import { useQuery } from "@tanstack/react-query";
 import { getOneAdmin } from "../api/adminEndpoints";
 import Chathold from "./Chathold";
+import Transacthold from "./Transacthold";
+
+
 
 const Home = () => {
   const [show, setShow] = useState(false);
@@ -101,8 +104,9 @@ const Home = () => {
         <br />
         <Cards />
         <Chathold />
-        {/* <Recent />
-        <Latesttransact /> */}
+        {/* <Transacthold /> */}
+        <Recent />
+        <Latesttransact />
       </Wrapper>
     </Container>
   );

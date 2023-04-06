@@ -21,17 +21,78 @@ const Recent = () => {
         <Table>
           <table>
             <tr>
-              <th>Recepient</th>
-              <th>Date</th>
+              <th>Receiver</th>
+              <th>Type</th>
               <th>Amount</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Action</th>
             </tr>
-            {getAdmin?.data?.data?.transactionHistory.map((el: any) => (
-              <tr key={el?._id}>
-                <td>{el?.receiver} </td>
-                <td>{el?.date} </td>
-                <td>{el?.transactionReference} </td>
+              <tr>
+              <td>
+                <Hold>
+                  <Circle></Circle>
+                <Name>Okwoli Godwin</Name>
+                </Hold>
+              </td>
+              <td>
+                <Text>Salary</Text>
+                </td>
+              <td> 
+                $3,500
+              </td>
+              <td>
+                4, April, 2023
+              </td>
+              <td> 
+                <Stat>Pending</Stat>
+              </td>
+              <td> </td>
+            </tr>
+            
+            <tr>
+              <td>
+                <Hold>
+                  <Circle></Circle>
+                <Name>Okwoli Godwin</Name>
+                </Hold>
+              </td>
+              <td>
+                <Text>Salary</Text>
+                </td>
+              <td> 
+                $3,500
+              </td>
+              <td>
+                4, April, 2023
+              </td>
+              <td> 
+                <Stat2>Done</Stat2>
+              </td>
+              <td> </td>
+            </tr>
+            
+            <tr>
+              <td>
+                <Hold>
+                  <Circle></Circle>
+                <Name>Okwoli Godwin</Name>
+                </Hold>
+              </td>
+              <td>
+                <Text>Salary</Text>
+                </td>
+              <td> 
+                $3,500
+              </td>
+              <td>
+                4, April, 2023
+              </td>
+              <td> 
+                <Stat3>Failed</Stat3>
+              </td>
+              <td> </td>
               </tr>
-            ))}
           </table>
         </Table>
         <BtnHold>
@@ -43,6 +104,52 @@ const Recent = () => {
 };
 
 export default Recent;
+const Stat2 = styled.div`
+  width: 100px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: green;
+  background-color: #c6f0c6;
+  border-radius: 50px;
+`
+const Stat3 = styled.div`
+  width: 100px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  background-color: #fcc9c9;
+  border-radius: 50px;
+`
+const Stat = styled.div`
+  width: 100px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: orangered;
+  background-color: #fcbea8;
+  border-radius: 50px;
+`
+const Text = styled.div`
+  
+`
+const Hold = styled.div`
+  display: flex;
+  align-items: center;
+`
+const Name = styled.div`
+  margin-left: 10px;
+`
+const Circle = styled.div`
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  border-radius: 50px;
+`
 
 const Container = styled.div`
   width: 93%;
