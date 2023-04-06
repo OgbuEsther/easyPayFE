@@ -10,6 +10,7 @@ import Methods from "./Methods";
 import Solutions from "./Solutions/Solutions";
 import Superhero from "./Superhero";
 import Team from "./Team/Team";
+import Features from "./Features/Features";
 
 const Homescreen = () => {
   return (
@@ -19,6 +20,7 @@ const Homescreen = () => {
       <Team />
       <Accept />
       <Methods />
+      <Features/> 
       <br />
       <br />
       <br />

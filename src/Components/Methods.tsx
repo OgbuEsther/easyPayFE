@@ -1,40 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
-import img from "./Assets/old.png"
-import img2 from "./Assets/happy.png"
-import img3 from "./Assets/jump.png"
-import img4 from "./Assets/pigsave.jpg"
+import img from "./Assets/shape2.svg"
+import img2 from "./Assets/shape3.svg"
+import img3 from "./Assets/shape1.svg"
+import img4 from "./Assets/trans.svg"
+import MethodsCard from './MethodsCard'
+
 
 const Methods = () => {
   return (
       <Container>
           <Wrapper>
-              <Top><h1>Add payment methods in a click.</h1></Top>
+              <Top><h1>Add Payment Methods in a Click.</h1></Top>
               <Boxhold>
-                  <Card>
-                      <Img src={img} />
-                      <Down>
-                          <h3>Enjoy Easypay payment method</h3>
-                          <Started>Get started</Started>
-                      </Down>
-                  </Card>
-
-                  <Card>
-                      <Img src={img4} />
-                      <Down>
-                          <h3>You decide exactly how to get paid</h3>
-                          <Started>Get started</Started>
-                      </Down>
-                  </Card>
-
-                  <Card>
-                      <Img src={img3} />
-                      <Down>
-                          <h3>Overcome payment declines</h3>
-                          <Started>Get started</Started>
-                      </Down>
-                  </Card>
-              </Boxhold>
+                  <MethodsCard text='Fast' word='Using Paydem is fast & reliable way to send money to multiple people. Payments happen at the push of a button after putting in the telephone numbers of individuals.' button='Learn More' img={img4} climg={img2}/>
+                  <MethodsCard text='Cost-Effective' word='Using Paydem is fast & reliable way to send money to multiple people. Payments happen at the push of a button after putting in the telephone numbers of individuals.' button='Learn More' img={img4} climg={img}/>
+                  <MethodsCard text='Security' word='Using Paydem is fast & reliable way to send money to multiple people. Payments happen at the push of a button after putting in the telephone numbers of individuals.' button='Learn More' img={img4} climg={img3}/>
+              </Boxhold>    
           </Wrapper>
     </Container>
   )
@@ -47,6 +29,8 @@ const Started = styled.div`
     justify-content: flex-end;
     cursor: pointer;
     margin-top: 50px;
+
+    
 `
 const Down = styled.div`
     width: 100%;
