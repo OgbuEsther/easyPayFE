@@ -26,7 +26,6 @@ const Recent = () => {
               <th>Amount</th>
               <th>Date</th>
               <th>Status</th>
-              <th>Action</th>
             </tr>
               <tr>
               <td>
@@ -46,9 +45,6 @@ const Recent = () => {
               </td>
               <td> 
                 <Stat>Pending</Stat>
-              </td>
-              <td>
-                <Delete>Delete</Delete>
               </td>
             </tr>
             
@@ -71,7 +67,6 @@ const Recent = () => {
               <td> 
                 <Stat2>Done</Stat2>
               </td>
-              <td> </td>
             </tr>
             
             <tr>
@@ -93,7 +88,6 @@ const Recent = () => {
               <td> 
                 <Stat3>Failed</Stat3>
               </td>
-              <td> </td>
               </tr>
           </table>
         </Table>
