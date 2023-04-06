@@ -47,7 +47,9 @@ const Recent = () => {
               <td> 
                 <Stat>Pending</Stat>
               </td>
-              <td> </td>
+              <td>
+                <Delete>Delete</Delete>
+              </td>
             </tr>
             
             <tr>
@@ -61,7 +63,7 @@ const Recent = () => {
                 <Text>Salary</Text>
                 </td>
               <td> 
-                $3,500
+                $2,500
               </td>
               <td>
                 4, April, 2023
@@ -83,7 +85,7 @@ const Recent = () => {
                 <Text>Salary</Text>
                 </td>
               <td> 
-                $3,500
+                $1,500
               </td>
               <td>
                 4, April, 2023
@@ -104,6 +106,15 @@ const Recent = () => {
 };
 
 export default Recent;
+const Delete = styled.div`
+  width: 100px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gray;
+  border-radius: 50px;
+`
 const Stat2 = styled.div`
   width: 100px;
   height: 35px;
