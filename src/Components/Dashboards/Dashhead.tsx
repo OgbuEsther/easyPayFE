@@ -53,14 +53,17 @@ const Dashhead = () => {
         </Left>
         <Mid>
           <Welcome>
-            <h3>
-              Welcome Back <span>{user?.yourName.split(" ")[0]}</span>
-            </h3>
+            <Circ></Circ>
+            <Prof>
+              <Comp>Company's profile</Comp>
+              <Nam>Codelab</Nam>
+              <Id>ID: 00213456</Id>
+            </Prof>
           </Welcome>
         </Mid>
         <Right>
           <Icons>
-            <IoIosNotificationsOutline />
+            <Hello>Hello Godwin</Hello>
             <Circle>2</Circle>
           </Icons>
           <Up>
@@ -195,15 +198,40 @@ const Dashhead = () => {
 };
 
 export default Dashhead;
+const Hello = styled.div`
+  display: flex;
+  font-size: 14px;
+`
+const Id = styled.div`
+  font-size: 11px;
+`
+const Nam = styled.div`
+  font-size: 17px;
+  font-weight: 400px;
+`
+const Comp = styled.div`
+  font-size: 11px;
+`
+const Prof = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+`
+const Circ = styled.div`
+  width: 40px;
+  height: 40px;
+  border: 1px solid #CEC2C2;
+  border-radius: 50px;
+`
 const Welcome = styled.div`
-  width: 170px;
+  width: 190px;
+  padding-left: 15px;
   text-align: center;
-  @media screen and (max-width: 500px) {
-    font-size: 15px;
-  }
-  span {
-    color: #0d71fa;
-  }
+  height: 60px;
+  display: flex;
+  border-radius: 8px;
+  align-items: center;
+  border: 1px solid #CEC2C2;
 `;
 const Mid = styled.div`
   display: flex;
@@ -395,12 +423,8 @@ const Icons = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  position: relative;
   font-size: 27px;
   margin-right: 30px;
-  @media screen and (max-width: 500px) {
-    display: none;
-  }
 `;
 const Right = styled.div`
   display: flex;
