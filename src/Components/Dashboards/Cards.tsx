@@ -7,15 +7,25 @@ import img2 from "../Assets/mtn.jpg"
 import img3 from "../Assets/glo.jpg"
 import img4 from "../Assets/9mobile.jpg"
 import img5 from "../Assets/smile.jpg"
-import {AiOutlineClose} from "react-icons/ai"
+import { AiOutlineClose } from "react-icons/ai"
+import Airtels from "./Airtels";
 
 const Cards: React.FC = () => {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [showAirtel, setShowAirtel] = useState(false);
     const [showPopup, setShowPopup] = useState(false);
 
   const cancelPopup = () => {
     setShowPopup(false);
   };
+
+  const Togglepopup = () => {
+    setShowPopup(!showPopup);
+  }
+
+  const ToggleAirtel = () => {
+    setShowAirtel(!showAirtel);
+    setShowPopup(false);
+  }
 
 
 
@@ -65,7 +75,7 @@ const Cards: React.FC = () => {
         </CardHold>
       </Card>
 
-      <Card onClick={() => setShowPopup(true)}>
+      <Card onClick={Togglepopup}>
         <CardHold>
           <IconHold
             style={{
@@ -88,7 +98,7 @@ const Cards: React.FC = () => {
               <p>Select the service you want to make payment for</p>
               <h4>Data Services</h4>
               <Box>
-                  <Airtel>
+                  <Airtel onClick={ToggleAirtel}>
                       <Img src={img} />
                       <AirtelText>
                           <strong>Airtel Data</strong>
@@ -148,6 +158,10 @@ const Cards: React.FC = () => {
           <Icon onClick={cancelPopup}><AiOutlineClose /></Icon>
           </Popups>
       ) : null}
+
+      {showAirtel ? (
+        <Airtels />
+      ) : null}
     </Container>
   );
 };
@@ -189,6 +203,7 @@ const Airtel = styled.div`
     align-items: center;
     margin-right: 10px;
     margin-bottom: 10px;
+    cursor: pointer;
 `
 const Box = styled.div`
     width: 100%;
@@ -248,7 +263,7 @@ const Popups = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1234567;
+  z-index: 7;
 `
 
 const Container = styled.div`
