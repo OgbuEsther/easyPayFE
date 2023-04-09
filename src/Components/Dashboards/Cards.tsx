@@ -1,14 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
-import { BsFillPiggyBankFill } from "react-icons/bs";
+import React, {useState} from "react";
+import { BsFillPiggyBankFill, BsTelephoneFill, BsDatabase } from "react-icons/bs";
 import { FaMoneyBillAlt } from "react-icons/fa";
 import { GiExpense } from "react-icons/gi";
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 import styled from "styled-components";
 import { getOneAdmin } from "../api/adminEndpoints";
 import { UseAppSelector } from "../Global/Store";
+import Airtime from "./Airtime"
 
-const Cards = () => {
+const Cards: React.FC = () => {
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
   const user = UseAppSelector((state) => state.Admin);
   const getAdmin = useQuery({
     queryKey: ["singleAdmin"],
@@ -35,32 +37,6 @@ const Cards = () => {
         <CardHold>
           <IconHold
             style={{
-              backgroundColor: "#e9c46a",
-            }}
-          >
-            <FaMoneyBillAlt />
-          </IconHold>
-          <CardTitle>Company name</CardTitle>
-          <CardInfo>{user?.companyname} </CardInfo>
-        </CardHold>
-      </Card>
-      <Card>
-        <CardHold>
-          <IconHold
-            style={{
-              backgroundColor: "#f4a261",
-            }}
-          >
-            <GiExpense />
-          </IconHold>
-          <CardTitle>Company code</CardTitle>
-          <CardInfo>{user?.companyCode} </CardInfo>
-        </CardHold>
-      </Card>
-      <Card>
-        <CardHold>
-          <IconHold
-            style={{
               backgroundColor: "#e76f51",
             }}
           >
@@ -75,6 +51,38 @@ const Cards = () => {
         
         </CardHold>
       </Card>
+      <Card>
+        <CardHold>
+          <IconHold
+            style={{
+              backgroundColor: "#2a9d8f",
+            }}
+          >
+            <BsTelephoneFill />
+          </IconHold>
+          
+            <CardInfo>Buy Airtime</CardInfo>
+          
+        
+        </CardHold>
+      </Card>
+
+      <Card onClick={() => setIsPopupOpen(true)}>
+        <CardHold>
+          <IconHold
+            style={{
+              backgroundColor: "#e76f51",
+            }}
+          >
+            <BsDatabase />
+          </IconHold>
+          
+            <CardInfo>Buy Data</CardInfo>
+          
+        
+        </CardHold>
+      </Card>
+      <Airtime isOpen={isPopupOpen}/>
     </Container>
   );
 };
@@ -82,8 +90,11 @@ const Cards = () => {
 export default Cards;
 
 const Container = styled.div`
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
+  position: relative;
   @media screen and (max-width: 768px){
     display: flex;
     justify-content: center;
@@ -97,7 +108,9 @@ const Card = styled.div`
   border-bottom: 2px solid #0d71fa;
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 10px;
+  cursor: pointer;
 
   @media (max-width: 1024px) {
     width: 320px;
@@ -111,6 +124,11 @@ const Card = styled.div`
 const CardHold = styled.div`
   width: 85%;
   margin-top: 15px;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
 
 const IconHold = styled.div`
