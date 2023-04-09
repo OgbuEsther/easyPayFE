@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import img from "../Assets/airtel.jpg"
 import img2 from "../Assets/mtn.jpg"
 import img3 from "../Assets/glo.jpg"
+import img4 from "../Assets/9mobile.jpg"
+import img5 from "../Assets/smile.jpg"
 
 interface Props {
   isOpen: boolean;
@@ -45,18 +47,18 @@ const Popup: React.FC<Props> = ({ isOpen }) => {
                   </Airtel>
 
                   <Airtel>
-                      <Img src={img3} />
+                      <Img src={img4} />
                       <AirtelText>
-                          <strong>GLO Data</strong>
-                          <Text>GLO Data - Get instant Top up</Text>
+                          <strong>9mobile Data</strong>
+                          <Text>9mobile Data - Get instant Top up</Text>
                       </AirtelText>
                   </Airtel>
 
                   <Airtel>
-                      <Img src={img3} />
+                      <Img src={img5} />
                       <AirtelText>
-                          <strong>GLO Data</strong>
-                          <Text>GLO Data - Get instant Top up</Text>
+                          <strong>Smile Payment</strong>
+                          <Text>Pay for Smile Airtime and Internet Data</Text>
                       </AirtelText>
                   </Airtel>
 
@@ -123,6 +125,18 @@ const Popup_content = styled.div`
   padding: 25px;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+   animation: popup-open 0.5s ease-out forwards;
+
+   @keyframes popup-open {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+  }
   h3{
     margin: 0px;
     color: #173D52 !important;
@@ -151,4 +165,7 @@ const Popups = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+ 
+
+  
 `
