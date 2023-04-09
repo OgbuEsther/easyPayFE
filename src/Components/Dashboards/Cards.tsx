@@ -11,6 +11,10 @@ import Airtime from "./Airtime"
 
 const Cards: React.FC = () => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const handlePopupToggle = () => {
+    setIsPopupOpen(!isPopupOpen);
+  }
   const user = UseAppSelector((state) => state.Admin);
   const getAdmin = useQuery({
     queryKey: ["singleAdmin"],
