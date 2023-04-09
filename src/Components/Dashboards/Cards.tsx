@@ -49,7 +49,7 @@ const Cards: React.FC = () => {
         
         </CardHold>
       </Card>
-      <Card onClick={() => setShowPopup(true)}>
+      <Card >
         <CardHold>
           <IconHold
             style={{
@@ -65,7 +65,7 @@ const Cards: React.FC = () => {
         </CardHold>
       </Card>
 
-      <Card onClick={() => setIsPopupOpen(true)}>
+      <Card onClick={() => setShowPopup(true)}>
         <CardHold>
           <IconHold
             style={{
