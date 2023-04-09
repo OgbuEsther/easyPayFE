@@ -1,25 +1,21 @@
-import { useQuery } from "@tanstack/react-query";
 import React, {useState} from "react";
 import { BsFillPiggyBankFill, BsTelephoneFill, BsDatabase } from "react-icons/bs";
-import { FaMoneyBillAlt } from "react-icons/fa";
-import { GiExpense } from "react-icons/gi";
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 import styled from "styled-components";
-import { getOneAdmin } from "../api/adminEndpoints";
-import { UseAppSelector } from "../Global/Store";
-import Airtime from "./Airtime"
+import img from "../Assets/airtel.jpg"
+import img2 from "../Assets/mtn.jpg"
+import img3 from "../Assets/glo.jpg"
+import img4 from "../Assets/9mobile.jpg"
+import img5 from "../Assets/smile.jpg"
 
 const Cards: React.FC = () => {
-    const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const [showPopup, setShowPopup] = useState(false);
 
-  const handlePopupToggle = () => {
-    setIsPopupOpen(!isPopupOpen);
-  }
-  const user = UseAppSelector((state) => state.Admin);
-  const getAdmin = useQuery({
-    queryKey: ["singleAdmin"],
-    queryFn: () => getOneAdmin(user?._id),
-  });
+  const cancelPopup = () => {
+    setShowPopup(false);
+  };
+
 
 
   return (
@@ -34,7 +30,7 @@ const Cards: React.FC = () => {
             <MdOutlineAccountBalanceWallet />
           </IconHold>
           <CardTitle>wallet Number </CardTitle>
-          <CardInfo>{user?.walletNumber} </CardInfo>
+          <CardInfo>123456 </CardInfo>
         </CardHold>
       </Card>
       <Card>
@@ -47,15 +43,12 @@ const Cards: React.FC = () => {
             <BsFillPiggyBankFill />
           </IconHold>
           <CardTitle>Balance</CardTitle>
-          {
-           getAdmin?.data?.data?.wallet?.map((el:any)=>(
-            <CardInfo>{el?.balance} </CardInfo>
-           ))
-          }
+            <CardInfo>NGN 1000 </CardInfo>
+
         
         </CardHold>
       </Card>
-      <Card>
+      <Card onClick={() => setShowPopup(true)}>
         <CardHold>
           <IconHold
             style={{
@@ -86,19 +79,170 @@ const Cards: React.FC = () => {
         
         </CardHold>
       </Card>
-      <Airtime isOpen={isPopupOpen}/>
+
+      {showPopup ? (
+        <Popups>
+          <Popup_content>
+              <h3>Payments</h3>
+              <p>Select the service you want to make payment for</p>
+              <h4>Data Services</h4>
+              <Box>
+                  <Airtel>
+                      <Img src={img} />
+                      <AirtelText>
+                          <strong>Airtel Data</strong>
+                          <Text>Airtel Data - Get instant top up</Text>
+                      </AirtelText>
+                  </Airtel>
+
+                  <Airtel>
+                      <Img src={img2} />
+                      <AirtelText>
+                          <strong>MTN Data</strong>
+                          <Text>MTN Data - Get instant Data Top up</Text>
+                      </AirtelText>
+                  </Airtel>
+
+                  <Airtel>
+                      <Img src={img3} />
+                      <AirtelText>
+                          <strong>GLO Data</strong>
+                          <Text>GLO Data - Get instant Top up</Text>
+                      </AirtelText>
+                  </Airtel>
+
+                  <Airtel>
+                      <Img src={img4} />
+                      <AirtelText>
+                          <strong>9mobile Data</strong>
+                          <Text>9mobile Data - Get instant Top up</Text>
+                      </AirtelText>
+                  </Airtel>
+
+                  <Airtel>
+                      <Img src={img5} />
+                      <AirtelText>
+                          <strong>Smile Payment</strong>
+                          <Text>Pay for Smile Airtime and Internet Data</Text>
+                      </AirtelText>
+                  </Airtel>
+
+                  <Airtel>
+                      <Img src={img3} />
+                      <AirtelText>
+                          <strong>GLO Data</strong>
+                          <Text>GLO Data - Get instant Top up</Text>
+                      </AirtelText>
+                  </Airtel>
+
+                  <Airtel>
+                      <Img src={img3} />
+                      <AirtelText>
+                          <strong>GLO Data</strong>
+                          <Text>GLO Data - Get instant Top up</Text>
+                      </AirtelText>
+                  </Airtel>
+              </Box>
+      </Popup_content>
+          </Popups>
+      ) : null}
     </Container>
   );
 };
 
 export default Cards;
+const Img = styled.img`
+    height: 50px;
+`
+const Text = styled.div`
+    font-size: 11px;
+    color: #000;
+`
+const AirtelText = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    strong{
+        margin: 0;
+        font-weight: 500;
+        font-size: 15px;
+        color: #495463;
+    }
+`
+const Airtel = styled.div`
+    width: 250px;
+    height: 50px;
+    border: 1px solid #CEC2C2;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-bottom: 10px;
+`
+const Box = styled.div`
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    /* background-color: green; */
+`
+const Popup_content = styled.div`
+    width: 850px;
+    height: 450px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+  padding: 25px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+   animation: popup-open 0.5s ease-out forwards;
+
+   @keyframes popup-open {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+  }
+  h3{
+    margin: 0px;
+    color: #173D52 !important;
+    font-size: 1.3em;
+    font-weight: 500;
+  }
+  p{
+    font-size: 15px;
+    margin-top: 7px;
+    color: #000;
+  }
+  h4{
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: #495463
+  }
+`
+const Popups = styled.div`
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1234567;
+`
 
 const Container = styled.div`
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-wrap: wrap;
-  position: relative;
   @media screen and (max-width: 768px){
     display: flex;
     justify-content: center;
