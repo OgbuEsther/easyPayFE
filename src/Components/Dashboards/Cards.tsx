@@ -7,6 +7,7 @@ import img2 from "../Assets/mtn.jpg"
 import img3 from "../Assets/glo.jpg"
 import img4 from "../Assets/9mobile.jpg"
 import img5 from "../Assets/smile.jpg"
+import {AiOutlineClose} from "react-icons/ai"
 
 const Cards: React.FC = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -142,8 +143,9 @@ const Cards: React.FC = () => {
                           <Text>GLO Data - Get instant Top up</Text>
                       </AirtelText>
                   </Airtel>
-              </Box>
-      </Popup_content>
+            </Box>
+          </Popup_content>
+          <Icon onClick={cancelPopup}><AiOutlineClose /></Icon>
           </Popups>
       ) : null}
     </Container>
@@ -151,6 +153,15 @@ const Cards: React.FC = () => {
 };
 
 export default Cards;
+const Icon = styled.div`
+  display: flex;
+  position: absolute;
+  color: #fff; 
+  right: 180px;
+  font-size: 25px;
+  top: 80px;
+  cursor: pointer;
+`
 const Img = styled.img`
     height: 50px;
 `
