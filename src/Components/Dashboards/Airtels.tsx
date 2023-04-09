@@ -33,6 +33,7 @@ const Airtels = () => {
 
         <Buttonhold>
           <Cancle>Cancle</Cancle>
+          <Continue>Continue</Continue>
         </Buttonhold>
           </Card>
     </Container>
@@ -40,6 +41,20 @@ const Airtels = () => {
 }
 
 export default Airtels
+const Continue = styled.div`
+  cursor: pointer;
+  min-width: 50px !important;
+    background-color: #28a745;
+    border-radius: 5px;
+    padding: 8px 20px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    border: 1px solid;
+    transition: all .4s ease;
+    margin-left: 15px
+`
 const Cancle = styled.div`
   cursor: pointer;
   min-width: 50px !important;
@@ -53,6 +68,7 @@ const Cancle = styled.div`
 `
 const Buttonhold = styled.div`
   display: flex;
+  margin-top: 30px;
 `
 const Input = styled.input`
   background-color: #e0e8f3;
@@ -116,6 +132,18 @@ const Card = styled.div`
   padding: 25px;
   flex-direction: column;
   display: flex;
+  animation: show 0.5s ease-out forwards;
+
+   @keyframes show {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+  }
 `
 
 const Container = styled.div`
@@ -131,16 +159,4 @@ const Container = styled.div`
     right: 0;
     z-index: 8;
     position: fixed;
-    animation: show 0.5s ease-out forwards;
-
-   @keyframes show {
-  from {
-    transform: scale(0);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-  }
 `
