@@ -18,6 +18,10 @@ const Cards: React.FC = () => {
     setShowPopup(false);
   };
 
+  const cancelAirtel = () => {
+    setShowAirtel(false);
+  };
+
   const Togglepopup = () => {
     setShowPopup(!showPopup);
   }

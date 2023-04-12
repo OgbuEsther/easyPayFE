@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import img from "../Assets/airtel.jpg"
 
 const Airtels = () => {
+  const [category, setCategory] = useState("")
   return (
       <Container>
       <Card>
@@ -15,6 +16,33 @@ const Airtels = () => {
         </Top>
 
         <Inputhold>
+          <Hold>
+            <Up><label htmlFor="">Type</label></Up>
+            <Select onChange={(e) => {
+							setCategory(e.target.value);
+            }}>
+              <option>Please select type</option>
+						<option value='Airtel'>Airtel Data - 50 Naira - 40MB - 1Day</option>
+						<option value='Airtel'>Airtel Data - 100 Naira - 100MB - 1Day</option>
+              <option value='Airtel'>Airtel Data - 200 Naira - 200MB - 3Days</option>
+              <option value='Airtel'>Airtel Data - 300 Naira - 350MB - 7Days</option>
+              <option value='Airtel'>Airtel Data - 300 Naira - 1GB - 1Day</option>
+              <option value='Airtel'>Airtel Data - 500 Naira - 750MB - 14Days</option>
+              <option value='Airtel'>Airtel Data - 500 Naira - 2GB - 1Day</option>
+              <option value='Airtel'>Airtel Data - 1,000 Naira - 1.5GB - 30Days</option>
+              <option value='Airtel'>Airtel Data - 1,200 Naira - 2GB - 30Days</option>
+              <option value='Airtel'>Airtel Data - 1,500 Naira - 6GB - 7Days</option>
+              <option value='Airtel'>Airtel Data - 1,500 Naira - 3GB - 30Days</option>
+              <option value='Airtel'>Airtel Data - 2,000 Naira - 4.5GB - 30Days</option>
+              <option value='Airtel'>Airtel Data - 2,500 Naira - 6GB - 30Days</option>
+              <option value='Airtel'>Airtel Data - 3,000 Naira - 10GB - 30Days</option>
+              <option value='Airtel'>Airtel Data - 4,000 Naira - 11GB - 30Days</option>
+              <option value='Airtel'>Airtel Data - 5,000 Naira - 20GB - 30Days</option>
+              <option value='Airtel'>Airtel Data - 1,200 Naira - 2GB - 30Days</option>
+              <option value='Airtel'>Airtel Data - 1,200 Naira - 2GB - 30Days</option>
+            </Select>
+          </Hold>
+
           <Hold>
             <Up><label htmlFor="">Phone Number</label></Up>
             <Input placeholder='Enter Phone Number' type="number"/>
@@ -41,6 +69,23 @@ const Airtels = () => {
 }
 
 export default Airtels
+const Select = styled.select`
+  background-color: #e0e8f3;
+    color: #333;
+    border-radius: 0;
+    border: 1px solid #d2dde9;
+    width: 270px;
+    padding: 10px 20px;
+    line-height: 20px;
+    font-size: .9em;
+    transition: all .4s;
+    margin-top: 15px;
+    outline: none;
+    border-radius: 4px;
+    option{
+      height
+    }
+`
 const Continue = styled.div`
   cursor: pointer;
   min-width: 50px !important;
