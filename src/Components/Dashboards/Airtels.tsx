@@ -82,9 +82,6 @@ const Select = styled.select`
     margin-top: 15px;
     outline: none;
     border-radius: 4px;
-    option{
-      height
-    }
 `
 const Continue = styled.div`
   cursor: pointer;
