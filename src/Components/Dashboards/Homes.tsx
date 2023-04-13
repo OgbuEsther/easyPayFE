@@ -53,12 +53,10 @@ const Home = () => {
                   <Circle>
                     <FaGoogleWallet />
                   </Circle>
-                  {getAdmin?.data?.data?.wallet.map((el: any) => (
-                    <Wallet key={el?._id}>
+                    <Wallet >
                       <p>Wallet Balance</p>
-                      <h3>{el.balance}</h3>
+                      <h3></h3>
                     </Wallet>
-                  ))}
                 </Card2>
 
                 <Tap>
